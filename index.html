@@ -1471,16 +1471,18 @@
                     const formData = new FormData(contactForm);
                     const data = Object.fromEntries(formData.entries());
 
-                    fetch('/submit-contact', {
+                    fetch(contactForm.action, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
                     })
-                        .then(res => res.json())
-                        .then(resData => {
-                            console.log('Success:', resData);
-                            alert('Thank you for your message! We will get back to you shortly.');
-                            contactForm.reset();
+                        .then(res => {
+                            if (res.ok) {
+                                alert('Thank you for your message! We will get back to you shortly.');
+                                contactForm.reset();
+                            } else {
+                                alert('There was an error sending your message. Please try again later.');
+                            }
                         })
                         .catch(error => {
                             console.error('Error:', error);
@@ -1495,6 +1497,7 @@
         });
     </script>
 
+<form name="dummy" netlify hidden></form>
 </body>
 
 </html>
