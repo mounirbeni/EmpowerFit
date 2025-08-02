@@ -472,6 +472,7 @@
                 </div>
 
                 <form id="questionnaire-form" data-netlify="true" name="questionnaire">
+  <input type="hidden" name="form-name" value="questionnaire" />
                     <div class="step active">
                         <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                             <div class="flex items-center mb-6">
@@ -891,6 +892,10 @@
             <p>&copy; 2025 EmpowerFit. All rights reserved.</p>
         </div>
     </div>
+    <form name="questionnaire" netlify hidden>
+  <input type="text" name="firstName" />
+  <input type="text" name="email" />
+    </form>
 </footer>
 
 <script>
@@ -1055,25 +1060,31 @@
             });
         }
 
-        const submitBtn = document.getElementById('submit-btn');
-        if(submitBtn) {
-            submitBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (validateStep()) {
-                    const form = document.getElementById('questionnaire-form');
-                    const formData = new FormData(form);
-                    const data = {};
-                    formData.forEach((value, key) => {
-                        if (data[key]) {
-                            if (!Array.isArray(data[key])) {
-                                data[key] = [data[key]];
-                            }
-                            data[key].push(value);
-                        } else {
-                            data[key] = value;
-                        }
-                    });
+        submitBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (validateStep()) {
+        const form = document.getElementById('questionnaire-form');
+        const formData = new FormData(form);
 
+        // Netlify requires data in x-www-form-urlencoded
+        const encoded = new URLSearchParams(formData).toString();
+
+        try {
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encoded
+            });
+
+            // إظهار صفحة التأكيد
+            document.getElementById('questionnaire-form').style.display = 'none';
+            document.getElementById('confirmation-screen').classList.remove('hidden');
+            scrollToTop();
+        } catch (error) {
+            alert("Try again in few minutes please.");
+        }
+    }
+});
                     fetch('/submit-questionnaire', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
