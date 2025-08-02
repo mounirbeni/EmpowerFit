@@ -1065,8 +1065,8 @@
     if (validateStep()) {
         const form = document.getElementById('questionnaire-form');
         const formData = new FormData(form);
+        formData.append("form-name", "questionnaire");
 
-        // Netlify requires data in x-www-form-urlencoded
         const encoded = new URLSearchParams(formData).toString();
 
         try {
@@ -1076,12 +1076,11 @@
                 body: encoded
             });
 
-            // إظهار صفحة التأكيد
             document.getElementById('questionnaire-form').style.display = 'none';
             document.getElementById('confirmation-screen').classList.remove('hidden');
             scrollToTop();
         } catch (error) {
-            alert("Try again in few minutes please.");
+            alert("حدث خطأ أثناء إرسال البيانات. الرجاء المحاولة لاحقًا.");
         }
     }
 });
