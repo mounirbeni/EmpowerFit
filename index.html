@@ -182,6 +182,19 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .success-message {
+            display: none;
+            background-color: hsl(var(--card-hsl));
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
     </style>
 
     <script>
@@ -265,13 +278,15 @@
                     <a href="#" onclick="showPage('home')"
                         class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Home</a>
                     <a href="#" onclick="showPage('about')"
-                        class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">About Me</a>
+                        class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">About
+                        Me</a>
                     <a href="#" onclick="showPage('questionnaire')"
                         class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Questionnaire</a>
                     <a href="#" onclick="showPage('pricing')"
                         class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Pricing</a>
                     <a href="#" onclick="showPage('success-stories')"
-                        class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Success Stories</a>
+                        class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Success
+                        Stories</a>
                     <a href="#" onclick="showPage('contact')"
                         class="px-3 py-2 rounded-md text-base font-medium hover:bg-secondary">Contact</a>
                     <button onclick="showPage('questionnaire')"
@@ -294,11 +309,12 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-on-scroll">
                         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
-                            Become the Best Version of You — <span class="text-primary">Physically</span> & <span
-                                class="text-accent">Mentally</span>.
+                            Become the Best Version of You — <span class="text-primary">Physically</span> &
+                            <span class="text-accent">Mentally</span>.
                         </h1>
                         <p class="text-lg text-muted-foreground mb-8">
-                            Transform your body, mind, and spirit with personalized coaching designed specifically for
+                            Transform your body, mind, and spirit with
+                            personalized coaching designed specifically for
                             ambitious women.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
@@ -319,27 +335,18 @@
             <section class="container mx-auto px-4 py-16 md:py-24 bg-card rounded-2xl shadow-sm animate-on-scroll">
                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div class="order-2 md:order-1">
-                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Meet Moussa & Nathan</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Meet
+                            Moussa & Nathan</h2>
                         <p class="text-muted-foreground mb-6">
-                            With over 5 years of combined experience, we've developed a holistic approach that combines
-                            cutting-edge fitness strategies with mental wellness techniques to help you achieve lasting
-                            transformation.
-                        </p>
-                        <button onclick="showPage('about')"
-                            class="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-300 btn">
-                            Our Full Story
-                        </button>
-                    </div>
-                    <div class="order-1 md:order-2 rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop&crop=faces"
-                            alt="Moussa and Nathan coaching" data-ai-hint="coaches portrait"
-                            class="w-full h-auto md:h-96 object-cover rounded-xl">
-                    </div>
-                </div>
+                            With over 5 years of combined experience, we've
+                            developed a holistic approach that combines
+                            cutting-edge fitness strategies with mental
+                            wellness techniques to help you achieve lasting
             </section>
 
             <section class="container mx-auto px-4 py-16 md:py-24">
-                <h2 class="text-3xl md:text-4xl font-bold font-display text-center mb-12 animate-on-scroll">How It Works
+                <h2 class="text-3xl md:text-4xl font-bold font-display text-center mb-12 animate-on-scroll">How
+                    It Works
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                     <div
@@ -349,9 +356,13 @@
                                 <i class="fas fa-heart text-primary text-3xl"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">1. Tell Us Your Story</h3>
-                        <p class="text-muted-foreground">Our comprehensive questionnaire analyzes your body type,
-                            lifestyle, and goals to create a personalized map for success.</p>
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">1.
+                            Tell Us Your Story</h3>
+                        <p class="text-muted-foreground">Our
+                            comprehensive questionnaire analyzes
+                            your body type,
+                            lifestyle, and goals to create a
+                            personalized map for success.</p>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll"
                         style="animation-delay: 0.2s;">
@@ -360,9 +371,13 @@
                                 <i class="fas fa-dumbbell text-primary text-3xl"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">2. Get Your Custom Plan</h3>
-                        <p class="text-muted-foreground">Receive your personalized fitness, nutrition, and mindset
-                            blueprint tailored to your schedule and preferences.</p>
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">2.
+                            Get Your Custom Plan</h3>
+                        <p class="text-muted-foreground">Receive
+                            your personalized fitness,
+                            nutrition, and mindset
+                            blueprint tailored to your schedule
+                            and preferences.</p>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll"
                         style="animation-delay: 0.4s;">
@@ -371,9 +386,13 @@
                                 <i class="fas fa-brain text-primary text-3xl"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">3. Transform & Thrive</h3>
-                        <p class="text-muted-foreground">Execute your plan with ongoing support, weekly adjustments, and
-                            accountability to ensure life-changing results.</p>
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">3.
+                            Transform & Thrive</h3>
+                        <p class="text-muted-foreground">Execute
+                            your plan with ongoing support,
+                            weekly adjustments, and
+                            accountability to ensure
+                            life-changing results.</p>
                     </div>
                 </div>
             </section>
@@ -381,48 +400,59 @@
             <section class="bg-secondary py-16 md:py-24">
                 <div class="container mx-auto px-4">
                     <div class="text-center mb-12 animate-on-scroll">
-                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose Your Transformation</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose
+                            Your Transformation</h2>
                     </div>
                     <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                         <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
                             <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
-                            <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
+                            <h3 class="text-2xl font-bold font-display mb-2">Starter
+                                Pack</h3>
                             <p class="text-3xl font-bold mb-4">$197<span
                                     class="text-base font-normal text-muted-foreground">/month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
-                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Custom
+                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                    Custom
                                     workout plan</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
                                     Nutrition guidelines</li>
-                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Monthly
+                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                    Monthly
                                     check-ins</li>
                             </ul>
                         </div>
                         <div class="bg-card rounded-2xl shadow-lg border-2 border-primary p-8 animate-on-scroll"
                             style="animation-delay: 0.2s;">
-                            <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
+                            <h3 class="text-2xl font-bold font-display mb-2">Fit
+                                & Focused</h3>
                             <p class="text-3xl font-bold mb-4">$397<span
                                     class="text-base font-normal text-muted-foreground">/month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
                                     Everything in Starter</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
-                                    Bi-weekly coaching calls</li>
-                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> 24/7
+                                    Bi-weekly coaching
+                                    calls</li>
+                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                    24/7
                                     chat support</li>
                             </ul>
                         </div>
                         <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll" style="animation-delay: 0.4s;">
                             <i class="fas fa-award text-primary text-3xl mb-4"></i>
-                            <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
+                            <h3 class="text-2xl font-bold font-display mb-2">VIP
+                                Coaching</h3>
                             <p class="text-3xl font-bold mb-4">$697<span
                                     class="text-base font-normal text-muted-foreground">/month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
-                                    Everything in Fit & Focused</li>
-                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Weekly
+                                    Everything in Fit &
+                                    Focused</li>
+                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                    Weekly
                                     private sessions</li>
-                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Custom
+                                <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                    Custom
                                     supplement plan</li>
                             </ul>
                         </div>
@@ -432,20 +462,30 @@
 
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">What Our Clients Say</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">What
+                        Our Clients Say</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6 md:gap-8">
                     <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
-                        <p class="text-lg text-muted-foreground mb-6">"Working with Moussa and Nathan changed my
-                            relationship with my body. I lost 28 pounds, but more importantly, I gained confidence I
+                        <p class="text-lg text-muted-foreground mb-6">"Working
+                            with Moussa and Nathan changed my
+                            relationship with my body. I lost 28
+                            pounds, but more importantly, I
+                            gained confidence I
                             never knew I could have."</p>
-                        <div class="font-semibold">Sarah M.</div>
+                        <div class="font-semibold">Sarah
+                            M.</div>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll" style="animation-delay: 0.2s;">
-                        <p class="text-lg text-muted-foreground mb-6">"The mental health support was a game-changer.
-                            I've tried other programs before, but the holistic approach here made all the difference."
+                        <p class="text-lg text-muted-foreground mb-6">"The
+                            mental health support was a
+                            game-changer.
+                            I've tried other programs before,
+                            but the holistic approach here made
+                            all the difference."
                         </p>
-                        <div class="font-semibold">Jennifer R.</div>
+                        <div class="font-semibold">Jennifer
+                            R.</div>
                     </div>
                 </div>
             </section>
@@ -459,11 +499,17 @@
                             class="w-full h-auto md:h-96 object-cover rounded-xl">
                     </div>
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Join Our Private Community</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Join
+                            Our Private Community</h2>
                         <p class="text-muted-foreground mb-6">
-                            Your transformation journey is not one you'll walk alone. As an EmpowerFit client, you get
-                            exclusive access to our private community of inspiring women who are on the same path. Share
-                            your wins, ask for advice, and build connections that last a lifetime.
+                            Your transformation journey is not
+                            one you'll walk alone. As an
+                            EmpowerFit client, you get
+                            exclusive access to our private
+                            community of inspiring women who are
+                            on the same path. Share
+                            your wins, ask for advice, and build
+                            connections that last a lifetime.
                         </p>
                         <button onclick="showPage('pricing')"
                             class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-300 btn">
@@ -484,46 +530,73 @@
                             class="w-full h-full object-cover">
                     </div>
                     <div class="animate-on-scroll" style="animation-delay: 0.2s;">
-                        <h1 class="text-4xl md:text-5xl font-bold font-display mb-6">Our Mission</h1>
+                        <h1 class="text-4xl md:text-5xl font-bold font-display mb-6">Our
+                            Mission</h1>
                         <p class="text-lg text-muted-foreground mb-6">
-                            At EmpowerFit, our mission is to empower women to build strength from the inside out. We
-                            believe true wellness is a synergy of physical vitality, mental clarity, and emotional
-                            balance. We're not just about workouts; we're about building a lifestyle that you love, one
-                            that makes you feel powerful, confident, and truly alive.
+                            At EmpowerFit, our mission is to
+                            empower women to build strength from
+                            the inside out. We
+                            believe true wellness is a synergy
+                            of physical vitality, mental
+                            clarity, and emotional
+                            balance. We're not just about
+                            workouts; we're about building a
+                            lifestyle that you love, one
+                            that makes you feel powerful,
+                            confident, and truly alive.
                         </p>
                         <p class="text-lg text-muted-foreground">
-                            Founded by us, Moussa and Nathan, we saw a need for a more integrated approach to women's
-                            health—one that honors the unique physiological and psychological needs of women.
+                            Founded by us, Moussa and Nathan, we
+                            saw a need for a more integrated
+                            approach to women's
+                            health—one that honors the unique
+                            physiological and psychological
+                            needs of women.
                         </p>
                     </div>
                 </div>
 
                 <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Our Holistic Approach</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Our
+                        Holistic Approach</h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover animate-on-scroll">
                         <i class="fas fa-dumbbell text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-4">Physical Fitness</h3>
-                        <p class="text-muted-foreground">Custom-tailored workout programs that are effective,
-                            sustainable, and designed for the female body, focusing on strength, endurance, and injury
+                        <h3 class="text-2xl font-bold font-display mb-4">Physical
+                            Fitness</h3>
+                        <p class="text-muted-foreground">Custom-tailored
+                            workout programs that are effective,
+                            sustainable, and designed for the
+                            female body, focusing on strength,
+                            endurance, and injury
                             prevention.</p>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover animate-on-scroll"
                         style="animation-delay: 0.2s;">
                         <i class="fas fa-brain text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-4">Mental Wellness</h3>
-                        <p class="text-muted-foreground">Tools and strategies to build mental resilience, manage stress,
-                            and cultivate a positive mindset. We help you break through mental barriers to unlock your
+                        <h3 class="text-2xl font-bold font-display mb-4">Mental
+                            Wellness</h3>
+                        <p class="text-muted-foreground">Tools
+                            and strategies to build mental
+                            resilience, manage stress,
+                            and cultivate a positive mindset. We
+                            help you break through mental
+                            barriers to unlock your
                             full potential.</p>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover animate-on-scroll"
                         style="animation-delay: 0.4s;">
                         <i class="fas fa-heart text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-4">Emotional Empowerment</h3>
-                        <p class="text-muted-foreground">Guidance on building a healthier relationship with your body,
-                            food, and yourself. We foster self-compassion and confidence that extends far beyond the
+                        <h3 class="text-2xl font-bold font-display mb-4">Emotional
+                            Empowerment</h3>
+                        <p class="text-muted-foreground">Guidance
+                            on building a healthier relationship
+                            with your body,
+                            food, and yourself. We foster
+                            self-compassion and confidence that
+                            extends far beyond the
                             gym.</p>
                     </div>
                 </div>
@@ -535,10 +608,14 @@
             <section class="container mx-auto px-4 py-12 md:py-16">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
-                        <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Your Transformation Starts Here
+                        <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Your
+                            Transformation Starts Here
                         </h1>
-                        <p class="text-muted-foreground">This comprehensive assessment helps us craft the perfect plan
-                            for your unique goals and lifestyle.</p>
+                        <p class="text-muted-foreground">This
+                            comprehensive assessment helps us
+                            craft the perfect plan
+                            for your unique goals and
+                            lifestyle.</p>
                     </div>
 
                     <div class="progress-container">
@@ -578,29 +655,34 @@
                         </div>
                     </div>
 
-                    <form id="questionnaire-form" data-netlify="true" name="questionnaire" action="/" method="POST">
+                    <form id="questionnaire-form" data-netlify="true" name="questionnaire" action="/" method="POST"
+                        netlify>
                         <input type="hidden" name="form-name" value="questionnaire">
                         <div class="step active">
                             <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                                 <div class="flex items-center mb-6">
                                     <i class="fas fa-user text-primary text-2xl mr-4"></i>
-                                    <h2 class="text-xl md:text-2xl font-bold font-display">Personal Information</h2>
+                                    <h2 class="text-xl md:text-2xl font-bold font-display">Personal
+                                        Information</h2>
                                 </div>
                                 <div class="grid md:grid-cols-2 gap-6">
-                                    <div><label for="first-name" class="block text-sm font-medium mb-1">First Name
+                                    <div><label for="first-name" class="block text-sm font-medium mb-1">First
+                                            Name
                                             *</label><input id="first-name" name="firstName" type="text"
                                             class="w-full p-3 border border-border rounded-lg bg-background" required>
                                     </div>
-                                    <div><label for="last-name" class="block text-sm font-medium mb-1">Last Name
+                                    <div><label for="last-name" class="block text-sm font-medium mb-1">Last
+                                            Name
                                             *</label><input id="last-name" name="lastName" type="text"
                                             class="w-full p-3 border border-border rounded-lg bg-background" required>
                                     </div>
-                                    <div><label for="email" class="block text-sm font-medium mb-1">Email Address
+                                    <div><label for="email" class="block text-sm font-medium mb-1">Email
+                                            Address
                                             *</label><input id="email" name="email" type="email"
                                             class="w-full p-3 border border-border rounded-lg bg-background" required>
                                     </div>
-                                    <div><label for="age" class="block text-sm font-medium mb-1">Age *</label><input
-                                            id="age" name="age" type="number" min="18" max="100"
+                                    <div><label for="age" class="block text-sm font-medium mb-1">Age
+                                            *</label><input id="age" name="age" type="number" min="18" max="100"
                                             class="w-full p-3 border border-border rounded-lg bg-background" required>
                                     </div>
                                 </div>
@@ -611,18 +693,22 @@
                             <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                                 <div class="flex items-center mb-6"><i
                                         class="fas fa-heartbeat text-primary text-2xl mr-4"></i>
-                                    <h2 class="text-xl md:text-2xl font-bold font-display">Health History</h2>
+                                    <h2 class="text-xl md:text-2xl font-bold font-display">Health
+                                        History</h2>
                                 </div>
                                 <div class="space-y-6">
-                                    <div><label for="injuries" class="block text-sm font-medium mb-2">Do you have any
-                                            injuries or medical conditions? *</label><textarea id="injuries"
-                                            name="injuries"
+                                    <div><label for="injuries" class="block text-sm font-medium mb-2">Do
+                                            you have any
+                                            injuries or medical
+                                            conditions?
+                                            *</label><textarea id="injuries" name="injuries"
                                             class="w-full p-3 border border-border rounded-lg h-24 bg-background"
                                             placeholder="e.g., past knee injury, high blood pressure..."
                                             required></textarea></div>
-                                    <div><label for="medications" class="block text-sm font-medium mb-2">Are you
-                                            currently taking any medications?</label><textarea id="medications"
-                                            name="medications"
+                                    <div><label for="medications" class="block text-sm font-medium mb-2">Are
+                                            you
+                                            currently taking any
+                                            medications?</label><textarea id="medications" name="medications"
                                             class="w-full p-3 border border-border rounded-lg h-24 bg-background"
                                             placeholder="Please list them here..."></textarea></div>
                                 </div>
@@ -633,59 +719,79 @@
                             <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                                 <div class="flex items-center mb-6"><i
                                         class="fas fa-bullseye text-primary text-2xl mr-4"></i>
-                                    <h2 class="text-xl md:text-2xl font-bold font-display">Fitness Goals</h2>
+                                    <h2 class="text-xl md:text-2xl font-bold font-display">Fitness
+                                        Goals</h2>
                                 </div>
                                 <div class="space-y-6">
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">What are your primary fitness
-                                            goals? (Select all that apply) *</label>
+                                        <label class="block text-sm font-medium mb-2">What
+                                            are your primary
+                                            fitness
+                                            goals? (Select all
+                                            that apply)
+                                            *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="Weight Loss">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Weight Loss</span>
+                                                <span>Weight
+                                                    Loss</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="Muscle Gain">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Muscle Gain</span>
+                                                <span>Muscle
+                                                    Gain</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="Increased Strength">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Increased Strength</span>
+                                                <span>Increased
+                                                    Strength</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="Better Endurance">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Better Endurance</span>
+                                                <span>Better
+                                                    Endurance</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="Improved Confidence">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Improved Confidence</span>
+                                                <span>Improved
+                                                    Confidence</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="goals"
                                                     value="More Energy">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>More Energy</span>
+                                                <span>More
+                                                    Energy</span>
                                             </label>
                                         </div>
                                     </div>
-                                    <div><label for="motivation" class="block text-sm font-medium mb-2">What's your
-                                            biggest motivation for starting? *</label><textarea id="motivation"
-                                            name="motivation"
+                                    <div><label for="motivation" class="block text-sm font-medium mb-2">What's
+                                            your
+                                            biggest motivation
+                                            for starting?
+                                            *</label><textarea id="motivation" name="motivation"
                                             class="w-full p-3 border border-border rounded-lg h-24 bg-background"
                                             required></textarea></div>
                                     <div>
-                                        <label for="timeline" class="block text-sm font-medium mb-2">What's your
-                                            timeline for achieving these goals?</label>
+                                        <label for="timeline" class="block text-sm font-medium mb-2">What's
+                                            your
+                                            timeline for
+                                            achieving these
+                                            goals?</label>
                                         <select id="timeline" name="timeline"
                                             class="w-full p-3 border border-border rounded-lg bg-background">
-                                            <option value="1-3 months">1-3 months</option>
-                                            <option value="3-6 months">3-6 months</option>
-                                            <option value="6-12 months">6-12 months</option>
-                                            <option value="1+ year">1+ year</option>
+                                            <option value="1-3 months">1-3
+                                                months</option>
+                                            <option value="3-6 months">3-6
+                                                months</option>
+                                            <option value="6-12 months">6-12
+                                                months</option>
+                                            <option value="1+ year">1+
+                                                year</option>
                                         </select>
                                     </div>
                                 </div>
@@ -700,50 +806,64 @@
                                 </div>
                                 <div class="space-y-6">
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">How many days per week can you
-                                            commit to working out? *</label>
+                                        <label class="block text-sm font-medium mb-2">How
+                                            many days per week
+                                            can you
+                                            commit to working
+                                            out? *</label>
                                         <div class="grid grid-cols-3 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="days"
                                                     value="1-2" required>
-                                                <div class="custom-radio-button"></div><span>1-2 days</span>
+                                                <div class="custom-radio-button"></div><span>1-2
+                                                    days</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="days"
                                                     value="3-4">
-                                                <div class="custom-radio-button"></div><span>3-4 days</span>
+                                                <div class="custom-radio-button"></div><span>3-4
+                                                    days</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="days"
                                                     value="5+">
-                                                <div class="custom-radio-button"></div><span>5+ days</span>
+                                                <div class="custom-radio-button"></div><span>5+
+                                                    days</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">Where do you prefer to work out?
+                                        <label class="block text-sm font-medium mb-2">Where
+                                            do you prefer to
+                                            work out?
                                             *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="location"
                                                     value="Home" required>
-                                                <div class="custom-radio-button"></div><span>At Home</span>
+                                                <div class="custom-radio-button"></div><span>At
+                                                    Home</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="location"
                                                     value="Gym">
-                                                <div class="custom-radio-button"></div><span>At a Gym</span>
+                                                <div class="custom-radio-button"></div><span>At
+                                                    a Gym</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">What equipment do you have access
+                                        <label class="block text-sm font-medium mb-2">What
+                                            equipment do you
+                                            have access
                                             to?</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-checkbox-label"><input type="checkbox" name="equipment"
                                                     value="Bodyweight">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Bodyweight only</span>
+                                                <span>Bodyweight
+                                                    only</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="equipment"
                                                     value="Resistance bands">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Resistance bands</span>
+                                                <span>Resistance
+                                                    bands</span>
                                             </label>
                                             <label class="custom-checkbox-label"><input type="checkbox" name="equipment"
                                                     value="Dumbbells">
@@ -753,7 +873,8 @@
                                             <label class="custom-checkbox-label"><input type="checkbox" name="equipment"
                                                     value="Full gym">
                                                 <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
-                                                <span>Full gym access</span>
+                                                <span>Full gym
+                                                    access</span>
                                             </label>
                                         </div>
                                     </div>
@@ -769,30 +890,38 @@
                                 </div>
                                 <div class="space-y-6">
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">Describe your current eating
+                                        <label class="block text-sm font-medium mb-2">Describe
+                                            your current eating
                                             habits *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="habits"
                                                     value="Very healthy" required>
-                                                <div class="custom-radio-button"></div><span>Very healthy</span>
+                                                <div class="custom-radio-button"></div><span>Very
+                                                    healthy</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="habits"
                                                     value="Mostly healthy">
-                                                <div class="custom-radio-button"></div><span>Mostly healthy</span>
+                                                <div class="custom-radio-button"></div><span>Mostly
+                                                    healthy</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="habits"
                                                     value="Needs work">
-                                                <div class="custom-radio-button"></div><span>Needs work</span>
+                                                <div class="custom-radio-button"></div><span>Needs
+                                                    work</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="habits"
                                                     value="Needs major changes">
-                                                <div class="custom-radio-button"></div><span>Needs major changes</span>
+                                                <div class="custom-radio-button"></div><span>Needs
+                                                    major
+                                                    changes</span>
                                             </label>
                                         </div>
                                     </div>
-                                    <div><label for="allergies" class="block text-sm font-medium mb-2">Do you have any
-                                            dietary restrictions or allergies?</label><textarea id="allergies"
-                                            name="allergies"
+                                    <div><label for="allergies" class="block text-sm font-medium mb-2">Do
+                                            you have any
+                                            dietary restrictions
+                                            or
+                                            allergies?</label><textarea id="allergies" name="allergies"
                                             class="w-full p-3 border border-border rounded-lg h-24 bg-background"
                                             placeholder="e.g., vegetarian, gluten-free, nut allergy..."></textarea>
                                     </div>
@@ -804,46 +933,62 @@
                             <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                                 <div class="flex items-center mb-6"><i
                                         class="fas fa-brain text-primary text-2xl mr-4"></i>
-                                    <h2 class="text-xl md:text-2xl font-bold font-display">Mental Wellness</h2>
+                                    <h2 class="text-xl md:text-2xl font-bold font-display">Mental
+                                        Wellness</h2>
                                 </div>
                                 <div class="space-y-6">
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">On a scale of 1-5, how are your
-                                            current stress levels? *</label>
+                                        <label class="block text-sm font-medium mb-2">On
+                                            a scale of 1-5, how
+                                            are your
+                                            current stress
+                                            levels? *</label>
                                         <div class="grid grid-cols-3 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="stress"
                                                     value="1-2" required>
-                                                <div class="custom-radio-button"></div><span>1-2 (Low)</span>
+                                                <div class="custom-radio-button"></div><span>1-2
+                                                    (Low)</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="stress"
                                                     value="3">
-                                                <div class="custom-radio-button"></div><span>3 (Moderate)</span>
+                                                <div class="custom-radio-button"></div><span>3
+                                                    (Moderate)</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="stress"
                                                     value="4-5">
-                                                <div class="custom-radio-button"></div><span>4-5 (High)</span>
+                                                <div class="custom-radio-button"></div><span>4-5
+                                                    (High)</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">How many hours of sleep do you get
-                                            on average? *</label>
+                                        <label class="block text-sm font-medium mb-2">How
+                                            many hours of sleep
+                                            do you get
+                                            on average?
+                                            *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="sleep"
                                                     value="5-6" required>
-                                                <div class="custom-radio-button"></div><span>5-6 hours</span>
+                                                <div class="custom-radio-button"></div><span>5-6
+                                                    hours</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="sleep"
                                                     value="7-8">
-                                                <div class="custom-radio-button"></div><span>7-8 hours</span>
+                                                <div class="custom-radio-button"></div><span>7-8
+                                                    hours</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="sleep"
                                                     value="<5">
-                                                <div class="custom-radio-button"></div><span>&lt; 5 hours</span>
+                                                <div class="custom-radio-button"></div><span>&lt;
+                                                    5
+                                                    hours</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="sleep"
                                                     value=">8">
-                                                <div class="custom-radio-button"></div><span>&gt; 8 hours</span>
+                                                <div class="custom-radio-button"></div><span>&gt;
+                                                    8
+                                                    hours</span>
                                             </label>
                                         </div>
                                     </div>
@@ -859,20 +1004,27 @@
                                 </div>
                                 <div class="space-y-6">
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">What is your monthly budget for
+                                        <label class="block text-sm font-medium mb-2">What
+                                            is your monthly
+                                            budget for
                                             coaching? *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="budget"
                                                     value="<200" required>
-                                                <div class="custom-radio-button"></div><span>Under $200</span>
+                                                <div class="custom-radio-button"></div><span>Under
+                                                    $200</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="budget"
                                                     value="200-400">
-                                                <div class="custom-radio-button"></div><span>$200 - $400</span>
+                                                <div class="custom-radio-button"></div><span>$200
+                                                    -
+                                                    $400</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="budget"
                                                     value="400-600">
-                                                <div class="custom-radio-button"></div><span>$400 - $600</span>
+                                                <div class="custom-radio-button"></div><span>$400
+                                                    -
+                                                    $600</span>
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="budget"
                                                     value=">600">
@@ -888,15 +1040,20 @@
                             <div class="bg-card rounded-2xl shadow-lg p-6 md:p-8">
                                 <div class="flex items-center mb-6"><i
                                         class="fas fa-comment-dots text-primary text-2xl mr-4"></i>
-                                    <h2 class="text-xl md:text-2xl font-bold font-display">Final Thoughts</h2>
+                                    <h2 class="text-xl md:text-2xl font-bold font-display">Final
+                                        Thoughts</h2>
                                 </div>
                                 <div class="space-y-6">
-                                    <div><label for="anything-else" class="block text-sm font-medium mb-2">Anything else
-                                            we should know?</label><textarea id="anything-else" name="other"
+                                    <div><label for="anything-else" class="block text-sm font-medium mb-2">Anything
+                                            else
+                                            we should
+                                            know?</label><textarea id="anything-else" name="other"
                                             class="w-full p-3 border border-border rounded-lg h-32 bg-background"></textarea>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium mb-2">Preferred contact method *</label>
+                                        <label class="block text-sm font-medium mb-2">Preferred
+                                            contact method
+                                            *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="custom-radio-label"><input type="radio" name="contact-method"
                                                     value="Email" required>
@@ -904,7 +1061,8 @@
                                             </label>
                                             <label class="custom-radio-label"><input type="radio" name="contact-method"
                                                     value="Phone">
-                                                <div class="custom-radio-button"></div><span>Phone Call</span>
+                                                <div class="custom-radio-button"></div><span>Phone
+                                                    Call</span>
                                             </label>
                                         </div>
                                     </div>
@@ -921,20 +1079,28 @@
                                     <i class="fas fa-check-circle text-green-500 text-4xl"></i>
                                 </div>
                             </div>
-                            <h2 class="text-2xl md:text-3xl font-bold font-display mb-4">Thank You!</h2>
-                            <p class="text-lg text-muted-foreground mb-6">Your assessment has been submitted. Our team
-                                will review your responses and contact you within 24 hours with your personalized plan.
+                            <h2 class="text-2xl md:text-3xl font-bold font-display mb-4">Thank
+                                You!</h2>
+                            <p class="text-lg text-muted-foreground mb-6">Your
+                                assessment has been submitted.
+                                Our team
+                                will review your responses and
+                                contact you within 24 hours with
+                                your personalized plan.
                             </p>
-                            <p class="text-muted-foreground">In the meantime, check out our <a href="#"
-                                    onclick="showPage('success-stories')" class="text-primary hover:underline">success
-                                    stories</a> for inspiration!</p>
+                            <p class="text-muted-foreground">In
+                                the meantime, check out our <a href="#" onclick="showPage('success-stories')"
+                                    class="text-primary hover:underline">success
+                                    stories</a> for
+                                inspiration!</p>
                         </div>
                     </div>
 
                     <div id="navigation-buttons" class="flex justify-between mt-8">
                         <button id="prev-btn"
                             class="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-300 hidden btn">
-                            <i class="fas fa-arrow-left mr-2"></i> Previous
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Previous
                         </button>
                         <button id="next-btn"
                             class="bg-primary text-primary-foreground ml-auto px-8 py-3 rounded-lg font-medium transition-colors duration-300 btn">
@@ -953,29 +1119,40 @@
         <div id="pricing" class="page">
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose Your Transformation</h1>
-                    <p class="text-muted-foreground max-w-2xl mx-auto">Select the coaching package that aligns with your
+                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose
+                        Your Transformation</h1>
+                    <p class="text-muted-foreground max-w-2xl mx-auto">Select
+                        the coaching package that aligns with
+                        your
                         goals and commitment level.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll">
                         <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
+                        <h3 class="text-2xl font-bold font-display mb-2">Starter
+                            Pack</h3>
                         <p class="text-3xl font-bold mb-4">$197<span
                                 class="text-base font-normal text-muted-foreground">/month</span></p>
-                        <p class="text-muted-foreground mb-6">Perfect for building consistency with fundamental habits.
+                        <p class="text-muted-foreground mb-6">Perfect
+                            for building consistency with
+                            fundamental habits.
                         </p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Customized
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Customized
                                 workout plan</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Nutrition
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Nutrition
                                 guidelines & meal ideas</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Monthly
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Monthly
                                 progress check-ins</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Email
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Email
                                 support (48hr response)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Private
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Private
                                 community access</li>
                         </ul>
                         <button onclick="showPage('questionnaire')"
@@ -989,18 +1166,26 @@
                             class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">
                             Most Popular</div>
                         <i class="fas fa-star text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
+                        <h3 class="text-2xl font-bold font-display mb-2">Fit
+                            & Focused</h3>
                         <p class="text-3xl font-bold mb-4">$397<span
                                 class="text-base font-normal text-muted-foreground">/month</span></p>
-                        <p class="text-muted-foreground mb-6">Our most comprehensive body & mind package.</p>
+                        <p class="text-muted-foreground mb-6">Our
+                            most comprehensive body & mind
+                            package.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i
-                                    class="fas fa-check text-primary mt-1 mr-3"></i> Everything in Starter, plus:</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Bi-weekly
+                                    class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Everything in Starter,
+                                plus:</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Bi-weekly
                                 1:1 coaching calls</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Mindset &
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Mindset &
                                 habit coaching</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> 24/7 chat
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                24/7 chat
                                 support</li>
                         </ul>
                         <button onclick="showPage('questionnaire')"
@@ -1011,19 +1196,27 @@
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll"
                         style="animation-delay: 0.4s;">
                         <i class="fas fa-award text-primary text-3xl mb-4"></i>
-                        <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
+                        <h3 class="text-2xl font-bold font-display mb-2">VIP
+                            Coaching</h3>
                         <p class="text-3xl font-bold mb-4">$697<span
                                 class="text-base font-normal text-muted-foreground">/month</span></p>
-                        <p class="text-muted-foreground mb-6">Premium 1:1 coaching for maximum results.</p>
+                        <p class="text-muted-foreground mb-6">Premium
+                            1:1 coaching for maximum
+                            results.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i
-                                    class="fas fa-check text-primary mt-1 mr-3"></i> Everything in Fit & Focused, plus:
+                                    class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Everything in Fit & Focused,
+                                plus:
                             </li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Weekly
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Weekly
                                 private sessions</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Custom
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Custom
                                 supplement protocol</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i> Priority
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                Priority
                                 support line</li>
                         </ul>
                         <button onclick="showPage('questionnaire')"
@@ -1035,11 +1228,13 @@
         </div>
 
         <!-- Success Stories Page -->
-        <div id="#success-stories" class="page">
+        <div id="success-stories" class="page">
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Real Women, Real Transformations</h1>
-                    <p class="text-muted-foreground max-w-2xl mx-auto">See how EmpowerFit has helped women from all
+                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Real
+                        Women, Real Transformations</h1>
+                    <p class="text-muted-foreground max-w-2xl mx-auto">See
+                        how EmpowerFit has helped women from all
                         walks of life achieve their goals.</p>
                 </div>
 
@@ -1054,11 +1249,17 @@
                                 class="w-full h-64 object-cover">
                         </div>
                         <div class="p-8">
-                            <blockquote class="text-lg text-muted-foreground mb-6">"I lost 28 pounds in 5
-                                months—something I never thought possible. The combination of strength training and
-                                mindset coaching completely changed my relationship with food and exercise."
+                            <blockquote class="text-lg text-muted-foreground mb-6">"I
+                                lost 28 pounds in 5
+                                months—something I never thought
+                                possible. The combination of
+                                strength training and
+                                mindset coaching completely
+                                changed my relationship with
+                                food and exercise."
                             </blockquote>
-                            <div class="font-semibold">Sarah Mitchell, 34</div>
+                            <div class="font-semibold">Sarah
+                                Mitchell, 34</div>
                         </div>
                     </div>
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden animate-on-scroll"
@@ -1072,10 +1273,16 @@
                                 class="w-full h-64 object-cover">
                         </div>
                         <div class="p-8">
-                            <blockquote class="text-lg text-muted-foreground mb-6">"Postpartum fitness looked different
-                                than I expected, but Moussa helped me build strength safely. More than the physical
-                                changes, I regained confidence in my body after having two kids."</blockquote>
-                            <div class="font-semibold">Jennifer Rodriguez, 42</div>
+                            <blockquote class="text-lg text-muted-foreground mb-6">"Postpartum
+                                fitness looked different
+                                than I expected, but Moussa
+                                helped me build strength safely.
+                                More than the physical
+                                changes, I regained confidence
+                                in my body after having two
+                                kids."</blockquote>
+                            <div class="font-semibold">Jennifer
+                                Rodriguez, 42</div>
                         </div>
                     </div>
                 </div>
@@ -1087,21 +1294,27 @@
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12 animate-on-scroll">
-                        <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Get in Touch</h1>
-                        <p class="text-muted-foreground">Have questions? We're here to help. Reach out and we'll respond
+                        <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Get
+                            in Touch</h1>
+                        <p class="text-muted-foreground">Have
+                            questions? We're here to help. Reach
+                            out and we'll respond
                             within 24 hours.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                         <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
-                            <h2 class="text-2xl font-bold font-display mb-6">Send us a Message</h2>
+                            <h2 class="text-2xl font-bold font-display mb-6">Send
+                                us a Message</h2>
                             <form id="contact-form" class="space-y-6" data-netlify="true" name="contact" action="/"
-                                method="POST">
+                                method="POST" netlify>
                                 <input type="hidden" name="form-name" value="contact">
-                                <div><label for="contact-name" class="block text-sm font-medium mb-2">Your Name
+                                <div><label for="contact-name" class="block text-sm font-medium mb-2">Your
+                                        Name
                                         *</label><input id="contact-name" name="name" type="text"
                                         class="w-full p-3 border border-border rounded-lg bg-background" required></div>
-                                <div><label for="contact-email" class="block text-sm font-medium mb-2">Email Address
+                                <div><label for="contact-email" class="block text-sm font-medium mb-2">Email
+                                        Address
                                         *</label><input id="contact-email" name="email" type="email"
                                         class="w-full p-3 border border-border rounded-lg bg-background" required></div>
                                 <div><label for="contact-message" class="block text-sm font-medium mb-2">Message
@@ -1127,7 +1340,8 @@
                                 <i class="fas fa-phone text-primary text-2xl mr-4 mt-1"></i>
                                 <div>
                                     <h3 class="font-semibold text-lg">Phone</h3>
-                                    <p class="text-muted-foreground">not available yet </p>
+                                    <p class="text-muted-foreground">not
+                                        available yet </p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1148,28 +1362,54 @@
         <div id="privacy-policy" class="page">
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Privacy Policy</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Privacy
+                        Policy</h1>
                     <div class="space-y-6 text-muted-foreground">
                         <p>Last updated: August 2, 2025</p>
-                        <p>EmpowerFit ("us", "we", or "our") operates the EmpowerFit website (the "Service"). This page
-                            informs you of our policies regarding the collection, use, and disclosure of personal data
-                            when you use our Service and the choices you have associated with that data.</p>
+                        <p>EmpowerFit ("us", "we", or "our")
+                            operates the EmpowerFit website (the
+                            "Service"). This page
+                            informs you of our policies
+                            regarding the collection, use, and
+                            disclosure of personal data
+                            when you use our Service and the
+                            choices you have associated with
+                            that data.</p>
 
-                        <h2 class="text-2xl font-bold font-display pt-4">Information Collection and Use</h2>
-                        <p>We collect several different types of information for various purposes to provide and improve
-                            our Service to you. This includes, but is not limited to, data submitted through our
+                        <h2 class="text-2xl font-bold font-display pt-4">Information
+                            Collection and Use</h2>
+                        <p>We collect several different types of
+                            information for various purposes to
+                            provide and improve
+                            our Service to you. This includes,
+                            but is not limited to, data
+                            submitted through our
                             questionnaire and contact form.</p>
 
-                        <h2 class="text-2xl font-bold font-display pt-4">Data Security</h2>
-                        <p>The security of your data is important to us, but remember that no method of transmission
-                            over the Internet, or method of electronic storage is 100% secure. While we strive to use
-                            commercially acceptable means to protect your Personal Data, we cannot guarantee its
+                        <h2 class="text-2xl font-bold font-display pt-4">Data
+                            Security</h2>
+                        <p>The security of your data is
+                            important to us, but remember that
+                            no method of transmission
+                            over the Internet, or method of
+                            electronic storage is 100% secure.
+                            While we strive to use
+                            commercially acceptable means to
+                            protect your Personal Data, we
+                            cannot guarantee its
                             absolute security.</p>
 
-                        <h2 class="text-2xl font-bold font-display pt-4">Your Rights</h2>
-                        <p>You have the right to access, update, or delete the information we have on you. Whenever made
-                            possible, you can access, update, or request deletion of your Personal Data directly within
-                            your account settings section. If you are unable to perform these actions yourself, please
+                        <h2 class="text-2xl font-bold font-display pt-4">Your
+                            Rights</h2>
+                        <p>You have the right to access, update,
+                            or delete the information we have on
+                            you. Whenever made
+                            possible, you can access, update, or
+                            request deletion of your Personal
+                            Data directly within
+                            your account settings section. If
+                            you are unable to perform these
+                            actions yourself, please
                             contact us to assist you.</p>
                     </div>
                 </div>
@@ -1180,22 +1420,41 @@
         <div id="terms-of-service" class="page">
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Terms of Service</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Terms
+                        of Service</h1>
                     <div class="space-y-6 text-muted-foreground">
-                        <h2 class="text-2xl font-bold font-display pt-4">Agreement to Terms</h2>
-                        <p>By using our Service, you agree to be bound by these Terms. If you disagree with any part of
-                            the terms, then you may not access the Service.</p>
+                        <h2 class="text-2xl font-bold font-display pt-4">Agreement
+                            to Terms</h2>
+                        <p>By using our Service, you agree to be
+                            bound by these Terms. If you
+                            disagree with any part of
+                            the terms, then you may not access
+                            the Service.</p>
 
-                        <h2 class="text-2xl font-bold font-display pt-4">Service Disclaimer</h2>
-                        <p>The information provided by EmpowerFit is for educational purposes only. It is not intended
-                            to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the
-                            advice of your physician or other qualified health provider with any questions you may have
+                        <h2 class="text-2xl font-bold font-display pt-4">Service
+                            Disclaimer</h2>
+                        <p>The information provided by
+                            EmpowerFit is for educational
+                            purposes only. It is not intended
+                            to be a substitute for professional
+                            medical advice, diagnosis, or
+                            treatment. Always seek the
+                            advice of your physician or other
+                            qualified health provider with any
+                            questions you may have
                             regarding a medical condition.</p>
 
-                        <h2 class="text-2xl font-bold font-display pt-4">Changes to Terms</h2>
-                        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
-                            We will try to provide at least 30 days' notice prior to any new terms taking effect. What
-                            constitutes a material change will be determined at our sole discretion.</p>
+                        <h2 class="text-2xl font-bold font-display pt-4">Changes
+                            to Terms</h2>
+                        <p>We reserve the right, at our sole
+                            discretion, to modify or replace
+                            these Terms at any time.
+                            We will try to provide at least 30
+                            days' notice prior to any new terms
+                            taking effect. What
+                            constitutes a material change will
+                            be determined at our sole
+                            discretion.</p>
                     </div>
                 </div>
             </section>
@@ -1211,7 +1470,9 @@
                         <i class="fas fa-dumbbell text-primary text-2xl mr-2"></i>
                         <h3 class="text-xl font-bold font-display">EmpowerFit</h3>
                     </div>
-                    <p class="text-muted-foreground mb-4">Empowering women to become the strongest versions of
+                    <p class="text-muted-foreground mb-4">Empowering
+                        women to become the strongest versions
+                        of
                         themselves.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-muted-foreground hover:text-primary"><i
@@ -1223,25 +1484,30 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <h4 class="font-semibold text-lg mb-4">Quick
+                        Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#" onclick="showPage('home')"
                                 class="text-muted-foreground hover:text-primary">Home</a></li>
                         <li><a href="#" onclick="showPage('about')"
-                                class="text-muted-foreground hover:text-primary">About Us</a></li>
+                                class="text-muted-foreground hover:text-primary">About
+                                Us</a></li>
                         <li><a href="#" onclick="showPage('pricing')"
                                 class="text-muted-foreground hover:text-primary">Pricing</a></li>
                         <li><a href="#" onclick="showPage('success-stories')"
-                                class="text-muted-foreground hover:text-primary">Success Stories</a></li>
+                                class="text-muted-foreground hover:text-primary">Success
+                                Stories</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Legal</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#" onclick="showPage('privacy-policy')"
-                                class="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
+                                class="text-muted-foreground hover:text-primary">Privacy
+                                Policy</a></li>
                         <li><a href="#" onclick="showPage('terms-of-service')"
-                                class="text-muted-foreground hover:text-primary">Terms of Service</a></li>
+                                class="text-muted-foreground hover:text-primary">Terms
+                                of Service</a></li>
                     </ul>
                 </div>
                 <div>
@@ -1250,13 +1516,15 @@
                         <li><a href="mailto: nathanhevalier@gmail.com"
                                 class="text-muted-foreground hover:text-primary">nathanhevalier@gmail.com</a></li>
                         <li>
-                            <p class="text-muted-foreground">Manchester, UK</p>
+                            <p class="text-muted-foreground">Manchester,
+                                UK</p>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-border pt-8 text-center text-muted-foreground text-sm">
-                <p>&copy; 2025 EmpowerFit. All rights reserved.</p>
+                <p>&copy; 2025 EmpowerFit. All rights
+                    reserved.</p>
             </div>
         </div>
     </footer>
@@ -1480,8 +1748,21 @@
                     })
                         .then(res => {
                             if (res.ok) {
-                                alert('Thank you for your message! We will get back to you shortly.');
+                                // Show success message
+                                const successMessage = document.createElement('div');
+                                successMessage.className = 'success-message show mt-4 p-4 bg-green-100 text-green-700 rounded-lg';
+                                successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you for your message! We will get back to you shortly.';
+                                contactForm.parentNode.appendChild(successMessage);
+
+                                // Reset form
                                 contactForm.reset();
+
+                                // Remove success message after 5 seconds
+                                setTimeout(() => {
+                                    if (successMessage.parentNode) {
+                                        successMessage.parentNode.removeChild(successMessage);
+                                    }
+                                }, 5000);
                             } else {
                                 alert('There was an error sending your message. Please try again later.');
                             }
@@ -1499,7 +1780,7 @@
         });
     </script>
 
-<form name="dummy" netlify hidden></form>
+    <form name="dummy" netlify hidden></form>
 </body>
 
 </html>
