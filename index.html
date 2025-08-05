@@ -212,7 +212,7 @@
 
         #questionnaire-form input[type="checkbox"],
         #questionnaire-form input[type="radio"] {
-            margin-right: 0.5rem;
+            margin-right: 0.75rem; /* Increased margin for more space */
         }
 
         #questionnaire-form .grid > label {
@@ -220,6 +220,8 @@
             padding: 1rem;
             border-radius: 0.5rem;
             transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
         }
 
         #questionnaire-form .grid > label:hover {
@@ -275,7 +277,7 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#home" onclick="showPage('home')" class="flex items-center space-x-2 md:space-x-3">
-                    <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover logo-bg-remove">
+                    <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover object-center logo-bg-remove">
                     <h1 class="text-xl md:text-2xl font-bold font-display text-foreground">EmpowerFit</h1>
                 </a>
 
@@ -352,7 +354,7 @@
                         </div>
                     </div>
                     <div class="hidden md:block animate-on-scroll">
-                        <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-96 object-cover object-center rounded-2xl shadow-xl">
+                        <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-96 object-cover object-top rounded-2xl shadow-xl">
                     </div>
                 </div>
             </section>
@@ -367,7 +369,7 @@
                         </p>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="epf0.png" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-80 object-cover object-center rounded-2xl shadow-xl">
+                        <img src="epf0.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-80 object-cover object-top rounded-2xl shadow-xl">
                     </div>
                 </div>
             </section>
@@ -416,7 +418,8 @@
                         <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
                             <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
                             <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
-                            <p class="text-3xl font-bold mb-4">$197<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$197</span>$98.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Custom workout plan</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Nutrition guidelines</li>
@@ -425,7 +428,8 @@
                         </div>
                         <div class="bg-card rounded-2xl shadow-lg border-2 border-primary p-8 animate-on-scroll" style="animation-delay: 0.2s;">
                             <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
-                            <p class="text-3xl font-bold mb-4">$397<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$397</span>$198.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Starter</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Bi-weekly coaching calls</li>
@@ -435,7 +439,8 @@
                         <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll" style="animation-delay: 0.4s;">
                             <i class="fas fa-award text-primary text-3xl mb-4"></i>
                             <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
-                            <p class="text-3xl font-bold mb-4">$697<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$697</span>$348.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Fit & Focused</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Weekly private sessions</li>
@@ -467,7 +472,7 @@
             <section id="community" class="section-anchor container mx-auto px-4 py-16 md:py-24 bg-card rounded-2xl shadow-sm animate-on-scroll">
                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div class="rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1522898467494-603b93688c5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Community of women supporting each other in a fitness class" data-ai-hint="women community fitness class" class="w-full h-auto md:h-96 object-cover rounded-xl">
+                        <img src="epf000.jpg" alt="Community of women supporting each other in a fitness class" data-ai-hint="women community fitness class" class="w-full h-auto md:h-96 object-cover rounded-xl">
                     </div>
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Join Our Private Community</h2>
@@ -645,27 +650,27 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">What are your primary fitness goals? (Select all that apply) *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="Weight Loss">
                                                 <span>Weight Loss</span>
                                             </label>
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="Muscle Gain">
                                                 <span>Muscle Gain</span>
                                             </label>
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="Increased Strength">
                                                 <span>Increased Strength</span>
                                             </label>
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="Better Endurance">
                                                 <span>Better Endurance</span>
                                             </label>
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="Improved Confidence">
                                                 <span>Improved Confidence</span>
                                             </label>
-                                            <label>
+                                            <label class="custom-checkbox-label">
                                                 <input type="checkbox" name="goals" value="More Energy">
                                                 <span>More Energy</span>
                                             </label>
@@ -946,14 +951,16 @@
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll">
                         <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
-                        <p class="text-3xl font-bold mb-4">$197<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$197</span>$98.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                         <p class="text-muted-foreground mb-6">Perfect for building consistency with fundamental habits.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Customized workout plan</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Nutrition guidelines & meal ideas</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Monthly progress check-ins</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Email support (48hr response)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Private community access</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Customized 4-week workout plan</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Foundational nutrition guide & meal prep ideas</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Bi-weekly progress check-ins via app</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Email support (24hr response)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Exclusive access to our private community forum</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to our library of fitness resources</li>
                         </ul>
                         <button onclick="showPage('questionnaire')" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
@@ -963,13 +970,16 @@
                         <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">Most Popular</div>
                         <i class="fas fa-star text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
-                        <p class="text-3xl font-bold mb-4">$397<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$397</span>$198.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                         <p class="text-muted-foreground mb-6">Our most comprehensive body & mind package.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Starter, plus:</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Bi-weekly 1:1 coaching calls</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Mindset & habit coaching</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>24/7 chat support</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Bi-weekly 1:1 video coaching calls (30 min each)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Advanced mindset & habit coaching modules</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>24/7 priority chat support via dedicated app</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized macro and meal plan adjustments</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to premium workout library with video demos</li>
                         </ul>
                         <button onclick="showPage('questionnaire')" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
@@ -978,13 +988,18 @@
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll" style="animation-delay: 0.4s;">
                         <i class="fas fa-award text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
-                        <p class="text-3xl font-bold mb-4">$697<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$697</span>$348.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
                         <p class="text-muted-foreground mb-6">Premium 1:1 coaching for maximum results.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Fit & Focused, plus:</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Weekly private sessions</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Custom supplement protocol</li>
-                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Priority support line</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Weekly 1:1 private coaching sessions (60 min each)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Fully customized meal plans with weekly adjustments</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Advanced progress tracking & biometric analysis</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Direct access to coach via private messaging (24/7)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Exclusive access to VIP workshops & content</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized supplement protocol & guidance</li>
+                            <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Priority scheduling for all sessions</li>
                         </ul>
                         <button onclick="showPage('questionnaire')" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
