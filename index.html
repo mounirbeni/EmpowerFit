@@ -152,24 +152,6 @@
             color: hsl(var(--foreground-hsl));
         }
 
-        /* Custom Form Controls */
-        .custom-radio-label,
-        .custom-checkbox-label {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            border: 2px solid hsl(var(--border-hsl));
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-color: hsl(var(--background-hsl));
-        }
-
-        .custom-radio-label:hover,
-        .custom-checkbox-label:hover {
-            border-color: hsl(var(--primary-hsl));
-        }
-
         /* Form Input Focus States */
         input[type="text"]:focus,
         input[type="email"]:focus,
@@ -221,6 +203,33 @@
         .section-anchor {
             scroll-margin-top: 100px;
         }
+
+        /* Questionnaire Styling */
+        #questionnaire-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        #questionnaire-form input[type="checkbox"],
+        #questionnaire-form input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        #questionnaire-form .grid > label {
+            border: 1px solid hsl(var(--border-hsl));
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #questionnaire-form .grid > label:hover {
+            background-color: hsl(var(--secondary-hsl));
+            border-color: hsl(var(--primary-hsl));
+        }
+        
+        .logo-bg-remove {
+            mix-blend-mode: multiply;
+        }
     </style>
 
     <!-- Tailwind CSS Configuration -->
@@ -266,7 +275,7 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#home" onclick="showPage('home')" class="flex items-center space-x-2 md:space-x-3">
-                    <i class="fas fa-dumbbell text-primary text-2xl md:text-3xl"></i>
+                    <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover logo-bg-remove">
                     <h1 class="text-xl md:text-2xl font-bold font-display text-foreground">EmpowerFit</h1>
                 </a>
 
@@ -343,22 +352,22 @@
                         </div>
                     </div>
                     <div class="hidden md:block animate-on-scroll">
-                        <img src="d6c08e195fb3288597b985.69596213_.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full rounded-2xl shadow-xl">
+                        <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-96 object-cover object-center rounded-2xl shadow-xl">
                     </div>
                 </div>
             </section>
 
             <!-- Meet the Coaches Section -->
-            <section id="meet-coaches" class="section-anchor container mx-auto px-4 py-16 md:py-24 bg-card rounded-2xl shadow-sm animate-on-scroll">
+            <section id="meet-coaches" class="section-anchor container mx-auto px-4 py-8 md:py-12 bg-card rounded-2xl shadow-sm animate-on-scroll">
                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div class="order-2 md:order-1">
                         <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">About Us</h2>
                         <p class="text-muted-foreground mb-6">
                             With over 5 years of combined experience, we've developed a holistic approach that combines cutting-edge fitness strategies with mental wellness techniques to help you achieve lasting transformation.
                         </p>
-
-<img src="d6c08e195fb3288597b985.69596213_.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full rounded-2xl shadow-xl">
-
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="epf0.png" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-80 object-cover object-center rounded-2xl shadow-xl">
                     </div>
                 </div>
             </section>
@@ -636,34 +645,28 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">What are your primary fitness goals? (Select all that apply) *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="Weight Loss">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Weight Loss</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="Muscle Gain">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Muscle Gain</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="Increased Strength">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Increased Strength</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="Better Endurance">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Better Endurance</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="Improved Confidence">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Improved Confidence</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="goals" value="More Energy">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>More Energy</span>
                                             </label>
                                         </div>
@@ -696,19 +699,16 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">How many days per week can you commit to working out? *</label>
                                         <div class="grid grid-cols-3 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="days" value="1-2" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>1-2 days</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="days" value="3-4">
-                                                <div class="custom-radio-button"></div>
                                                 <span>3-4 days</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="days" value="5+">
-                                                <div class="custom-radio-button"></div>
                                                 <span>5+ days</span>
                                             </label>
                                         </div>
@@ -716,14 +716,12 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Where do you prefer to work out? *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="location" value="Home" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>At Home</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="location" value="Gym">
-                                                <div class="custom-radio-button"></div>
                                                 <span>At a Gym</span>
                                             </label>
                                         </div>
@@ -731,24 +729,20 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">What equipment do you have access to?</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="equipment" value="Bodyweight">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Bodyweight only</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="equipment" value="Resistance bands">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Resistance bands</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="equipment" value="Dumbbells">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Dumbbells</span>
                                             </label>
-                                            <label class="custom-checkbox-label">
+                                            <label>
                                                 <input type="checkbox" name="equipment" value="Full gym">
-                                                <div class="custom-checkbox-button"><i class="fas fa-check"></i></div>
                                                 <span>Full gym access</span>
                                             </label>
                                         </div>
@@ -768,24 +762,20 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Describe your current eating habits *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="habits" value="Very healthy" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>Very healthy</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="habits" value="Mostly healthy">
-                                                <div class="custom-radio-button"></div>
                                                 <span>Mostly healthy</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="habits" value="Needs work">
-                                                <div class="custom-radio-button"></div>
                                                 <span>Needs work</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="habits" value="Needs major changes">
-                                                <div class="custom-radio-button"></div>
                                                 <span>Needs major changes</span>
                                             </label>
                                         </div>
@@ -809,19 +799,16 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">On a scale of 1-5, how are your current stress levels? *</label>
                                         <div class="grid grid-cols-3 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="stress" value="1-2" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>1-2 (Low)</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="stress" value="3">
-                                                <div class="custom-radio-button"></div>
                                                 <span>3 (Moderate)</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="stress" value="4-5">
-                                                <div class="custom-radio-button"></div>
                                                 <span>4-5 (High)</span>
                                             </label>
                                         </div>
@@ -829,24 +816,20 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">How many hours of sleep do you get on average? *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="sleep" value="5-6" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>5-6 hours</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="sleep" value="7-8">
-                                                <div class="custom-radio-button"></div>
                                                 <span>7-8 hours</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="sleep" value="<5">
-                                                <div class="custom-radio-button"></div>
                                                 <span>&lt; 5 hours</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="sleep" value=">8">
-                                                <div class="custom-radio-button"></div>
                                                 <span>&gt; 8 hours</span>
                                             </label>
                                         </div>
@@ -866,24 +849,20 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">What is your monthly budget for coaching? *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="budget" value="<200" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>Under $200</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="budget" value="200-400">
-                                                <div class="custom-radio-button"></div>
                                                 <span>$200 - $400</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="budget" value="400-600">
-                                                <div class="custom-radio-button"></div>
                                                 <span>$400 - $600</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="budget" value=">600">
-                                                <div class="custom-radio-button"></div>
                                                 <span>$600+</span>
                                             </label>
                                         </div>
@@ -907,14 +886,12 @@
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Preferred contact method *</label>
                                         <div class="grid grid-cols-2 gap-4">
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="contact-method" value="Email" required>
-                                                <div class="custom-radio-button"></div>
                                                 <span>Email</span>
                                             </label>
-                                            <label class="custom-radio-label">
+                                            <label>
                                                 <input type="radio" name="contact-method" value="Phone">
-                                                <div class="custom-radio-button"></div>
                                                 <span>Phone Call</span>
                                             </label>
                                         </div>
@@ -1159,6 +1136,68 @@
                 </div>
             </section>
         </div>
+
+        <!-- =============================================== -->
+        <!-- OUR PRODUCTS PAGE -->
+        <!-- =============================================== -->
+        <div id="products" class="page">
+            <section class="container mx-auto px-4 py-16 md:py-24">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Our Products</h1>
+                    <div class="space-y-6 text-muted-foreground">
+                        <p>This page is under construction. Check back soon for our exciting new products!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =============================================== -->
+        <!-- JOIN THE TEAM PAGE -->
+        <!-- =============================================== -->
+        <div id="join-team" class="page">
+            <section class="container mx-auto px-4 py-16 md:py-24">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 animate-on-scroll">Build a Career Empowering Others</h1>
+                    <p class="text-lg text-muted-foreground mb-12 animate-on-scroll" style="animation-delay: 0.1s;">
+                        We are on a mission to help women everywhere build strength from the inside out. If you are passionate about fitness, wellness, and making a real impact, we would love to hear from you.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8 mb-16 text-left">
+                        <div class="bg-card p-6 rounded-2xl shadow-sm animate-on-scroll" style="animation-delay: 0.2s;">
+                            <i class="fas fa-heart text-primary text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold font-display mb-2">Make a Difference</h3>
+                            <p class="text-muted-foreground">Directly contribute to the transformation and empowerment of our clients every single day.</p>
+                        </div>
+                        <div class="bg-card p-6 rounded-2xl shadow-sm animate-on-scroll" style="animation-delay: 0.3s;">
+                            <i class="fas fa-lightbulb text-primary text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold font-display mb-2">Growth Opportunities</h3>
+                            <p class="text-muted-foreground">We are a growing company and believe in investing in our team's professional development.</p>
+                        </div>
+                        <div class="bg-card p-6 rounded-2xl shadow-sm animate-on-scroll" style="animation-delay: 0.4s;">
+                            <i class="fas fa-users text-primary text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold font-display mb-2">Supportive Community</h3>
+                            <p class="text-muted-foreground">Join a collaborative and inspiring team that celebrates every win together.</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll" style="animation-delay: 0.5s;">
+                        <h2 class="text-3xl font-bold font-display mb-6">Current Openings</h2>
+                        <div class="space-y-4 text-left max-w-2xl mx-auto">
+                            <div class="bg-card p-6 rounded-lg">
+                                <h3 class="font-semibold">Certified Fitness Coach (Remote)</h3>
+                            </div>
+                            <div class="bg-card p-6 rounded-lg">
+                                <h3 class="font-semibold">Client Support Specialist (Part-Time)</h3>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground mt-8">Don't see a role that fits? We are always looking for exceptional talent.</p>
+                        <a href="mailto:empowerfitwork@gmail.com" class="mt-4 inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-transform duration-300 hover:scale-105 btn">
+                            Contact Us <i class="fas fa-paper-plane ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- =============================================== -->
@@ -1166,11 +1205,11 @@
     <!-- =============================================== -->
     <footer class="bg-secondary border-t border-border mt-16">
         <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm">
+            <div class="grid md:grid-cols-5 gap-8 mb-8 text-sm">
                 <!-- Brand Section -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-dumbbell text-primary text-2xl mr-2"></i>
+                        <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 logo-bg-remove mr-2">
                         <h3 class="text-xl font-bold font-display">EmpowerFit</h3>
                     </div>
                     <p class="text-muted-foreground mb-4">Empowering women to become the strongest versions of themselves.</p>
@@ -1198,6 +1237,15 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="#privacy-policy" onclick="showPage('privacy-policy')" class="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
                         <li><a href="#terms-of-service" onclick="showPage('terms-of-service')" class="text-muted-foreground hover:text-primary">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#products" onclick="showPage('products')" class="text-muted-foreground hover:text-primary">Our Products</a></li>
+                        <li><a href="#join-team" onclick="showPage('join-team')" class="text-muted-foreground hover:text-primary">Join the Team</a></li>
                     </ul>
                 </div>
                 
@@ -1251,7 +1299,7 @@
             }
         }
 
-        function showPage(pageId) {
+        function showPage(pageId, fromHashChange = false) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             
@@ -1259,6 +1307,15 @@
             const newPage = document.getElementById(pageId);
             if (newPage) {
                 newPage.classList.add('active');
+            } else {
+                // Default to home if pageId is invalid
+                document.getElementById('home').classList.add('active');
+                pageId = 'home';
+            }
+            
+            // Update URL hash if not triggered by a hash change itself
+            if (!fromHashChange) {
+                window.location.hash = pageId;
             }
             
             // Reset questionnaire if accessing it
@@ -1390,8 +1447,16 @@
             }, { threshold: 0.1 });
             animatedElements.forEach(el => observer.observe(el));
 
-            // Initialize with home page
-            showPage('home');
+            function handleHashChange() {
+                const pageId = window.location.hash.substring(1) || 'home';
+                showPage(pageId, true);
+            }
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', handleHashChange);
+
+            // Handle initial page load
+            handleHashChange();
 
             // Questionnaire Navigation
             const nextBtn = document.getElementById('next-btn');
@@ -1512,4 +1577,3 @@
 </body>
 
 </html>
-
