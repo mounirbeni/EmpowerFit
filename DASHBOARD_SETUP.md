@@ -15,15 +15,18 @@ API token stays on the server, so nothing sensitive is exposed in the public pag
 
 ## Required configuration (one time)
 
-In **Netlify → Site settings → Environment variables**, add:
+In **Netlify → Site settings → Environment variables**, add these two secrets:
 
 | Variable | Where to get it |
 | --- | --- |
 | `ADMIN_PASSWORD` | Any password you choose. The coach types this on the Coach Login screen. |
 | `NETLIFY_API_TOKEN` | Netlify → User settings → Applications → **New access token**. |
-| `NETLIFY_SITE_ID` | Netlify → Site settings → General → **Site information → API ID**. |
 
 After saving, trigger a redeploy. The dashboards will start loading live data.
+
+> The Site ID (`c956d8d3-5f3c-4063-bcb8-a7926ff88779`) is already baked into the
+> function, so you don't need to set `NETLIFY_SITE_ID`. You can still override it
+> with an env var if the site ever changes.
 
 > Until these are set, the dashboards load but show a friendly
 > "Dashboard is not configured yet" message.

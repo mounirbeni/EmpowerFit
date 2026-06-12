@@ -29,11 +29,13 @@ exports.handler = async (event) => {
 
     const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
     const TOKEN = process.env.NETLIFY_API_TOKEN;
-    const SITE_ID = process.env.NETLIFY_SITE_ID;
+    // Site ID is not a secret (it's useless without the API token), so it has a
+    // baked-in default and can still be overridden by an env var if needed.
+    const SITE_ID = process.env.NETLIFY_SITE_ID || 'c956d8d3-5f3c-4063-bcb8-a7926ff88779';
 
-    if (!ADMIN_PASSWORD || !TOKEN || !SITE_ID) {
+    if (!ADMIN_PASSWORD || !TOKEN) {
         return json(500, {
-            error: 'Dashboard is not configured yet. Set ADMIN_PASSWORD, NETLIFY_API_TOKEN and NETLIFY_SITE_ID in your Netlify environment variables.'
+            error: 'Dashboard is not configured yet. Set ADMIN_PASSWORD and NETLIFY_API_TOKEN in your Netlify environment variables.'
         });
     }
 
