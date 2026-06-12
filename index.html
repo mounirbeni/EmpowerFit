@@ -42,25 +42,41 @@
     <style>
         /* CSS Variables for Theme System */
         :root {
-            --background-hsl: 330 60% 95%;
-            --foreground-hsl: 330 10% 20%;
-            --card-hsl: 330 60% 98%;
-            --primary-hsl: 330 84% 70%;
+            --background-hsl: 330 60% 97%;
+            --foreground-hsl: 330 15% 16%;
+            --card-hsl: 0 0% 100%;
+            --primary-hsl: 330 85% 64%;
             --primary-foreground-hsl: 0 0% 100%;
-            --secondary-hsl: 330 60% 90%;
+            --secondary-hsl: 330 55% 92%;
             --muted-foreground-hsl: 330 10% 45%;
-            --accent-hsl: 275 100% 74%;
-            --border-hsl: 330 60% 88%;
+            --accent-hsl: 275 90% 68%;
+            --border-hsl: 330 45% 89%;
+
+            /* Premium design tokens */
+            --tertiary-hsl: 200 90% 62%;
+            --gradient-brand: linear-gradient(120deg, hsl(330 90% 66%), hsl(290 85% 66%) 45%, hsl(258 90% 70%));
+            --gradient-sheen: linear-gradient(110deg, transparent 25%, hsla(0 0% 100% / 0.45) 50%, transparent 75%);
+            --shadow-sm: 0 1px 2px hsla(330 30% 20% / 0.06), 0 2px 8px hsla(330 30% 20% / 0.05);
+            --shadow-md: 0 8px 24px -6px hsla(330 40% 30% / 0.14), 0 4px 10px -4px hsla(330 40% 30% / 0.08);
+            --shadow-lg: 0 24px 60px -16px hsla(330 50% 35% / 0.28), 0 10px 24px -12px hsla(330 50% 35% / 0.18);
+            --shadow-glow: 0 12px 40px -8px hsla(var(--primary-hsl) / 0.55);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ring: 0 0 0 3px hsla(var(--primary-hsl) / 0.25);
         }
 
         /* Dark Theme Variables */
         html.dark {
-            --background-hsl: 330 10% 10%;
-            --foreground-hsl: 330 10% 90%;
-            --card-hsl: 330 10% 15%;
-            --secondary-hsl: 330 10% 20%;
-            --muted-foreground-hsl: 330 10% 60%;
-            --border-hsl: 330 10% 25%;
+            --background-hsl: 290 18% 8%;
+            --foreground-hsl: 320 15% 92%;
+            --card-hsl: 290 16% 13%;
+            --secondary-hsl: 290 14% 19%;
+            --muted-foreground-hsl: 320 10% 64%;
+            --border-hsl: 290 14% 22%;
+            --accent-hsl: 275 95% 74%;
+            --shadow-sm: 0 1px 2px hsla(0 0% 0% / 0.4), 0 2px 8px hsla(0 0% 0% / 0.3);
+            --shadow-md: 0 8px 24px -6px hsla(0 0% 0% / 0.5), 0 4px 10px -4px hsla(0 0% 0% / 0.4);
+            --shadow-lg: 0 24px 60px -16px hsla(0 0% 0% / 0.65), 0 10px 24px -12px hsla(0 0% 0% / 0.5);
         }
 
         /* Page Navigation System */
@@ -70,6 +86,12 @@
 
         .page.active {
             display: block;
+            animation: pageEnter 0.7s var(--ease-out-expo) both;
+        }
+
+        @keyframes pageEnter {
+            from { opacity: 0; transform: translateY(14px) scale(0.995); filter: blur(6px); }
+            to   { opacity: 1; transform: none; filter: blur(0); }
         }
 
         /* Questionnaire Step System */
@@ -82,9 +104,13 @@
         }
 
         /* Interactive Elements */
+        .card-hover {
+            transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+        }
+
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px hsla(var(--primary-hsl), 0.2);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         /* Navigation Styles */
@@ -92,9 +118,17 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            background-color: hsla(var(--background-hsl), 0.7);
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+        }
+
+        .sticky-nav.scrolled {
             background-color: hsla(var(--background-hsl), 0.85);
-            border-bottom: 1px solid hsl(var(--border-hsl));
+            border-bottom-color: hsl(var(--border-hsl));
+            box-shadow: var(--shadow-md);
         }
 
         /* Progress Bar for Questionnaire */
@@ -324,6 +358,270 @@
             transition: max-height 0.35s ease;
         }
 
+        /* ===================================================================
+           ULTRA / PREMIUM DESIGN + MOTION SYSTEM
+           =================================================================== */
+
+        /* Global polish */
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: hsla(var(--primary-hsl), 0.25);
+            color: hsl(var(--foreground-hsl));
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 11px; height: 11px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb {
+            background: hsla(var(--primary-hsl), 0.45);
+            border-radius: 99px;
+            border: 3px solid hsl(var(--background-hsl));
+        }
+        ::-webkit-scrollbar-thumb:hover { background: hsla(var(--primary-hsl), 0.7); }
+
+        /* Display headings: tighter, more refined */
+        .font-display { letter-spacing: -0.02em; }
+
+        /* Gradient text utility */
+        .text-gradient {
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /* Animated gradient text for hero highlights */
+        .text-shimmer {
+            background: linear-gradient(110deg, hsl(var(--primary-hsl)), hsl(var(--accent-hsl)), hsl(var(--tertiary-hsl)), hsl(var(--primary-hsl)));
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: shimmerText 6s linear infinite;
+        }
+
+        @keyframes shimmerText {
+            to { background-position: -250% 0; }
+        }
+
+        /* ---- Buttons: gradient fill + sheen sweep + spring press ---- */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-out-expo), filter 0.35s ease;
+            will-change: transform;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-sheen);
+            background-size: 220% 100%;
+            background-position: 220% 0;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            pointer-events: none;
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+            animation: btnSheen 0.9s var(--ease-out-expo);
+        }
+
+        @keyframes btnSheen {
+            from { background-position: 220% 0; }
+            to   { background-position: -120% 0; }
+        }
+
+        /* Primary buttons become a living gradient with glow */
+        .bg-primary.btn,
+        button.bg-primary,
+        .btn.bg-primary {
+            background-image: var(--gradient-brand);
+            background-size: 160% 160%;
+            box-shadow: var(--shadow-md);
+        }
+
+        .bg-primary.btn:hover,
+        button.bg-primary:hover {
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-3px);
+        }
+
+        .bg-accent.btn:hover,
+        button.bg-accent:hover {
+            box-shadow: 0 12px 40px -8px hsla(var(--accent-hsl) / 0.55);
+            transform: translateY(-3px);
+        }
+
+        /* ---- Premium card surfaces ---- */
+        .bg-card {
+            position: relative;
+            border: 1px solid hsla(var(--border-hsl), 0.7);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), border-color 0.5s ease;
+        }
+
+        /* Cursor spotlight glow on cards (set via JS: --mx / --my) */
+        .spotlight {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .spotlight::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%),
+                hsla(var(--primary-hsl), 0.14), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .spotlight:hover::before { opacity: 1; }
+        .spotlight > * { position: relative; z-index: 1; }
+
+        /* ---- Animated aurora background for hero / feature bands ---- */
+        .aurora {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .aurora span {
+            position: absolute;
+            display: block;
+            width: 46vw;
+            height: 46vw;
+            max-width: 620px;
+            max-height: 620px;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.55;
+            mix-blend-mode: multiply;
+            animation: floatBlob 18s var(--ease-out-expo) infinite alternate;
+        }
+
+        html.dark .aurora span { mix-blend-mode: screen; opacity: 0.4; }
+
+        .aurora span:nth-child(1) { background: hsl(330 90% 70%); top: -8%; left: -6%; }
+        .aurora span:nth-child(2) { background: hsl(265 90% 72%); top: 10%; right: -10%; animation-delay: -6s; }
+        .aurora span:nth-child(3) { background: hsl(200 90% 68%); bottom: -14%; left: 25%; animation-delay: -12s; }
+
+        @keyframes floatBlob {
+            0%   { transform: translate(0, 0) scale(1); }
+            50%  { transform: translate(4%, 6%) scale(1.12); }
+            100% { transform: translate(-5%, -3%) scale(0.95); }
+        }
+
+        /* ---- Nav link animated underline ---- */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 4px;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--gradient-brand);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active-nav::after { transform: scaleX(1); }
+
+        /* ---- Logo glow ---- */
+        header .logo-bg-remove {
+            transition: transform 0.5s var(--ease-spring), box-shadow 0.5s ease;
+        }
+
+        header a:hover .logo-bg-remove {
+            transform: rotate(-6deg) scale(1.08);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* ---- Scroll reveal (enhanced, directional + stagger) ---- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-left  { transform: translateX(-40px); }
+        .reveal-right { transform: translateX(40px); }
+        .reveal-scale { transform: scale(0.94); }
+        .reveal-left.is-visible,
+        .reveal-right.is-visible,
+        .reveal-scale.is-visible { transform: none; }
+
+        /* ---- Floating decorative orbs (hero) ---- */
+        .floaty { animation: floaty 7s ease-in-out infinite; }
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        /* ---- Stat counters band ---- */
+        .stat-value { font-variant-numeric: tabular-nums; }
+
+        /* ---- Hero image frame ---- */
+        .hero-img-frame {
+            position: relative;
+            border-radius: 1.5rem;
+            transition: transform 0.6s var(--ease-out-expo);
+            transform-style: preserve-3d;
+        }
+
+        .hero-img-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 1px hsla(0 0% 100% / 0.18);
+            pointer-events: none;
+        }
+
+        /* Pricing "popular" card subtle lift */
+        .border-primary.bg-card { box-shadow: var(--shadow-md); }
+        .border-primary.bg-card:hover { box-shadow: var(--shadow-glow); }
+
+        /* Marquee for social proof strip */
+        .marquee {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+            animation: marquee 28s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
         /* Respect users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             html {
@@ -341,6 +639,13 @@
             .animate-on-scroll {
                 opacity: 1 !important;
                 transform: none !important;
+            }
+
+            .aurora { display: none !important; }
+            .text-shimmer {
+                -webkit-text-fill-color: hsl(var(--primary-hsl));
+                color: hsl(var(--primary-hsl));
+                animation: none !important;
             }
         }
     </style>
@@ -449,24 +754,94 @@
         <div id="home" class="page">
             
             <!-- Hero Section -->
-            <section id="hero" class="section-anchor container mx-auto px-4 py-16 md:py-24 lg:py-32">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="animate-on-scroll">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
-                            Become the Best Version of You <span class="text-primary">Physically</span> & <span class="text-accent">Mentally</span>.
-                        </h1>
-                        <p class="text-lg text-muted-foreground mb-8">
-                            Transform your body, mind, and spirit with personalized coaching designed specifically for ambitious women.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <button onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-transform duration-300 hover:scale-105 btn">
-                                Start Your Transformation Today <i class="fas fa-arrow-right ml-2"></i>
-                            </button>
+            <section id="hero" class="section-anchor relative overflow-hidden">
+                <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="relative container mx-auto px-4 py-16 md:py-24 lg:py-32">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="animate-on-scroll">
+                            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-card border border-border text-sm font-medium shadow-sm">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                </span>
+                                Coaching built for ambitious women
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-6 leading-[1.08]">
+                                Become the Best Version of You <span class="text-shimmer">Physically</span> &amp; <span class="text-shimmer">Mentally</span>.
+                            </h1>
+                            <p class="text-lg text-muted-foreground mb-8 max-w-xl">
+                                Transform your body, mind, and spirit with personalized coaching designed specifically for ambitious women.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button data-magnetic onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg btn">
+                                    Start Your Transformation Today <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                                <button onclick="showPage('pricing')" class="px-8 py-4 rounded-xl font-semibold text-lg border border-border bg-card hover:border-primary transition-colors btn">
+                                    View Plans
+                                </button>
+                            </div>
+                        </div>
+                        <div class="animate-on-scroll reveal-scale">
+                            <div class="hero-img-frame" data-tilt>
+                                <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-72 md:h-[28rem] object-cover object-top rounded-3xl shadow-2xl">
+                                <div class="floaty absolute -bottom-5 -left-5 bg-card rounded-2xl shadow-lg p-4 hidden sm:flex items-center gap-3 border border-border">
+                                    <span class="bg-secondary rounded-full w-11 h-11 flex items-center justify-center"><i class="fas fa-bolt text-primary"></i></span>
+                                    <div>
+                                        <div class="font-bold font-display leading-none">100%</div>
+                                        <div class="text-xs text-muted-foreground">Personalized</div>
+                                    </div>
+                                </div>
+                                <div class="floaty absolute -top-5 -right-4 bg-card rounded-2xl shadow-lg p-4 hidden sm:flex items-center gap-3 border border-border" style="animation-delay: -3s;">
+                                    <span class="bg-secondary rounded-full w-11 h-11 flex items-center justify-center"><i class="fas fa-heart text-accent"></i></span>
+                                    <div>
+                                        <div class="font-bold font-display leading-none">Mind &amp; Body</div>
+                                        <div class="text-xs text-muted-foreground">Holistic method</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="animate-on-scroll">
-                        <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-72 md:h-96 object-cover object-top rounded-2xl shadow-xl">
+                </div>
+            </section>
+
+            <!-- Stats Band -->
+            <section class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 bg-card rounded-3xl shadow-sm p-6 md:p-10 animate-on-scroll spotlight">
+                    <div class="text-center">
+                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="5" data-suffix="+">0</div>
+                        <div class="text-sm text-muted-foreground mt-1">Years of experience</div>
                     </div>
+                    <div class="text-center">
+                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="100" data-suffix="%">0</div>
+                        <div class="text-sm text-muted-foreground mt-1">Personalized plans</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="24" data-suffix="h">0</div>
+                        <div class="text-sm text-muted-foreground mt-1">Response time</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="3" data-suffix="-in-1">0</div>
+                        <div class="text-sm text-muted-foreground mt-1">Body · Mind · Nutrition</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Proof Marquee -->
+            <section class="py-10 md:py-14 overflow-hidden" aria-label="What we focus on">
+                <div class="marquee text-muted-foreground opacity-70">
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-dumbbell text-primary"></i> Strength Training</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-apple-whole text-primary"></i> Nutrition Coaching</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-brain text-primary"></i> Mindset Mastery</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-person-running text-primary"></i> Endurance</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-spa text-primary"></i> Recovery &amp; Sleep</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap"><i class="fas fa-people-group text-primary"></i> Community</span>
+                    <!-- duplicate for seamless loop -->
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-dumbbell text-primary"></i> Strength Training</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-apple-whole text-primary"></i> Nutrition Coaching</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-brain text-primary"></i> Mindset Mastery</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-person-running text-primary"></i> Endurance</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-spa text-primary"></i> Recovery &amp; Sleep</span>
+                    <span class="flex items-center gap-3 text-lg font-semibold whitespace-nowrap" aria-hidden="true"><i class="fas fa-people-group text-primary"></i> Community</span>
                 </div>
             </section>
 
@@ -1803,17 +2178,25 @@
             // Set initial theme
             applyTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 
-            // Scroll Animations
+            // Scroll Animations (transition-based reveal with stagger)
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                        observer.unobserve(entry.target);
+                        const el = entry.target;
+                        // Stagger siblings within the same row/grid for a cascade effect.
+                        let delay = 0;
+                        if (el.parentElement) {
+                            const peers = Array.from(el.parentElement.children).filter(c => c.classList.contains('animate-on-scroll'));
+                            const idx = peers.indexOf(el);
+                            if (idx > 0) delay = Math.min(idx * 90, 540);
+                        }
+                        el.style.transitionDelay = delay + 'ms';
+                        el.classList.add('is-visible');
+                        observer.unobserve(el);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
             animatedElements.forEach(el => observer.observe(el));
 
             function handleHashChange() {
@@ -2337,6 +2720,113 @@
             window.addEventListener('hashchange', handleDashboardRoute);
             document.addEventListener('DOMContentLoaded', handleDashboardRoute);
             if (document.readyState !== 'loading') handleDashboardRoute();
+        })();
+    </script>
+
+    <!-- =============================================== -->
+    <!-- MOTION SYSTEM -->
+    <!-- =============================================== -->
+    <script>
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const fine = window.matchMedia('(pointer: fine)').matches;
+
+            function onReady(fn) {
+                if (document.readyState !== 'loading') fn();
+                else document.addEventListener('DOMContentLoaded', fn);
+            }
+
+            onReady(function () {
+                // ---- Sticky nav: elevate on scroll ----
+                const header = document.getElementById('header');
+                if (header) {
+                    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 12);
+                    window.addEventListener('scroll', onScroll, { passive: true });
+                    onScroll();
+                }
+
+                // ---- Tag interactive cards with the spotlight glow ----
+                document.querySelectorAll(
+                    '.card-hover, #pricing .bg-card, #pricing-preview .bg-card, .faq-item, #testimonials .bg-card, #transformations .bg-card, #approach .bg-card, #join-team .bg-card'
+                ).forEach(el => el.classList.add('spotlight'));
+
+                if (reduce) return; // everything below is enhancement-only
+
+                // ---- Cursor spotlight on cards (desktop) ----
+                if (fine) {
+                    document.querySelectorAll('.spotlight').forEach(card => {
+                        card.addEventListener('pointermove', (e) => {
+                            const r = card.getBoundingClientRect();
+                            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+                            card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+                        });
+                    });
+                }
+
+                // ---- Magnetic buttons ----
+                if (fine) {
+                    document.querySelectorAll('[data-magnetic]').forEach(btn => {
+                        const strength = 0.32;
+                        btn.addEventListener('pointermove', (e) => {
+                            const r = btn.getBoundingClientRect();
+                            const x = (e.clientX - r.left - r.width / 2) * strength;
+                            const y = (e.clientY - r.top - r.height / 2) * strength;
+                            btn.style.transform = `translate(${x}px, ${y}px)`;
+                        });
+                        btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+                    });
+                }
+
+                // ---- 3D tilt on the hero image frame ----
+                if (fine) {
+                    document.querySelectorAll('[data-tilt]').forEach(el => {
+                        const max = 7;
+                        el.addEventListener('pointermove', (e) => {
+                            const r = el.getBoundingClientRect();
+                            const px = (e.clientX - r.left) / r.width - 0.5;
+                            const py = (e.clientY - r.top) / r.height - 0.5;
+                            el.style.transform = `perspective(900px) rotateY(${px * max}deg) rotateX(${-py * max}deg)`;
+                        });
+                        el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+                    });
+                }
+
+                // ---- Subtle parallax on the hero aurora ----
+                const aurora = document.querySelector('#hero .aurora');
+                if (aurora) {
+                    window.addEventListener('scroll', () => {
+                        const y = window.scrollY;
+                        if (y < window.innerHeight) aurora.style.transform = `translateY(${y * 0.18}px)`;
+                    }, { passive: true });
+                }
+
+                // ---- Animated number counters ----
+                const easeOut = t => 1 - Math.pow(1 - t, 3);
+                function runCounter(el) {
+                    const target = parseFloat(el.dataset.count) || 0;
+                    const suffix = el.dataset.suffix || '';
+                    const dur = 1400;
+                    const start = performance.now();
+                    function frame(now) {
+                        const p = Math.min((now - start) / dur, 1);
+                        el.textContent = Math.round(easeOut(p) * target) + suffix;
+                        if (p < 1) requestAnimationFrame(frame);
+                    }
+                    requestAnimationFrame(frame);
+                }
+                const counters = document.querySelectorAll('[data-count]');
+                if (counters.length) {
+                    const cObs = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                runCounter(entry.target);
+                                cObs.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.6 });
+                    counters.forEach(c => cObs.observe(c));
+                }
+            });
         })();
     </script>
 
