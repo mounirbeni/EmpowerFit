@@ -1,0 +1,9 @@
+# Netlify configuration for EmpowerFit
+# Static site at the repo root + serverless functions for the dashboards.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"

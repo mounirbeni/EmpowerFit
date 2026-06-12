@@ -1399,6 +1399,132 @@
                 </div>
             </section>
         </div>
+
+        <!-- =============================================== -->
+        <!-- ADMIN DASHBOARD PAGE -->
+        <!-- =============================================== -->
+        <div id="admin" class="page">
+            <section class="container mx-auto px-4 py-12 md:py-16">
+                <div class="max-w-6xl mx-auto">
+
+                    <!-- Admin Login -->
+                    <div id="admin-login" class="max-w-md mx-auto">
+                        <div class="bg-card rounded-2xl shadow-lg p-8">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-user-shield text-primary text-4xl mb-3"></i>
+                                <h1 class="text-2xl font-bold font-display">Coach Login</h1>
+                                <p class="text-muted-foreground text-sm mt-2">Sign in to review incoming coaching requests and messages.</p>
+                            </div>
+                            <form id="admin-login-form" class="space-y-4">
+                                <div>
+                                    <label for="admin-password" class="block text-sm font-medium mb-1">Admin Password</label>
+                                    <input id="admin-password" type="password" autocomplete="current-password" required class="w-full p-3 border border-border rounded-lg bg-background">
+                                </div>
+                                <button type="submit" id="admin-login-btn" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium btn">Sign In</button>
+                                <p id="admin-login-error" class="text-red-500 text-sm hidden" role="alert"></p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Admin Dashboard -->
+                    <div id="admin-dashboard" class="hidden">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+                            <div>
+                                <h1 class="text-3xl font-bold font-display">Coaching Requests</h1>
+                                <p class="text-muted-foreground">Review and manage everything your clients send in.</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <button id="admin-refresh" type="button" class="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 rounded-lg font-medium transition-colors btn"><i class="fas fa-rotate-right mr-2"></i>Refresh</button>
+                                <button id="admin-logout" type="button" class="border border-border text-muted-foreground hover:bg-secondary px-4 py-2 rounded-lg font-medium transition-colors btn"><i class="fas fa-arrow-right-from-bracket mr-2"></i>Log out</button>
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <div class="bg-card rounded-2xl shadow-sm p-5">
+                                <div class="text-3xl font-bold font-display" id="admin-stat-total">0</div>
+                                <div class="text-sm text-muted-foreground">Total submissions</div>
+                            </div>
+                            <div class="bg-card rounded-2xl shadow-sm p-5">
+                                <div class="text-3xl font-bold font-display text-primary" id="admin-stat-requests">0</div>
+                                <div class="text-sm text-muted-foreground">Coaching requests</div>
+                            </div>
+                            <div class="bg-card rounded-2xl shadow-sm p-5">
+                                <div class="text-3xl font-bold font-display" id="admin-stat-messages">0</div>
+                                <div class="text-sm text-muted-foreground">Contact messages</div>
+                            </div>
+                            <div class="bg-card rounded-2xl shadow-sm p-5">
+                                <div class="text-3xl font-bold font-display text-accent" id="admin-stat-week">0</div>
+                                <div class="text-sm text-muted-foreground">New this week</div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="flex flex-col md:flex-row gap-4 mb-6">
+                            <div class="relative flex-grow">
+                                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+                                <label for="admin-search" class="sr-only">Search submissions</label>
+                                <input id="admin-search" type="text" placeholder="Search by name, email, or content..." class="w-full pl-10 p-3 border border-border rounded-lg bg-background">
+                            </div>
+                            <label for="admin-filter" class="sr-only">Filter by type</label>
+                            <select id="admin-filter" class="p-3 border border-border rounded-lg bg-background">
+                                <option value="all">All submissions</option>
+                                <option value="questionnaire">Coaching requests</option>
+                                <option value="contact">Contact messages</option>
+                                <option value="newsletter">Newsletter signups</option>
+                            </select>
+                        </div>
+
+                        <!-- States -->
+                        <div id="admin-loading" class="hidden text-center text-muted-foreground py-12"><i class="fas fa-spinner fa-spin text-2xl text-primary"></i><p class="mt-3">Loading submissions...</p></div>
+                        <div id="admin-error" class="hidden bg-red-50 text-red-700 rounded-lg p-4 mb-4" role="alert"></div>
+                        <div id="admin-empty" class="hidden text-center text-muted-foreground py-12"><i class="far fa-folder-open text-3xl mb-3"></i><p>No submissions match your filters yet.</p></div>
+                        <div id="admin-list" class="space-y-4"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =============================================== -->
+        <!-- CLIENT DASHBOARD PAGE -->
+        <!-- =============================================== -->
+        <div id="client" class="page">
+            <section class="container mx-auto px-4 py-12 md:py-16">
+                <div class="max-w-4xl mx-auto">
+
+                    <!-- Client Login -->
+                    <div id="client-login" class="max-w-md mx-auto">
+                        <div class="bg-card rounded-2xl shadow-lg p-8">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-user-circle text-primary text-4xl mb-3"></i>
+                                <h1 class="text-2xl font-bold font-display">Client Portal</h1>
+                                <p class="text-muted-foreground text-sm mt-2">Enter the email you used in your questionnaire to view your profile and request status.</p>
+                            </div>
+                            <form id="client-login-form" class="space-y-4">
+                                <div>
+                                    <label for="client-email" class="block text-sm font-medium mb-1">Email Address</label>
+                                    <input id="client-email" type="email" autocomplete="email" required class="w-full p-3 border border-border rounded-lg bg-background">
+                                </div>
+                                <button type="submit" id="client-login-btn" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium btn">View My Profile</button>
+                                <p id="client-login-error" class="text-red-500 text-sm hidden" role="alert"></p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Client Portal -->
+                    <div id="client-portal" class="hidden">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+                            <div>
+                                <h1 class="text-3xl font-bold font-display">Welcome back<span id="client-name"></span></h1>
+                                <p class="text-muted-foreground" id="client-email-label"></p>
+                            </div>
+                            <button id="client-logout" type="button" class="border border-border text-muted-foreground hover:bg-secondary px-4 py-2 rounded-lg font-medium transition-colors btn self-start"><i class="fas fa-arrow-right-from-bracket mr-2"></i>Log out</button>
+                        </div>
+                        <div id="client-content" class="space-y-6"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Back to Top Button -->
@@ -1453,6 +1579,8 @@
                     <ul class="space-y-2">
                         <li><a href="#products" onclick="showPage('products')" class="text-muted-foreground hover:text-primary">Our Products</a></li>
                         <li><a href="#join-team" onclick="showPage('join-team')" class="text-muted-foreground hover:text-primary">Join the Team</a></li>
+                        <li><a href="#client" onclick="showPage('client')" class="text-muted-foreground hover:text-primary">Client Portal</a></li>
+                        <li><a href="#admin" onclick="showPage('admin')" class="text-muted-foreground hover:text-primary">Coach Login</a></li>
                     </ul>
                 </div>
                 
@@ -1860,6 +1988,356 @@
                 updateQuestionnaireView();
             }
         });
+    </script>
+
+    <!-- =============================================== -->
+    <!-- DASHBOARDS (Admin + Client) -->
+    <!-- =============================================== -->
+    <script>
+        (function () {
+            const ENDPOINT = '/.netlify/functions/get-submissions';
+
+            // ---------- Helpers ----------
+            function escapeHtml(value) {
+                return String(value == null ? '' : value)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+
+            function formatValue(value) {
+                if (Array.isArray(value)) return value.join(', ');
+                return value;
+            }
+
+            function formatDate(iso) {
+                if (!iso) return '';
+                const d = new Date(iso);
+                if (isNaN(d)) return iso;
+                return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) +
+                    ' · ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+            }
+
+            const FORM_LABELS = {
+                questionnaire: 'Coaching Request',
+                contact: 'Contact Message',
+                newsletter: 'Newsletter'
+            };
+            function formLabel(name) {
+                return FORM_LABELS[name] || (name || 'Submission');
+            }
+
+            const FIELD_LABELS = {
+                firstName: 'First name', lastName: 'Last name', email: 'Email', age: 'Age',
+                injuries: 'Injuries / conditions', medications: 'Medications', goals: 'Goals',
+                motivation: 'Motivation', timeline: 'Timeline', days: 'Days per week',
+                location: 'Workout location', equipment: 'Equipment', habits: 'Eating habits',
+                allergies: 'Dietary restrictions', stress: 'Stress level', sleep: 'Sleep',
+                budget: 'Budget', other: 'Other notes', 'contact-method': 'Preferred contact',
+                name: 'Name', message: 'Message'
+            };
+            function fieldLabel(key) {
+                return FIELD_LABELS[key] || key;
+            }
+
+            function displayName(data) {
+                if (data.firstName) return (data.firstName + ' ' + (data.lastName || '')).trim();
+                if (data.name) return data.name;
+                return data.email || 'Unknown';
+            }
+
+            async function fetchSubmissions(payload) {
+                const res = await fetch(ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                let body = {};
+                try { body = await res.json(); } catch (e) { /* ignore */ }
+                if (!res.ok) {
+                    throw new Error(body.error || 'Request failed (' + res.status + ').');
+                }
+                return body;
+            }
+
+            // =================================================================
+            // ADMIN DASHBOARD
+            // =================================================================
+            let adminData = [];
+
+            const adminEls = {
+                login: document.getElementById('admin-login'),
+                dashboard: document.getElementById('admin-dashboard'),
+                form: document.getElementById('admin-login-form'),
+                password: document.getElementById('admin-password'),
+                loginBtn: document.getElementById('admin-login-btn'),
+                loginError: document.getElementById('admin-login-error'),
+                list: document.getElementById('admin-list'),
+                empty: document.getElementById('admin-empty'),
+                loading: document.getElementById('admin-loading'),
+                error: document.getElementById('admin-error'),
+                search: document.getElementById('admin-search'),
+                filter: document.getElementById('admin-filter'),
+                refresh: document.getElementById('admin-refresh'),
+                logout: document.getElementById('admin-logout'),
+                statTotal: document.getElementById('admin-stat-total'),
+                statRequests: document.getElementById('admin-stat-requests'),
+                statMessages: document.getElementById('admin-stat-messages'),
+                statWeek: document.getElementById('admin-stat-week')
+            };
+
+            function showAdminLoggedIn(loggedIn) {
+                if (!adminEls.login) return;
+                adminEls.login.classList.toggle('hidden', loggedIn);
+                adminEls.dashboard.classList.toggle('hidden', !loggedIn);
+            }
+
+            function renderAdminStats() {
+                const total = adminData.length;
+                const requests = adminData.filter(s => s.form_name === 'questionnaire').length;
+                const messages = adminData.filter(s => s.form_name === 'contact').length;
+                const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+                const week = adminData.filter(s => new Date(s.created_at).getTime() >= weekAgo).length;
+                adminEls.statTotal.textContent = total;
+                adminEls.statRequests.textContent = requests;
+                adminEls.statMessages.textContent = messages;
+                adminEls.statWeek.textContent = week;
+            }
+
+            function renderAdminCard(s) {
+                const data = s.data || {};
+                const rows = Object.keys(data)
+                    .filter(k => k !== 'form-name')
+                    .map(k => '<div class="grid grid-cols-3 gap-3 py-2 border-b border-border last:border-0">' +
+                        '<span class="text-sm font-medium">' + escapeHtml(fieldLabel(k)) + '</span>' +
+                        '<span class="text-sm text-muted-foreground col-span-2 whitespace-pre-wrap break-words">' + escapeHtml(formatValue(data[k]) || '—') + '</span>' +
+                        '</div>').join('');
+                const email = data.email || '';
+                return '<details class="bg-card rounded-2xl shadow-sm overflow-hidden">' +
+                    '<summary class="flex items-center justify-between gap-4 p-5 cursor-pointer select-none">' +
+                        '<div class="flex items-center gap-3 min-w-0">' +
+                            '<span class="shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full bg-secondary text-primary">' + escapeHtml(formLabel(s.form_name)) + '</span>' +
+                            '<div class="min-w-0"><div class="font-semibold truncate">' + escapeHtml(displayName(data)) + '</div>' +
+                            '<div class="text-sm text-muted-foreground truncate">' + escapeHtml(email) + '</div></div>' +
+                        '</div>' +
+                        '<div class="text-right shrink-0"><div class="text-xs text-muted-foreground">' + escapeHtml(formatDate(s.created_at)) + '</div>' +
+                        '<i class="fas fa-chevron-down text-primary mt-1"></i></div>' +
+                    '</summary>' +
+                    '<div class="px-5 pb-5">' + rows +
+                        (email ? '<div class="mt-4"><a href="mailto:' + escapeHtml(email) + '" class="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium btn"><i class="fas fa-reply mr-2"></i>Reply by email</a></div>' : '') +
+                    '</div>' +
+                '</details>';
+            }
+
+            function renderAdminList() {
+                if (!adminEls.list) return;
+                const term = (adminEls.search.value || '').toLowerCase();
+                const filter = adminEls.filter.value;
+                let items = adminData.slice();
+                if (filter !== 'all') items = items.filter(s => s.form_name === filter);
+                if (term) items = items.filter(s => JSON.stringify(s.data || {}).toLowerCase().includes(term));
+
+                renderAdminStats();
+
+                if (!items.length) {
+                    adminEls.list.innerHTML = '';
+                    adminEls.empty.classList.remove('hidden');
+                    return;
+                }
+                adminEls.empty.classList.add('hidden');
+                adminEls.list.innerHTML = items.map(renderAdminCard).join('');
+            }
+
+            async function loadAdmin(password) {
+                adminEls.error.classList.add('hidden');
+                adminEls.loading.classList.remove('hidden');
+                adminEls.list.innerHTML = '';
+                try {
+                    const result = await fetchSubmissions({ password });
+                    adminData = (result.submissions || []).sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                    renderAdminList();
+                } catch (err) {
+                    adminEls.error.textContent = err.message;
+                    adminEls.error.classList.remove('hidden');
+                } finally {
+                    adminEls.loading.classList.add('hidden');
+                }
+            }
+
+            function adminLogout() {
+                sessionStorage.removeItem('ef_admin_pw');
+                adminData = [];
+                if (adminEls.password) adminEls.password.value = '';
+                showAdminLoggedIn(false);
+            }
+
+            if (adminEls.form) {
+                adminEls.form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const pw = adminEls.password.value;
+                    adminEls.loginError.classList.add('hidden');
+                    adminEls.loginBtn.disabled = true;
+                    adminEls.loginBtn.textContent = 'Signing in...';
+                    try {
+                        const result = await fetchSubmissions({ password: pw });
+                        sessionStorage.setItem('ef_admin_pw', pw);
+                        adminData = (result.submissions || []).sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                        showAdminLoggedIn(true);
+                        renderAdminList();
+                    } catch (err) {
+                        adminEls.loginError.textContent = err.message;
+                        adminEls.loginError.classList.remove('hidden');
+                    } finally {
+                        adminEls.loginBtn.disabled = false;
+                        adminEls.loginBtn.textContent = 'Sign In';
+                    }
+                });
+                adminEls.search.addEventListener('input', renderAdminList);
+                adminEls.filter.addEventListener('change', renderAdminList);
+                adminEls.refresh.addEventListener('click', () => loadAdmin(sessionStorage.getItem('ef_admin_pw') || ''));
+                adminEls.logout.addEventListener('click', adminLogout);
+            }
+
+            function initAdminView() {
+                const saved = sessionStorage.getItem('ef_admin_pw');
+                if (saved) {
+                    showAdminLoggedIn(true);
+                    loadAdmin(saved);
+                } else {
+                    showAdminLoggedIn(false);
+                }
+            }
+
+            // =================================================================
+            // CLIENT PORTAL
+            // =================================================================
+            const clientEls = {
+                login: document.getElementById('client-login'),
+                portal: document.getElementById('client-portal'),
+                form: document.getElementById('client-login-form'),
+                email: document.getElementById('client-email'),
+                loginBtn: document.getElementById('client-login-btn'),
+                loginError: document.getElementById('client-login-error'),
+                name: document.getElementById('client-name'),
+                emailLabel: document.getElementById('client-email-label'),
+                content: document.getElementById('client-content'),
+                logout: document.getElementById('client-logout')
+            };
+
+            function showClientLoggedIn(loggedIn) {
+                if (!clientEls.login) return;
+                clientEls.login.classList.toggle('hidden', loggedIn);
+                clientEls.portal.classList.toggle('hidden', !loggedIn);
+            }
+
+            function renderClient(submissions, email) {
+                const questionnaire = submissions.find(s => s.form_name === 'questionnaire');
+                const data = questionnaire ? questionnaire.data : {};
+                const firstName = data.firstName ? ' ' + data.firstName : '';
+                clientEls.name.textContent = firstName;
+                clientEls.emailLabel.textContent = email;
+
+                let html = '';
+
+                // Request status card
+                if (questionnaire) {
+                    html += '<div class="bg-card rounded-2xl shadow-sm p-6">' +
+                        '<div class="flex items-center gap-3 mb-3"><span class="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center"><i class="fas fa-check"></i></span>' +
+                        '<div><h2 class="text-xl font-bold font-display">Request received</h2>' +
+                        '<p class="text-sm text-muted-foreground">Submitted ' + escapeHtml(formatDate(questionnaire.created_at)) + '</p></div></div>' +
+                        '<p class="text-muted-foreground">Your coaching questionnaire is in. Our team is building your personalized plan and will reach out within 24 hours via your preferred contact method' +
+                        (data['contact-method'] ? ' (<strong>' + escapeHtml(data['contact-method']) + '</strong>)' : '') + '.</p>' +
+                        '</div>';
+
+                    // Profile summary
+                    const summaryFields = ['goals', 'timeline', 'days', 'location', 'equipment', 'habits', 'budget'];
+                    const cards = summaryFields
+                        .filter(k => data[k])
+                        .map(k => '<div class="bg-secondary rounded-xl p-4">' +
+                            '<div class="text-xs uppercase tracking-wide text-muted-foreground mb-1">' + escapeHtml(fieldLabel(k)) + '</div>' +
+                            '<div class="font-medium">' + escapeHtml(formatValue(data[k])) + '</div></div>').join('');
+                    if (cards) {
+                        html += '<div class="bg-card rounded-2xl shadow-sm p-6">' +
+                            '<h2 class="text-xl font-bold font-display mb-4">Your Profile</h2>' +
+                            '<div class="grid sm:grid-cols-2 gap-3">' + cards + '</div></div>';
+                    }
+                } else {
+                    html += '<div class="bg-card rounded-2xl shadow-sm p-6 text-center">' +
+                        '<i class="fas fa-clipboard-list text-primary text-3xl mb-3"></i>' +
+                        '<h2 class="text-xl font-bold font-display mb-2">No questionnaire on file</h2>' +
+                        '<p class="text-muted-foreground mb-4">We could not find a coaching request for this email yet. Complete the questionnaire to get started.</p>' +
+                        '<button type="button" onclick="showPage(\'questionnaire\')" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium btn">Start the Questionnaire</button>' +
+                        '</div>';
+                }
+
+                // Message history
+                const messages = submissions.filter(s => s.form_name === 'contact');
+                if (messages.length) {
+                    const items = messages.map(m => '<div class="border-b border-border last:border-0 py-3">' +
+                        '<div class="text-xs text-muted-foreground mb-1">' + escapeHtml(formatDate(m.created_at)) + '</div>' +
+                        '<div class="text-muted-foreground whitespace-pre-wrap break-words">' + escapeHtml(m.data.message || '') + '</div></div>').join('');
+                    html += '<div class="bg-card rounded-2xl shadow-sm p-6"><h2 class="text-xl font-bold font-display mb-2">Your Messages</h2>' + items + '</div>';
+                }
+
+                clientEls.content.innerHTML = html;
+            }
+
+            if (clientEls.form) {
+                clientEls.form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = clientEls.email.value.trim();
+                    clientEls.loginError.classList.add('hidden');
+                    clientEls.loginBtn.disabled = true;
+                    clientEls.loginBtn.textContent = 'Loading...';
+                    try {
+                        const result = await fetchSubmissions({ email });
+                        sessionStorage.setItem('ef_client_email', email);
+                        showClientLoggedIn(true);
+                        renderClient(result.submissions || [], email);
+                    } catch (err) {
+                        clientEls.loginError.textContent = err.message;
+                        clientEls.loginError.classList.remove('hidden');
+                    } finally {
+                        clientEls.loginBtn.disabled = false;
+                        clientEls.loginBtn.textContent = 'View My Profile';
+                    }
+                });
+                clientEls.logout.addEventListener('click', () => {
+                    sessionStorage.removeItem('ef_client_email');
+                    clientEls.email.value = '';
+                    showClientLoggedIn(false);
+                });
+            }
+
+            async function initClientView() {
+                const saved = sessionStorage.getItem('ef_client_email');
+                if (saved) {
+                    showClientLoggedIn(true);
+                    try {
+                        const result = await fetchSubmissions({ email: saved });
+                        renderClient(result.submissions || [], saved);
+                    } catch (err) {
+                        showClientLoggedIn(false);
+                    }
+                } else {
+                    showClientLoggedIn(false);
+                }
+            }
+
+            // =================================================================
+            // Wire dashboards to the SPA router
+            // =================================================================
+            function handleDashboardRoute() {
+                const page = (window.location.hash.substring(1) || 'home');
+                if (page === 'admin') initAdminView();
+                if (page === 'client') initClientView();
+            }
+            window.addEventListener('hashchange', handleDashboardRoute);
+            document.addEventListener('DOMContentLoaded', handleDashboardRoute);
+            if (document.readyState !== 'loading') handleDashboardRoute();
+        })();
     </script>
 
     <!-- Structured Data for SEO -->
