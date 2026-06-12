@@ -1502,7 +1502,10 @@
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
                     <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose Your Transformation</h1>
-                    <p class="text-muted-foreground max-w-2xl mx-auto">Select the coaching package that aligns with your goals and commitment level.</p>
+                    <p class="text-muted-foreground max-w-2xl mx-auto mb-6">Select the coaching package that aligns with your goals and commitment level.</p>
+                    <a data-booking href="#contact" onclick="showPage('contact')" class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-xl font-medium transition-colors btn">
+                        <i class="fas fa-calendar-check"></i> Book a free intro call
+                    </a>
                 </div>
 
                 <div id="pricing-plans" class="section-anchor grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -1521,7 +1524,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Exclusive access to our private community forum</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to our library of fitness resources</li>
                         </ul>
-                        <button onclick="showPage('questionnaire')" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="starter" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
 
                     <!-- Fit & Focused (Most Popular) -->
@@ -1542,7 +1545,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized macro and meal plan adjustments</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to premium workout library with video demos</li>
                         </ul>
-                        <button onclick="showPage('questionnaire')" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="fitfocused" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
 
                     <!-- VIP Coaching -->
@@ -1562,7 +1565,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized supplement protocol & guidance</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Priority scheduling for all sessions</li>
                         </ul>
-                        <button onclick="showPage('questionnaire')" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="vip" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
                 </div>
             </section>
@@ -1641,6 +1644,9 @@
 
                         <!-- Contact Information -->
                         <div class="space-y-8 animate-on-scroll" style="animation-delay: 0.2s;">
+                            <a data-booking href="mailto:empowerfitwork@gmail.com" class="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-semibold btn">
+                                <i class="fas fa-calendar-check"></i> Book a free intro call
+                            </a>
                             <div class="flex items-start">
                                 <i class="fas fa-envelope text-primary text-2xl mr-4 mt-1"></i>
                                 <div>
@@ -2826,6 +2832,58 @@
                     }, { threshold: 0.6 });
                     counters.forEach(c => cObs.observe(c));
                 }
+            });
+        })();
+    </script>
+
+    <!-- =============================================== -->
+    <!-- BOOKING & PAYMENTS                              -->
+    <!-- ----------------------------------------------- -->
+    <!-- HOW TO ENABLE:                                  -->
+    <!--  1. Create a Stripe Payment Link for each plan  -->
+    <!--     (dashboard.stripe.com > Payment Links) and  -->
+    <!--     paste the URLs below.                        -->
+    <!--  2. Paste your Calendly (or other) booking URL. -->
+    <!--  These links are public and safe in the page.   -->
+    <!--  Until filled in, buttons fall back gracefully  -->
+    <!--  to the questionnaire / contact page.           -->
+    <!-- =============================================== -->
+    <script>
+        (function () {
+            // ----- EDIT THESE -----
+            const CHECKOUT_LINKS = {
+                starter: '',      // e.g. 'https://buy.stripe.com/xxxxxxxx'
+                fitfocused: '',   // e.g. 'https://buy.stripe.com/yyyyyyyy'
+                vip: ''           // e.g. 'https://buy.stripe.com/zzzzzzzz'
+            };
+            const BOOKING_URL = ''; // e.g. 'https://calendly.com/empowerfit/intro-call'
+            // ----------------------
+
+            // Plan checkout buttons
+            document.querySelectorAll('[data-checkout]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const plan = btn.getAttribute('data-checkout');
+                    const url = CHECKOUT_LINKS[plan];
+                    if (url) {
+                        e.preventDefault();
+                        window.location.href = url;
+                    } else if (typeof showPage === 'function') {
+                        // No payment link configured yet: start the questionnaire instead.
+                        e.preventDefault();
+                        showPage('questionnaire');
+                    }
+                });
+            });
+
+            // "Book a free intro call" buttons
+            document.querySelectorAll('[data-booking]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (BOOKING_URL) {
+                        e.preventDefault();
+                        window.open(BOOKING_URL, '_blank', 'noopener');
+                    }
+                    // else: fall back to the existing href (Contact page)
+                });
             });
         })();
     </script>
