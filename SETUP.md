@@ -38,26 +38,29 @@ If none are set, it does nothing and never blocks the submission.
 
 ---
 
-## 2. 💳 Payments & booking
+## 2. 💳 Payments (PayPal) & booking
 
-Open `index.html`, find the **BOOKING & PAYMENTS** script near the bottom, and paste your links:
+Open `index.html`, find the **BOOKING & PAYMENTS (PayPal)** script near the bottom, and set
+your PayPal.Me username — that's the only required value:
 
 ```js
-const CHECKOUT_LINKS = {
-    starter:    'https://buy.stripe.com/...',
-    fitfocused: 'https://buy.stripe.com/...',
-    vip:        'https://buy.stripe.com/...'
-};
-const BOOKING_URL = 'https://calendly.com/empowerfit/intro-call';
+const PAYPAL_ME = 'empowerfit';   // your paypal.me/USERNAME
+const CURRENCY  = 'USD';          // matches the prices on the site
+const BOOKING_URL = 'https://calendly.com/empowerfit/intro-call'; // optional
 ```
 
-- **Payments:** create a **Stripe Payment Link** per plan (Stripe dashboard → Payment Links).
-  These URLs are public and safe to put in the page. The pricing "Get Started" buttons then
-  send clients straight to checkout.
-- **Booking:** paste a **Calendly** (or similar) link. The "Book a free intro call" buttons
-  open it.
-- Until you fill these in, the buttons **fall back gracefully** — "Get Started" opens the
+- **Payments:** get your link at **paypal.me** (PayPal → "PayPal.Me" → claim your username).
+  Each plan's **"Get Started"** button automatically opens
+  `paypal.com/paypalme/<you>/<amount>USD` with the discounted price already filled in
+  (Starter 98.50 · Fit & Focused 198.50 · VIP 348.50). The client confirms and pays — money
+  lands in your PayPal. No keys, nothing secret.
+- **Booking:** paste a **Calendly** (or similar) link for the "Book a free intro call"
+  buttons. Optional.
+- Until you set `PAYPAL_ME`, the buttons **fall back gracefully** — "Get Started" opens the
   questionnaire, and "Book a free intro call" opens the contact page.
+
+> PayPal.Me charges are one-off payments. For true monthly **recurring** billing, create
+> PayPal **Subscription** buttons instead and I can swap the links in — just say the word.
 
 ---
 

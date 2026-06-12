@@ -1524,7 +1524,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Exclusive access to our private community forum</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to our library of fitness resources</li>
                         </ul>
-                        <button data-checkout="starter" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="starter" data-price="98.50" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
 
                     <!-- Fit & Focused (Most Popular) -->
@@ -1545,7 +1545,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized macro and meal plan adjustments</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to premium workout library with video demos</li>
                         </ul>
-                        <button data-checkout="fitfocused" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="fitfocused" data-price="198.50" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
 
                     <!-- VIP Coaching -->
@@ -1565,7 +1565,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized supplement protocol & guidance</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Priority scheduling for all sessions</li>
                         </ul>
-                        <button data-checkout="vip" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="vip" data-price="348.50" class="mt-auto w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
                     </div>
                 </div>
             </section>
@@ -2837,38 +2837,36 @@
     </script>
 
     <!-- =============================================== -->
-    <!-- BOOKING & PAYMENTS                              -->
+    <!-- BOOKING & PAYMENTS (PayPal)                     -->
     <!-- ----------------------------------------------- -->
     <!-- HOW TO ENABLE:                                  -->
-    <!--  1. Create a Stripe Payment Link for each plan  -->
-    <!--     (dashboard.stripe.com > Payment Links) and  -->
-    <!--     paste the URLs below.                        -->
-    <!--  2. Paste your Calendly (or other) booking URL. -->
-    <!--  These links are public and safe in the page.   -->
-    <!--  Until filled in, buttons fall back gracefully  -->
-    <!--  to the questionnaire / contact page.           -->
+    <!--  1. Set PAYPAL_ME to your PayPal.Me username     -->
+    <!--     (from paypal.me/YOURNAME). That's it - each  -->
+    <!--     plan button builds the PayPal link with the  -->
+    <!--     right amount automatically.                  -->
+    <!--  2. Optionally set BOOKING_URL (Calendly etc.).  -->
+    <!--  These are public and safe in the page.          -->
+    <!--  Until filled in, buttons fall back gracefully   -->
+    <!--  to the questionnaire / contact page.            -->
     <!-- =============================================== -->
     <script>
         (function () {
             // ----- EDIT THESE -----
-            const CHECKOUT_LINKS = {
-                starter: '',      // e.g. 'https://buy.stripe.com/xxxxxxxx'
-                fitfocused: '',   // e.g. 'https://buy.stripe.com/yyyyyyyy'
-                vip: ''           // e.g. 'https://buy.stripe.com/zzzzzzzz'
-            };
-            const BOOKING_URL = ''; // e.g. 'https://calendly.com/empowerfit/intro-call'
+            const PAYPAL_ME = '';          // e.g. 'empowerfit'  (your paypal.me/USERNAME)
+            const CURRENCY = 'USD';        // matches the prices shown on the site
+            const BOOKING_URL = '';        // e.g. 'https://calendly.com/empowerfit/intro-call'
             // ----------------------
 
-            // Plan checkout buttons
+            // Plan "Get Started" buttons -> PayPal.Me with the plan's amount
             document.querySelectorAll('[data-checkout]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    const plan = btn.getAttribute('data-checkout');
-                    const url = CHECKOUT_LINKS[plan];
-                    if (url) {
+                    const price = btn.getAttribute('data-price');
+                    if (PAYPAL_ME && price) {
                         e.preventDefault();
-                        window.location.href = url;
+                        const user = PAYPAL_ME.replace(/^.*paypal\.me\//i, '').replace(/^@/, '');
+                        window.location.href = `https://www.paypal.com/paypalme/${user}/${price}${CURRENCY}`;
                     } else if (typeof showPage === 'function') {
-                        // No payment link configured yet: start the questionnaire instead.
+                        // No PayPal set yet: start the questionnaire instead.
                         e.preventDefault();
                         showPage('questionnaire');
                     }
