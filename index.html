@@ -46,45 +46,56 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Custom Styles -->
     <style>
-        /* CSS Variables for Theme System */
+        /* ===================================================================
+           IVORY & CHAMPAGNE — the EmpowerFit couture palette
+           Warm ivory ground, deep aubergine ink, champagne gold accent.
+           The photography carries the colour; the interface stays quiet.
+           =================================================================== */
         :root {
-            /* --- Soft feminine palette: blush, rose, lilac, peach --- */
-            --background-hsl: 344 62% 98%;
-            --foreground-hsl: 328 26% 17%;
-            --card-hsl: 0 0% 100%;
-            --primary-hsl: 342 78% 62%;
-            --primary-foreground-hsl: 0 0% 100%;
-            --secondary-hsl: 342 54% 95%;
-            --muted-foreground-hsl: 330 14% 46%;
-            --accent-hsl: 282 72% 68%;
-            --border-hsl: 340 44% 91%;
+            --background-hsl: 36 44% 96%;        /* warm ivory */
+            --foreground-hsl: 326 22% 13%;       /* deep aubergine ink */
+            --card-hsl: 38 52% 99%;              /* warm near-white */
+            --primary-hsl: 38 46% 38%;           /* bronze gold — text-safe */
+            --primary-foreground-hsl: 38 50% 98%;
+            --secondary-hsl: 36 34% 92%;         /* sand */
+            --muted-foreground-hsl: 328 8% 40%;
+            --accent-hsl: 345 26% 50%;           /* muted antique rose */
+            --border-hsl: 36 24% 87%;
 
-            /* Premium design tokens */
-            --tertiary-hsl: 16 90% 76%;          /* warm peach */
-            --blush-hsl: 350 92% 92%;
-            --gradient-brand: linear-gradient(120deg, hsl(348 92% 72%), hsl(330 86% 69%) 42%, hsl(282 80% 74%));
-            --gradient-petal: linear-gradient(160deg, hsl(350 100% 97%), hsl(324 84% 96%) 45%, hsl(278 88% 97%));
-            --gradient-sheen: linear-gradient(110deg, transparent 25%, hsla(0 0% 100% / 0.5) 50%, transparent 75%);
-            --shadow-sm: 0 1px 2px hsla(335 40% 40% / 0.05), 0 4px 14px -6px hsla(335 45% 45% / 0.10);
-            --shadow-md: 0 10px 30px -10px hsla(335 45% 45% / 0.18), 0 4px 12px -6px hsla(335 45% 45% / 0.10);
-            --shadow-lg: 0 28px 70px -22px hsla(335 50% 40% / 0.30), 0 10px 26px -14px hsla(335 50% 40% / 0.18);
-            --shadow-glow: 0 14px 44px -10px hsla(var(--primary-hsl) / 0.50);
+            /* Couture tokens */
+            --gold-hsl: 41 58% 56%;              /* champagne, for rules & foil */
+            --gold-soft-hsl: 40 55% 86%;
+            --ink-hsl: 326 24% 11%;
+            --tertiary-hsl: 345 26% 50%;
+            --blush-hsl: 36 40% 93%;
+
+            --gradient-brand: linear-gradient(120deg, hsl(36 48% 42%), hsl(43 64% 64%) 45%, hsl(36 46% 40%));
+            --gradient-foil: linear-gradient(90deg, transparent, hsl(41 60% 62%) 20%, hsl(44 78% 80%) 50%, hsl(41 60% 62%) 80%, transparent);
+            --gradient-petal: linear-gradient(165deg, hsl(38 46% 97%), hsl(34 34% 93%) 55%, hsl(30 30% 90%));
+            --gradient-sheen: linear-gradient(110deg, transparent 30%, hsla(45 80% 92% / 0.35) 50%, transparent 70%);
+
+            /* Shadows are almost absent — luxury reads as flat and precise */
+            --shadow-sm: 0 1px 2px hsla(326 20% 20% / 0.04);
+            --shadow-md: 0 12px 30px -18px hsla(326 24% 18% / 0.22);
+            --shadow-lg: 0 40px 80px -40px hsla(326 24% 14% / 0.34);
+            --shadow-glow: 0 16px 40px -18px hsla(38 50% 32% / 0.42);
+
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
             --ease-soft: cubic-bezier(0.22, 0.9, 0.28, 1);
-            --ring: 0 0 0 4px hsla(var(--primary-hsl) / 0.18);
+            --ring: 0 0 0 3px hsl(var(--gold-hsl) / 0.28);
 
-            /* Softer, rounder geometry throughout */
-            --radius-xs: 0.75rem;
-            --radius-sm: 1rem;
-            --radius-md: 1.35rem;
-            --radius-lg: 1.85rem;
-            --radius-xl: 2.4rem;
+            /* Restrained geometry: crisp edges, not bubbles */
+            --radius-xs: 2px;
+            --radius-sm: 3px;
+            --radius-md: 4px;
+            --radius-lg: 6px;
+            --radius-xl: 10px;
             --radius-pill: 999px;
 
             /* App shell metrics */
@@ -93,21 +104,26 @@
             --safe-t: env(safe-area-inset-top, 0px);
         }
 
-        /* Dark Theme Variables — deep plum, never cold grey */
+        /* Night: the same room after dark — ink, candlelight gold */
         html.dark {
-            --background-hsl: 320 24% 9%;
-            --foreground-hsl: 330 22% 94%;
-            --card-hsl: 320 20% 14%;
-            --secondary-hsl: 320 18% 20%;
-            --muted-foreground-hsl: 328 12% 68%;
-            --border-hsl: 320 16% 25%;
-            --accent-hsl: 282 82% 78%;
-            --primary-hsl: 342 82% 70%;
-            --blush-hsl: 330 30% 24%;
-            --gradient-petal: linear-gradient(160deg, hsl(322 26% 13%), hsl(300 24% 12%) 50%, hsl(278 26% 13%));
-            --shadow-sm: 0 1px 2px hsla(0 0% 0% / 0.4), 0 4px 14px -6px hsla(0 0% 0% / 0.35);
-            --shadow-md: 0 10px 30px -10px hsla(0 0% 0% / 0.55), 0 4px 12px -6px hsla(0 0% 0% / 0.4);
-            --shadow-lg: 0 28px 70px -22px hsla(0 0% 0% / 0.7), 0 10px 26px -14px hsla(0 0% 0% / 0.5);
+            --background-hsl: 326 16% 7%;
+            --foreground-hsl: 36 30% 92%;
+            --card-hsl: 326 14% 11%;
+            --secondary-hsl: 326 12% 16%;
+            --muted-foreground-hsl: 36 12% 64%;
+            --border-hsl: 326 10% 21%;
+            --primary-hsl: 41 60% 62%;
+            --primary-foreground-hsl: 326 24% 9%;
+            --accent-hsl: 345 40% 68%;
+            --gold-hsl: 41 66% 64%;
+            --gold-soft-hsl: 41 30% 30%;
+            --ink-hsl: 326 18% 5%;
+            --blush-hsl: 326 14% 14%;
+
+            --gradient-petal: linear-gradient(165deg, hsl(326 16% 9%), hsl(330 14% 8%) 55%, hsl(320 16% 10%));
+            --shadow-sm: 0 1px 2px hsla(0 0% 0% / 0.4);
+            --shadow-md: 0 12px 30px -18px hsla(0 0% 0% / 0.7);
+            --shadow-lg: 0 40px 80px -40px hsla(0 0% 0% / 0.85);
         }
 
         /* Page Navigation System */
@@ -151,13 +167,13 @@
             z-index: 50;
             backdrop-filter: blur(16px) saturate(160%);
             -webkit-backdrop-filter: blur(16px) saturate(160%);
-            background-color: hsla(var(--background-hsl), 0.7);
+            background-color: hsl(var(--background-hsl) / 0.7);
             border-bottom: 1px solid transparent;
             transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
         }
 
         .sticky-nav.scrolled {
-            background-color: hsla(var(--background-hsl), 0.85);
+            background-color: hsl(var(--background-hsl) / 0.85);
             border-bottom-color: hsl(var(--border-hsl));
             box-shadow: var(--shadow-md);
         }
@@ -248,7 +264,7 @@
         select:focus {
             outline: none;
             border-color: hsl(var(--primary-hsl));
-            box-shadow: 0 0 0 2px hsla(var(--primary-hsl), 0.2);
+            box-shadow: 0 0 0 2px hsl(var(--primary-hsl) / 0.2);
         }
 
         /* Button Interactions */
@@ -357,7 +373,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 18px -4px hsla(var(--primary-hsl), 0.6);
+            box-shadow: 0 6px 18px -4px hsl(var(--primary-hsl) / 0.6);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
@@ -400,7 +416,7 @@
         }
 
         ::selection {
-            background: hsla(var(--primary-hsl), 0.25);
+            background: hsl(var(--primary-hsl) / 0.25);
             color: hsl(var(--foreground-hsl));
         }
 
@@ -408,11 +424,11 @@
         ::-webkit-scrollbar { width: 11px; height: 11px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb {
-            background: hsla(var(--primary-hsl), 0.45);
+            background: hsl(var(--primary-hsl) / 0.45);
             border-radius: 99px;
             border: 3px solid hsl(var(--background-hsl));
         }
-        ::-webkit-scrollbar-thumb:hover { background: hsla(var(--primary-hsl), 0.7); }
+        ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary-hsl) / 0.7); }
 
         /* Display headings: tighter, more refined */
         .font-display { letter-spacing: -0.02em; }
@@ -488,14 +504,14 @@
 
         .bg-accent.btn:hover,
         button.bg-accent:hover {
-            box-shadow: 0 12px 40px -8px hsla(var(--accent-hsl) / 0.55);
+            box-shadow: 0 12px 40px -8px hsl(var(--accent-hsl) / 0.55);
             transform: translateY(-3px);
         }
 
         /* ---- Premium card surfaces ---- */
         .bg-card {
             position: relative;
-            border: 1px solid hsla(var(--border-hsl), 0.7);
+            border: 1px solid hsl(var(--border-hsl) / 0.7);
             box-shadow: var(--shadow-sm);
             transition: box-shadow 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), border-color 0.5s ease;
         }
@@ -512,7 +528,7 @@
             inset: 0;
             border-radius: inherit;
             background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%),
-                hsla(var(--primary-hsl), 0.14), transparent 60%);
+                hsl(var(--primary-hsl) / 0.14), transparent 60%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
@@ -762,7 +778,7 @@
         }
 
         .splash-word {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: -0.01em;
@@ -793,7 +809,7 @@
 
         /* ---- App bar ---- */
         header.sticky-nav {
-            background-color: hsla(var(--background-hsl), 0.78);
+            background-color: hsl(var(--background-hsl) / 0.78);
         }
 
         .appbar-btn {
@@ -803,16 +819,19 @@
             place-items: center;
             border-radius: var(--radius-pill);
             color: hsl(var(--muted-foreground-hsl));
-            background: hsla(var(--secondary-hsl), 0.7);
+            background: hsl(var(--secondary-hsl) / 0.7);
             transition: transform 0.3s var(--ease-spring), color 0.3s ease, background-color 0.3s ease;
         }
 
         .appbar-btn:active { transform: scale(0.9); }
         .appbar-btn:hover  { color: hsl(var(--primary-hsl)); }
 
-        /* Back affordance, shown only on secondary pages (set by JS) */
+        /* Back affordance: secondary pages, handheld only */
         #app-back { display: none; }
-        body.is-subpage #app-back { display: grid; }
+
+        @media (max-width: 1023px) {
+            body.is-subpage #app-back { display: grid; }
+        }
 
         /* ---- Bottom tab bar (handheld only) ---- */
         .app-tabbar {
@@ -827,10 +846,10 @@
             gap: 0.25rem;
             height: calc(var(--tabbar-h) + var(--safe-b));
             padding: 0.4rem 0.5rem calc(0.4rem + var(--safe-b));
-            background: hsla(var(--card-hsl), 0.82);
+            background: hsl(var(--card-hsl) / 0.82);
             backdrop-filter: blur(22px) saturate(180%);
             -webkit-backdrop-filter: blur(22px) saturate(180%);
-            border-top: 1px solid hsla(var(--border-hsl), 0.8);
+            border-top: 1px solid hsl(var(--border-hsl) / 0.8);
             box-shadow: 0 -10px 30px -18px hsla(335 50% 40% / 0.35);
             transition: transform 0.45s var(--ease-soft);
         }
@@ -884,7 +903,7 @@
         }
 
         .app-tab.is-active .app-tab-ico {
-            background: hsla(var(--primary-hsl), 0.13);
+            background: hsl(var(--primary-hsl) / 0.13);
             transform: translateY(-2px);
         }
 
@@ -1011,7 +1030,7 @@
         }
 
         .sheet-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
@@ -1030,7 +1049,7 @@
             gap: 0.75rem;
             padding: 0.85rem 0.9rem;
             border-radius: var(--radius-sm);
-            background: hsla(var(--secondary-hsl), 0.6);
+            background: hsl(var(--secondary-hsl) / 0.6);
             border: 1px solid transparent;
             font-weight: 600;
             font-size: 0.9rem;
@@ -1051,8 +1070,8 @@
         }
 
         .sheet-link:hover {
-            border-color: hsla(var(--primary-hsl), 0.35);
-            background: hsla(var(--primary-hsl), 0.08);
+            border-color: hsl(var(--primary-hsl) / 0.35);
+            background: hsl(var(--primary-hsl) / 0.08);
         }
 
         .sheet-link:active { transform: scale(0.96); }
@@ -1102,7 +1121,7 @@
             display: grid;
             place-items: center;
             border-radius: var(--radius-pill);
-            background: hsla(var(--primary-hsl), 0.12);
+            background: hsl(var(--primary-hsl) / 0.12);
             color: hsl(var(--primary-hsl));
         }
 
@@ -1190,66 +1209,230 @@
         }
 
         .app-tab .ripple-ink,
-        .sheet-link .ripple-ink { background: hsla(var(--primary-hsl), 0.22); }
+        .sheet-link .ripple-ink { background: hsl(var(--primary-hsl) / 0.22); }
 
         @keyframes rippleOut {
             to { transform: scale(2.4); opacity: 0; }
         }
 
         /* ===================================================================
-           FEMININE POLISH — softer shapes, warmer surfaces, gentler motion
+           COUTURE LAYER — restraint, hairlines, gold foil, editorial scale
            =================================================================== */
 
-        /* Blush wash behind the whole app */
+        /* ---- A quiet, warm ground. No candy washes. ---- */
         body {
+            background-color: hsl(var(--background-hsl));
             background-image:
-                radial-gradient(60rem 32rem at 12% -8%, hsla(var(--blush-hsl), 0.55), transparent 62%),
-                radial-gradient(52rem 30rem at 92% 4%, hsla(282 80% 88% / 0.42), transparent 60%);
+                radial-gradient(70rem 40rem at 50% -12%, hsl(var(--gold-soft-hsl) / 0.5), transparent 65%);
             background-attachment: fixed;
             background-repeat: no-repeat;
         }
 
         html.dark body {
             background-image:
-                radial-gradient(60rem 32rem at 12% -8%, hsla(330 45% 30% / 0.42), transparent 62%),
-                radial-gradient(52rem 30rem at 92% 4%, hsla(282 45% 30% / 0.34), transparent 60%);
+                radial-gradient(70rem 40rem at 50% -12%, hsla(38 40% 22% / 0.5), transparent 65%);
         }
 
-        /* Rounder, softer cards */
+        /* Fine printed-paper grain over everything */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+        }
+
+        html.dark body::after { opacity: 0.05; }
+
+        /* ---- Typography: the single biggest lever ---- */
+        .font-display {
+            font-weight: 500;
+            letter-spacing: -0.008em;
+            line-height: 1.06;
+        }
+
+        h1.font-display, .page h1 {
+            font-weight: 400;
+            letter-spacing: -0.012em;
+        }
+
+        /* Hero headline scales like a magazine cover */
+        #hero h1 {
+            font-size: clamp(2.5rem, 7.2vw, 5.6rem);
+            line-height: 1.04;
+            font-weight: 400;
+        }
+
+        @media (max-width: 767px) {
+            #hero .container { padding-top: 2.5rem; padding-bottom: 3rem; }
+            #hero p { font-size: 1rem; line-height: 1.7; margin-bottom: 1.75rem; }
+            #hero h1 { margin-bottom: 1.25rem; }
+            .eyebrow { margin-bottom: 1rem; font-size: 0.6rem; letter-spacing: 0.22em; }
+        }
+
+        .page h2.font-display {
+            font-size: clamp(2rem, 3.6vw, 3.1rem);
+            font-weight: 400;
+        }
+
+        .page h3.font-display { font-weight: 500; }
+
+        /* The hero's emphasised words become gold italics, not a rainbow */
+        .text-shimmer,
+        .text-gradient {
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            -webkit-text-fill-color: currentColor;
+            color: hsl(var(--primary-hsl));
+            font-style: italic;
+            font-weight: 400;
+            animation: none;
+        }
+
+        .page p,
+        footer p,
+        footer li {
+            font-weight: 300;
+            line-height: 1.85;
+        }
+
+        .page .text-muted-foreground { font-weight: 300; }
+
+        /* ---- Eyebrow: letterspaced, gold, with a hairline ---- */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0;
+            margin-bottom: 1.35rem;
+            border-radius: 0;
+            background: none;
+            color: hsl(var(--primary-hsl));
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::after {
+            content: "";
+            width: 2.75rem;
+            height: 1px;
+            background: hsl(var(--gold-hsl));
+        }
+
+        .eyebrow i { font-size: 0.7rem; }
+
+        /* A hairline rule you can drop anywhere */
+        .rule-gold {
+            height: 1px;
+            border: 0;
+            background: var(--gradient-foil);
+            opacity: 0.7;
+        }
+
+        /* ---- Surfaces: hairline-defined, not shadow-defined ---- */
         .page .bg-card,
         footer .bg-card {
-            border-radius: var(--radius-lg);
-            border-color: hsla(var(--border-hsl), 0.85);
+            border-radius: var(--radius-md);
+            border: 1px solid hsl(var(--border-hsl));
+            background-color: hsl(var(--card-hsl));
+            box-shadow: none;
+            transition: border-color 0.5s var(--ease-soft), transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
         }
 
-        .page .bg-card:hover { border-color: hsla(var(--primary-hsl), 0.28); }
-
-        /* A whisper of light along the top edge of every card */
-        .page .bg-card::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 12%;
-            right: 12%;
-            height: 1px;
-            border-radius: 1px;
-            background: linear-gradient(90deg, transparent, hsla(var(--primary-hsl), 0.35), transparent);
-            pointer-events: none;
+        .page .bg-card:hover {
+            border-color: hsl(var(--gold-hsl) / 0.75);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Pill buttons everywhere — friendlier than hard corners */
+        /* Retire the soft glow that used to sit on every card */
+        .page .bg-card::after { content: none; }
+
+        .card-hover:hover { transform: translateY(-4px); }
+
+        .spotlight::before { background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), hsl(var(--gold-hsl) / 0.10), transparent 62%); }
+
+        /* Featured surfaces go to ink — the room's one dark note */
+        .surface-ink {
+            background: hsl(var(--ink-hsl)) !important;
+            border-color: hsl(var(--gold-hsl) / 0.42) !important;
+            color: hsl(38 40% 95%);
+        }
+
+        .surface-ink .text-muted-foreground,
+        .surface-ink .text-foreground { color: hsla(38 30% 90% / 0.72) !important; }
+
+        .surface-ink .text-primary { color: hsl(var(--gold-hsl)) !important; }
+
+        /* ---- Buttons: architectural, letterspaced, never bubbly ---- */
         .page .btn,
         header .btn,
         footer .btn {
-            border-radius: var(--radius-pill);
-            font-weight: 700;
-            letter-spacing: 0.005em;
+            border-radius: var(--radius-sm);
+            font-family: 'Jost', system-ui, sans-serif;
+            font-weight: 500;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
-        .page .btn:active,
-        header .btn:active { transform: scale(0.965); }
+        .page .btn.text-lg,
+        .page .btn.text-base { font-size: 0.82rem; }
 
-        /* Softly filled, generously rounded form fields */
+        .bg-primary.btn,
+        button.bg-primary,
+        .btn.bg-primary {
+            background-image: none;
+            background-color: hsl(var(--primary-hsl));
+            box-shadow: none;
+        }
+
+        .bg-primary.btn:hover,
+        button.bg-primary:hover {
+            background-color: hsl(var(--foreground-hsl));
+            box-shadow: none;
+            transform: none;
+        }
+
+        .bg-accent.btn:hover,
+        button.bg-accent:hover { transform: none; box-shadow: none; }
+
+        /* Outline buttons are a single gold hairline */
+        .page .btn.border,
+        .page a.btn.border {
+            border-color: hsl(var(--gold-hsl) / 0.6);
+            background-color: transparent;
+        }
+
+        .page .btn.border:hover { border-color: hsl(var(--primary-hsl)); background-color: hsl(var(--gold-hsl) / 0.08); }
+
+        .page .btn:active, header .btn:active { transform: scale(0.99); }
+
+        .btn::after { background: var(--gradient-sheen); }
+
+        /* ---- Navigation: small caps, generously tracked ---- */
+        .nav-link {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .nav-link.active-nav { background-color: transparent; color: hsl(var(--primary-hsl)); }
+
+        .nav-link::after { background: hsl(var(--gold-hsl)); height: 1px; }
+
+        header.sticky-nav { background-color: hsl(var(--background-hsl) / 0.82); }
+
+        .sticky-nav.scrolled { box-shadow: none; border-bottom-color: hsl(var(--gold-hsl) / 0.32); }
+
+        header h1.font-display { letter-spacing: 0.02em; font-weight: 500; }
+
+        /* ---- Forms: a ruled line, not a filled pill ---- */
         .page input[type="text"],
         .page input[type="email"],
         .page input[type="number"],
@@ -1257,19 +1440,11 @@
         .page input[type="password"],
         .page textarea,
         .page select {
-            border-radius: var(--radius-sm);
-            border-color: hsla(var(--border-hsl), 0.9);
-            background-color: hsla(var(--secondary-hsl), 0.38);
-            padding: 0.85rem 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-        }
-
-        .page input[type="text"]:hover,
-        .page input[type="email"]:hover,
-        .page input[type="number"]:hover,
-        .page textarea:hover,
-        .page select:hover {
-            border-color: hsla(var(--primary-hsl), 0.4);
+            border-radius: var(--radius-xs);
+            border-color: hsl(var(--border-hsl));
+            background-color: hsl(var(--secondary-hsl) / 0.35);
+            padding: 0.9rem 1rem;
+            font-weight: 300;
         }
 
         input[type="text"]:focus,
@@ -1279,166 +1454,286 @@
         input[type="password"]:focus,
         textarea:focus,
         select:focus {
-            border-color: hsl(var(--primary-hsl));
+            border-color: hsl(var(--gold-hsl));
             box-shadow: var(--ring);
             background-color: hsl(var(--card-hsl));
         }
 
-        ::placeholder { color: hsla(var(--muted-foreground-hsl), 0.75); }
+        .page label { font-weight: 400; letter-spacing: 0.01em; }
 
-        /* Choice chips: tappable cards with a blush-filled selected state */
+        /* Choice chips: crisp, gold when chosen */
         #questionnaire-form .grid > label {
-            border-radius: var(--radius-sm);
-            border-color: hsla(var(--border-hsl), 0.9);
-            background-color: hsla(var(--card-hsl), 0.6);
+            border-radius: var(--radius-xs);
+            border-color: hsl(var(--border-hsl));
+            background-color: transparent;
             padding: 0.95rem 1rem;
-            cursor: pointer;
-            transition: transform 0.3s var(--ease-spring), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 300;
         }
 
         #questionnaire-form .grid > label:hover {
-            background-color: hsla(var(--primary-hsl), 0.07);
-            border-color: hsla(var(--primary-hsl), 0.45);
-            transform: translateY(-1px);
+            background-color: hsl(var(--gold-hsl) / 0.06);
+            border-color: hsl(var(--gold-hsl) / 0.6);
+            transform: none;
         }
 
-        #questionnaire-form .grid > label:active { transform: scale(0.98); }
-
         #questionnaire-form .grid > label:has(input:checked) {
-            background-color: hsla(var(--primary-hsl), 0.11);
+            background-color: hsl(var(--gold-hsl) / 0.1);
             border-color: hsl(var(--primary-hsl));
-            box-shadow: var(--ring);
-            font-weight: 700;
+            box-shadow: none;
+            font-weight: 500;
         }
 
         #questionnaire-form input[type="checkbox"],
-        #questionnaire-form input[type="radio"] {
-            accent-color: hsl(var(--primary-hsl));
-            width: 1.1rem;
-            height: 1.1rem;
-            flex: none;
-        }
+        #questionnaire-form input[type="radio"] { accent-color: hsl(var(--primary-hsl)); }
 
-        /* Gentle validation: a soft blush nudge, never a harsh red slap */
         .field-invalid {
-            border-color: hsl(352 78% 66%) !important;
-            background-color: hsla(352 80% 66% / 0.07) !important;
-            animation: nudge 0.4s var(--ease-soft);
+            border-color: hsl(4 52% 52%) !important;
+            background-color: hsla(4 52% 52% / 0.05) !important;
         }
 
-        .group-invalid {
-            outline: 2px solid hsla(352 78% 66%, 0.65);
-            outline-offset: 4px;
-            border-radius: var(--radius-sm);
-            animation: nudge 0.4s var(--ease-soft);
-        }
+        .group-invalid { outline-color: hsla(4 52% 52%, 0.6); border-radius: var(--radius-xs); }
 
-        @keyframes nudge {
-            0%, 100% { transform: translateX(0); }
-            25%      { transform: translateX(-5px); }
-            75%      { transform: translateX(5px); }
-        }
-
-        /* Step indicators: rounder, with a blush halo on the live step */
+        /* ---- Questionnaire rail ---- */
         .step-indicator {
-            width: 42px;
-            height: 42px;
-            border-width: 2px;
+            border-radius: 50%;
+            background-color: transparent;
+            border-color: hsl(var(--border-hsl));
         }
 
-        .step-indicator.active {
-            background-image: var(--gradient-brand);
-            box-shadow: 0 0 0 6px hsla(var(--primary-hsl), 0.14);
+        .step-indicator.active,
+        .step-indicator.completed {
+            background-image: none;
+            background-color: hsl(var(--primary-hsl));
+            border-color: hsl(var(--primary-hsl));
+            box-shadow: none;
         }
 
-        .step-indicator.completed { background-image: var(--gradient-brand); }
+        .step-indicator.active { transform: scale(1.06); }
 
-        .progress-bar-background { border-radius: 99px; height: 5px; }
+        .progress-bar-background { background-color: hsl(var(--border-hsl)); height: 1px; }
 
         .progress-bar-foreground {
-            border-radius: 99px;
-            height: 5px;
-            background-image: var(--gradient-brand);
-            background-color: transparent;
-            transition: width 0.6s var(--ease-soft);
+            height: 1px;
+            background-image: none;
+            background-color: hsl(var(--gold-hsl));
         }
 
-        /* Softer aurora — slower, dreamier, less saturated */
-        .aurora span {
-            filter: blur(84px);
-            opacity: 0.45;
-            animation-duration: 26s;
-        }
+        .step-label { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.6rem; }
 
-        .aurora span:nth-child(1) { background: hsl(348 92% 76%); }
-        .aurora span:nth-child(2) { background: hsl(282 88% 80%); }
-        .aurora span:nth-child(3) { background: hsl(20 92% 80%); }
+        /* ---- Editorial image frame: a gold rule offset behind the photo ---- */
+        .frame-gold { position: relative; }
 
-        /* Drifting petals — a light, feminine touch over the hero */
-        .petal-field {
+        .frame-gold::before {
+            content: "";
             position: absolute;
-            inset: 0;
-            overflow: hidden;
+            inset: 1.1rem -1.1rem -1.1rem 1.1rem;
+            border: 1px solid hsl(var(--gold-hsl) / 0.55);
+            border-radius: var(--radius-md);
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
-        .petal {
-            position: absolute;
-            top: -8%;
-            width: 14px;
-            height: 14px;
-            border-radius: 100% 0 100% 0;
-            background: linear-gradient(140deg, hsla(348 92% 82% / 0.85), hsla(300 85% 84% / 0.7));
-            opacity: 0;
-            animation: petalFall linear infinite;
+        .frame-gold > img,
+        .frame-gold > .hero-img-frame { position: relative; z-index: 1; }
+
+        .page img { border-radius: var(--radius-md) !important; }
+
+        /* ---- Stat band: hairline columns, engraved numerals ---- */
+        .stat-rail {
+            display: grid;
+            border-top: 1px solid hsl(var(--border-hsl));
+            border-bottom: 1px solid hsl(var(--border-hsl));
         }
 
-        @keyframes petalFall {
-            0%   { opacity: 0; transform: translate3d(0, -10%, 0) rotate(0deg); }
-            10%  { opacity: 0.85; }
-            90%  { opacity: 0.5; }
-            100% { opacity: 0; transform: translate3d(40px, 115vh, 0) rotate(420deg); }
+        .stat-rail > div { padding: 2.25rem 1rem; }
+
+        @media (min-width: 768px) {
+            .stat-rail > div + div { border-left: 1px solid hsl(var(--border-hsl)); }
         }
 
-        /* Celebration burst for the moment she finishes the assessment */
-        .burst-piece {
-            position: fixed;
-            z-index: 190;
-            width: 11px;
-            height: 11px;
-            border-radius: 100% 0 100% 0;
-            pointer-events: none;
-            animation: burstOut 1.5s var(--ease-out-expo) forwards;
+        .stat-value {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: hsl(var(--foreground-hsl));
         }
 
-        @keyframes burstOut {
-            0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
-            100% { opacity: 0; transform: translate(var(--bx), var(--by)) rotate(var(--br)) scale(0.4); }
-        }
-
-        /* Eyebrow label above section headings */
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.9rem;
-            margin-bottom: 0.85rem;
-            border-radius: var(--radius-pill);
-            background: hsla(var(--primary-hsl), 0.1);
-            color: hsl(var(--primary-hsl));
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
+        .stat-rail .text-muted-foreground {
+            font-size: 0.66rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
-        /* Warmer body copy rhythm */
-        .page p { line-height: 1.75; }
+        /* ---- The aurora becomes a single warm candle glow ---- */
+        .aurora span {
+            filter: blur(120px);
+            opacity: 0.2;
+            animation-duration: 34s;
+        }
 
-        /* Softer scrollbar */
-        ::-webkit-scrollbar-thumb {
-            background: hsla(var(--primary-hsl), 0.35);
+        .aurora span:nth-child(1) { background: hsl(41 66% 74%); }
+        .aurora span:nth-child(2) { background: hsl(34 44% 78%); }
+        .aurora span:nth-child(3) { display: none; }
+
+        html.dark .aurora span { opacity: 0.16; }
+
+        /* ---- Marquee reads as a couture credits strip ---- */
+        .marquee span {
+            font-family: 'Jost', system-ui, sans-serif;
+            font-size: 0.72rem !important;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+
+        .marquee { gap: 4.5rem; }
+        .marquee i { color: hsl(var(--gold-hsl)); font-size: 0.7rem; }
+
+        /* ---- Offer tag: a hairline, not a sticker ---- */
+        .offer-tag {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            padding: 0.3rem 0.7rem;
+            border: 1px solid hsl(var(--gold-hsl) / 0.7);
+            border-radius: var(--radius-xs);
+            background: transparent;
+            color: hsl(var(--primary-hsl));
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .surface-ink .offer-tag { color: hsl(var(--gold-hsl)); }
+
+        /* ---- Prices set in the display serif ---- */
+        .price {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        /* ---- FAQ ---- */
+        .faq-item { border-radius: var(--radius-md); }
+        .faq-trigger { font-weight: 400; letter-spacing: 0.005em; }
+
+        /* ---- Footer takes the ink ---- */
+        footer {
+            background-color: hsl(var(--ink-hsl)) !important;
+            border-top: 1px solid hsl(var(--gold-hsl) / 0.35);
+            color: hsl(38 26% 88%);
+        }
+
+        footer h3, footer h4 { color: hsl(38 34% 94%); }
+
+        footer h4 {
+            font-family: 'Jost', system-ui, sans-serif;
+            font-size: 0.68rem !important;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: hsl(var(--gold-hsl));
+        }
+
+        footer .text-muted-foreground { color: hsla(38 22% 86% / 0.62) !important; }
+        footer .text-muted-foreground:hover { color: hsl(var(--gold-hsl)) !important; }
+        footer .border-border { border-color: hsla(38 30% 80% / 0.16) !important; }
+        footer .logo-bg-remove { mix-blend-mode: normal; }
+
+        /* ---- App chrome, restyled for the house ---- */
+        .app-tabbar {
+            background: hsl(var(--background-hsl) / 0.9);
+            border-top: 1px solid hsl(var(--gold-hsl) / 0.3);
+            box-shadow: none;
+        }
+
+        .app-tab {
+            font-size: 0.58rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .app-tab.is-active { color: hsl(var(--primary-hsl)); }
+        .app-tab.is-active .app-tab-ico { background: hsl(var(--gold-hsl) / 0.14); }
+        .app-tab.is-active::before { background: hsl(var(--gold-hsl)); height: 1px; }
+
+        .app-tab-fab .app-tab-ico {
+            background: hsl(var(--ink-hsl));
+            color: hsl(var(--gold-hsl));
+            border: 1px solid hsl(var(--gold-hsl) / 0.55);
+            box-shadow: var(--shadow-md);
+        }
+
+        .app-tab-fab.is-active .app-tab-ico { background: hsl(var(--ink-hsl)); }
+        .app-tab-fab i { animation: none; }
+
+        .appbar-btn { background: transparent; border: 1px solid hsl(var(--border-hsl)); }
+        .appbar-btn:hover { color: hsl(var(--primary-hsl)); border-color: hsl(var(--gold-hsl) / 0.6); }
+
+        #back-to-top {
+            background-image: none;
+            background-color: hsl(var(--ink-hsl));
+            color: hsl(var(--gold-hsl));
+            border: 1px solid hsl(var(--gold-hsl) / 0.5);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sheet-panel { border-radius: var(--radius-lg) var(--radius-lg) 0 0; border-color: hsl(var(--gold-hsl) / 0.35); }
+        .sheet-grip { background: hsl(var(--gold-hsl) / 0.5); }
+
+        .sheet-title { font-weight: 400; }
+
+        .sheet-link {
+            border-radius: var(--radius-xs);
+            background: transparent;
+            border: 1px solid hsl(var(--border-hsl));
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .sheet-link:hover { background: hsl(var(--gold-hsl) / 0.07); border-color: hsl(var(--gold-hsl) / 0.6); }
+        .sheet-link:active { transform: none; }
+        .sheet-link i { background: transparent; box-shadow: none; color: hsl(var(--primary-hsl)); }
+
+        .toast {
+            border-radius: var(--radius-md);
+            border-color: hsl(var(--gold-hsl) / 0.4);
+            font-weight: 400;
+        }
+
+        .toast i { background: transparent; color: hsl(var(--primary-hsl)); }
+        .toast.is-success i { background: transparent; color: hsl(var(--primary-hsl)); }
+        .toast.is-error i { background: transparent; color: hsl(4 52% 52%); }
+
+        .install-card { border-radius: var(--radius-md); border-color: hsl(var(--gold-hsl) / 0.4); }
+
+        .scroll-progress { background: hsl(var(--gold-hsl)); height: 2px; }
+
+        .ripple-ink { background: hsl(var(--gold-hsl) / 0.28); }
+
+        /* ---- Splash ---- */
+        .splash-mark {
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid hsl(var(--gold-hsl) / 0.6);
+            color: hsl(var(--primary-hsl));
+            box-shadow: none;
+            animation: none;
+        }
+
+        .splash-word { font-weight: 400; letter-spacing: 0.06em; font-size: 1.9rem; }
+        .splash-sub { letter-spacing: 0.32em; font-size: 0.62rem; }
+
+        /* ---- Scrollbar & selection ---- */
+        ::selection { background: hsl(var(--gold-hsl) / 0.28); }
+        ::-webkit-scrollbar-thumb { background: hsl(var(--primary-hsl) / 0.3); border-radius: 0; }
+
+        /* Section rhythm: air where a section sets none of its own */
+        @media (min-width: 768px) {
+            #hero > .container { padding-top: 4.5rem; padding-bottom: 5rem; }
         }
 
         /* Reduced-motion additions */
@@ -1489,10 +1784,10 @@
                 gap: 0.5rem;
                 padding: 0.5rem;
                 border-radius: var(--radius-pill);
-                background: hsla(var(--background-hsl), 0.88);
+                background: hsl(var(--background-hsl) / 0.88);
                 backdrop-filter: blur(16px) saturate(160%);
                 -webkit-backdrop-filter: blur(16px) saturate(160%);
-                border: 1px solid hsla(var(--border-hsl), 0.85);
+                border: 1px solid hsl(var(--border-hsl) / 0.85);
                 box-shadow: var(--shadow-md);
             }
         }
@@ -1522,8 +1817,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Playfair Display', 'Georgia', 'serif'],
-                        body: ['Nunito', 'ui-rounded', 'system-ui', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        body: ['Jost', 'Helvetica Neue', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         background: 'hsl(var(--background-hsl))',
@@ -1642,50 +1937,28 @@
             <!-- Hero Section -->
             <section id="hero" class="section-anchor relative overflow-hidden">
                 <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div class="petal-field" id="petal-field" aria-hidden="true"></div>
                 <div class="relative container mx-auto px-4 py-16 md:py-24 lg:py-32">
                     <div class="grid md:grid-cols-2 gap-12 items-center">
                         <div class="animate-on-scroll">
-                            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-card border border-border text-sm font-medium shadow-sm">
-                                <span class="relative flex h-2 w-2">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                                </span>
-                                Coaching built for ambitious women
-                            </div>
+                            <span class="eyebrow">Private coaching &middot; Manchester</span>
                             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-display mb-6 leading-[1.08]">
                                 Become the Best Version of You <span class="text-shimmer">Physically</span> &amp; <span class="text-shimmer">Mentally</span>.
                             </h1>
                             <p class="text-lg text-muted-foreground mb-8 max-w-xl">
                                 Personal coaching for body, mind and spirit &mdash; built around the woman you already are, not the one a workout app thinks you should be.
                             </p>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <button data-magnetic onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg btn">
-                                    Start Your Transformation Today <i class="fas fa-arrow-right ml-2"></i>
+                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <button onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-9 py-4 btn">
+                                    Begin your assessment
                                 </button>
-                                <button onclick="showPage('pricing')" class="px-8 py-4 rounded-xl font-semibold text-lg border border-border bg-card hover:border-primary transition-colors btn">
-                                    View Plans
+                                <button onclick="showPage('pricing')" class="px-9 py-4 border border-border transition-colors btn">
+                                    View the programmes
                                 </button>
                             </div>
+                            <p class="mt-8 text-xs tracking-[0.18em] uppercase text-muted-foreground">Five minutes &middot; A reply within 24 hours</p>
                         </div>
-                        <div class="animate-on-scroll reveal-scale">
-                            <div class="hero-img-frame" data-tilt>
-                                <img src="epf01.jpg" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-72 md:h-[28rem] object-cover object-top rounded-3xl shadow-2xl">
-                                <div class="floaty absolute -bottom-5 -left-5 bg-card rounded-2xl shadow-lg p-4 hidden sm:flex items-center gap-3 border border-border">
-                                    <span class="bg-secondary rounded-full w-11 h-11 flex items-center justify-center"><i class="fas fa-bolt text-primary"></i></span>
-                                    <div>
-                                        <div class="font-bold font-display leading-none">100%</div>
-                                        <div class="text-xs text-muted-foreground">Personalized</div>
-                                    </div>
-                                </div>
-                                <div class="floaty absolute -top-5 -right-4 bg-card rounded-2xl shadow-lg p-4 hidden sm:flex items-center gap-3 border border-border" style="animation-delay: -3s;">
-                                    <span class="bg-secondary rounded-full w-11 h-11 flex items-center justify-center"><i class="fas fa-heart text-accent"></i></span>
-                                    <div>
-                                        <div class="font-bold font-display leading-none">Mind &amp; Body</div>
-                                        <div class="text-xs text-muted-foreground">Holistic method</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="animate-on-scroll reveal-scale frame-gold md:mr-6">
+                            <img src="epf02.jpg" alt="Woman at the shoreline at golden hour, mat under one arm" class="w-full h-80 md:h-[34rem] object-cover object-center">
                         </div>
                     </div>
                 </div>
@@ -1693,22 +1966,22 @@
 
             <!-- Stats Band -->
             <section class="container mx-auto px-4">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 bg-card rounded-3xl shadow-sm p-6 md:p-10 animate-on-scroll spotlight">
+                <div class="stat-rail grid-cols-2 md:grid-cols-4 animate-on-scroll">
                     <div class="text-center">
-                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="5" data-suffix="+">0</div>
-                        <div class="text-sm text-muted-foreground mt-1">Years of experience</div>
+                        <div class="stat-value text-4xl md:text-5xl" data-count="5" data-suffix="+">0</div>
+                        <div class="text-muted-foreground mt-2">Years coaching</div>
                     </div>
                     <div class="text-center">
-                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="100" data-suffix="%">0</div>
-                        <div class="text-sm text-muted-foreground mt-1">Personalized plans</div>
+                        <div class="stat-value text-4xl md:text-5xl" data-count="100" data-suffix="%">0</div>
+                        <div class="text-muted-foreground mt-2">Bespoke plans</div>
                     </div>
                     <div class="text-center">
-                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="24" data-suffix="h">0</div>
-                        <div class="text-sm text-muted-foreground mt-1">Response time</div>
+                        <div class="stat-value text-4xl md:text-5xl" data-count="24" data-suffix="h">0</div>
+                        <div class="text-muted-foreground mt-2">Reply time</div>
                     </div>
                     <div class="text-center">
-                        <div class="stat-value text-3xl md:text-4xl font-bold font-display text-gradient" data-count="3" data-suffix="-in-1">0</div>
-                        <div class="text-sm text-muted-foreground mt-1">Body · Mind · Nutrition</div>
+                        <div class="stat-value text-4xl md:text-5xl" data-count="3" data-suffix="-in-1">0</div>
+                        <div class="text-muted-foreground mt-2">Body · Mind · Nutrition</div>
                     </div>
                 </div>
             </section>
@@ -1742,7 +2015,7 @@
                         </p>
                     </div>
                     <div class="order-1 md:order-2">
-                        <img src="epf0.jpg" loading="lazy" decoding="async" alt="Confident woman exercising with battle ropes" data-ai-hint="woman fitness battle ropes" class="w-full h-80 object-cover object-top rounded-2xl shadow-xl">
+                        <img src="epf01.jpg" loading="lazy" decoding="async" alt="Coaching session in progress" class="w-full h-80 md:h-[26rem] object-cover object-top">
                     </div>
                 </div>
             </section>
@@ -1750,35 +2023,26 @@
             <!-- How It Works Section -->
             <section id="how-it-works" class="section-anchor container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <span class="eyebrow"><i class="fas fa-shoe-prints"></i> Three gentle steps</span>
+                    <span class="eyebrow">01 &mdash; The method</span>
                     <h2 class="text-3xl md:text-4xl font-bold font-display">How It Works</h2>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                    <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll">
-                        <div class="flex justify-center mb-6">
-                            <div class="bg-secondary rounded-full w-16 h-16 flex items-center justify-center">
-                                <i class="fas fa-heart text-primary text-3xl"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">1. Tell Us Your Story</h3>
+                    <div class="bg-card p-8 md:p-10 card-hover transition-all duration-300 animate-on-scroll">
+                        <div class="font-display text-5xl text-primary mb-4 leading-none">01</div>
+                        <hr class="rule-gold mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">Tell us your story</h3>
                         <p class="text-muted-foreground">Our comprehensive questionnaire analyzes your body type, lifestyle, and goals to create a personalized map for success.</p>
                     </div>
-                    <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll" style="animation-delay: 0.2s;">
-                        <div class="flex justify-center mb-6">
-                            <div class="bg-secondary rounded-full w-16 h-16 flex items-center justify-center">
-                                <i class="fas fa-dumbbell text-primary text-3xl"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">2. Get Your Custom Plan</h3>
+                    <div class="bg-card p-8 md:p-10 card-hover transition-all duration-300 animate-on-scroll" style="animation-delay: 0.2s;">
+                        <div class="font-display text-5xl text-primary mb-4 leading-none">02</div>
+                        <hr class="rule-gold mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">Get your bespoke plan</h3>
                         <p class="text-muted-foreground">Receive your personalized fitness, nutrition, and mindset blueprint tailored to your schedule and preferences.</p>
                     </div>
-                    <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll" style="animation-delay: 0.4s;">
-                        <div class="flex justify-center mb-6">
-                            <div class="bg-secondary rounded-full w-16 h-16 flex items-center justify-center">
-                                <i class="fas fa-brain text-primary text-3xl"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">3. Transform & Thrive</h3>
+                    <div class="bg-card p-8 md:p-10 card-hover transition-all duration-300 animate-on-scroll" style="animation-delay: 0.4s;">
+                        <div class="font-display text-5xl text-primary mb-4 leading-none">03</div>
+                        <hr class="rule-gold mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold font-display mb-4">Transform &amp; thrive</h3>
                         <p class="text-muted-foreground">Execute your plan with ongoing support, weekly adjustments, and accountability to ensure life-changing results.</p>
                     </div>
                 </div>
@@ -1788,27 +2052,27 @@
             <section id="pricing-preview" class="section-anchor bg-secondary py-16 md:py-24">
                 <div class="container mx-auto px-4">
                     <div class="text-center mb-12 animate-on-scroll">
-                        <span class="eyebrow"><i class="fas fa-tag"></i> Half price this month</span>
+                        <span class="eyebrow">02 &mdash; Programmes</span>
                         <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose Your Transformation</h2>
                         <p class="text-muted-foreground max-w-xl mx-auto">Month to month. Change or pause whenever life asks you to.</p>
                     </div>
                     <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                         <div class="relative bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
-                            <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
+                            <span class="offer-tag">Founding offer &middot; 50%</span>
                             <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
                             <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
-                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$197</span>$98.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$197</span>$98.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Custom workout plan</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Nutrition guidelines</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Monthly check-ins</li>
                             </ul>
                         </div>
-                        <div class="relative bg-card rounded-2xl shadow-lg border-2 border-primary p-8 animate-on-scroll" style="animation-delay: 0.2s;">
-                            <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
+                        <div class="relative bg-card surface-ink p-8 animate-on-scroll" style="animation-delay: 0.2s;">
+                            <span class="offer-tag">Founding offer &middot; 50%</span>
                             <i class="fas fa-star text-primary text-3xl mb-4"></i>
                             <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
-                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$397</span>$198.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$397</span>$198.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Starter</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Bi-weekly coaching calls</li>
@@ -1816,10 +2080,10 @@
                             </ul>
                         </div>
                         <div class="relative bg-card rounded-2xl shadow-sm p-8 animate-on-scroll" style="animation-delay: 0.4s;">
-                            <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
+                            <span class="offer-tag">Founding offer &middot; 50%</span>
                             <i class="fas fa-award text-primary text-3xl mb-4"></i>
                             <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
-                            <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$697</span>$348.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$697</span>$348.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                             <ul class="space-y-3 mb-8 text-muted-foreground">
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Fit & Focused</li>
                                 <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Weekly private sessions</li>
@@ -1833,18 +2097,20 @@
             <!-- Testimonials Section -->
             <section id="testimonials" class="section-anchor container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <span class="eyebrow"><i class="fas fa-heart"></i> In their words</span>
+                    <span class="eyebrow">03 &mdash; In their words</span>
                     <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">What Our Clients Say</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-                    <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
-                        <p class="text-lg text-muted-foreground mb-6">"Working with Moussa and Nathan changed my relationship with my body. I lost 28 pounds, but more importantly, I gained confidence I never knew I could have."</p>
-                        <div class="font-semibold">Sarah M.</div>
-                    </div>
-                    <div class="bg-card rounded-2xl shadow-sm p-8 animate-on-scroll" style="animation-delay: 0.2s;">
-                        <p class="text-lg text-muted-foreground mb-6">"The mental health support was a game-changer. I've tried other programs before, but the holistic approach here made all the difference."</p>
-                        <div class="font-semibold">Jennifer R.</div>
-                    </div>
+                    <figure class="bg-card p-10 md:p-12 animate-on-scroll flex flex-col">
+                        <blockquote class="font-display text-2xl md:text-3xl leading-snug mb-8">&ldquo;It changed my relationship with my body. I lost 28 pounds &mdash; but the confidence is the part I did not expect.&rdquo;</blockquote>
+                        <hr class="rule-gold mb-5 mt-auto">
+                        <figcaption class="text-xs tracking-[0.2em] uppercase text-muted-foreground">Sarah M. &middot; Nine months in</figcaption>
+                    </figure>
+                    <figure class="bg-card p-10 md:p-12 animate-on-scroll flex flex-col" style="animation-delay: 0.2s;">
+                        <blockquote class="font-display text-2xl md:text-3xl leading-snug mb-8">&ldquo;The mindset work was the game-changer. I had tried other programmes; the holistic approach here made all the difference.&rdquo;</blockquote>
+                        <hr class="rule-gold mb-5 mt-auto">
+                        <figcaption class="text-xs tracking-[0.2em] uppercase text-muted-foreground">Jennifer R. &middot; One year in</figcaption>
+                    </figure>
                 </div>
             </section>
 
@@ -1869,7 +2135,7 @@
             <!-- FAQ Section -->
             <section id="faq" class="section-anchor container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <span class="eyebrow"><i class="fas fa-circle-question"></i> Good questions</span>
+                    <span class="eyebrow">04 &mdash; Questions</span>
                     <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Frequently Asked Questions</h2>
                     <p class="text-muted-foreground max-w-2xl mx-auto">Everything you need to know before starting your transformation.</p>
                 </div>
@@ -1998,7 +2264,7 @@
                     
                     <!-- Header -->
                     <div class="text-center mb-12">
-                        <span class="eyebrow"><i class="fas fa-wand-magic-sparkles"></i> Step by step</span>
+                        <span class="eyebrow">The assessment</span>
                         <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Your Transformation Starts Here</h1>
                         <p class="text-muted-foreground max-w-xl mx-auto">Eight short steps, about five minutes. There are no wrong answers &mdash; only the ones that help us build a plan that actually fits your life.</p>
                         <p class="text-sm text-muted-foreground mt-3"><i class="fas fa-lock text-primary mr-1"></i> Private, and only ever seen by your coach.</p>
@@ -2414,10 +2680,10 @@
                 <div id="pricing-plans" class="section-anchor grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Starter Pack -->
                     <div class="relative bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll">
-                        <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
+                        <span class="offer-tag">Founding offer &middot; 50%</span>
                         <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">Starter Pack</h3>
-                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$197</span>$98.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$197</span>$98.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                         <p class="text-muted-foreground mb-6">Perfect for building consistency with fundamental habits.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Customized 4-week workout plan</li>
@@ -2431,14 +2697,11 @@
                     </div>
 
                     <!-- Fit & Focused (Most Popular) -->
-                    <div class="bg-card rounded-2xl shadow-lg border-2 border-primary relative overflow-hidden flex flex-col p-8 animate-on-scroll" style="animation-delay: 0.2s;">
-                        <div class="absolute top-4 right-4 flex flex-col items-end gap-2">
-                            <span class="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">Most Popular</span>
-                            <span class="bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</span>
-                        </div>
+                    <div class="bg-card surface-ink relative overflow-hidden flex flex-col p-8 animate-on-scroll" style="animation-delay: 0.2s;">
+                        <span class="offer-tag">Most chosen &middot; 50%</span>
                         <i class="fas fa-star text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">Fit & Focused</h3>
-                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$397</span>$198.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$397</span>$198.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                         <p class="text-muted-foreground mb-6">Our most comprehensive body & mind package.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Starter, plus:</li>
@@ -2448,15 +2711,15 @@
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Personalized macro and meal plan adjustments</li>
                             <li class="flex items-start"><i class="fas fa-check text-primary mt-1 mr-3"></i>Access to premium workout library with video demos</li>
                         </ul>
-                        <button data-checkout="fitfocused" data-price="198.50" class="mt-auto w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium transition-colors duration-300 btn">Get Started</button>
+                        <button data-checkout="fitfocused" data-price="198.50" class="mt-auto w-full bg-primary text-primary-foreground py-4 transition-colors duration-300 btn">Get Started</button>
                     </div>
 
                     <!-- VIP Coaching -->
                     <div class="relative bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col p-8 animate-on-scroll" style="animation-delay: 0.4s;">
-                        <div class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold">50% OFF</div>
+                        <span class="offer-tag">Founding offer &middot; 50%</span>
                         <i class="fas fa-award text-primary text-3xl mb-4"></i>
                         <h3 class="text-2xl font-bold font-display mb-2">VIP Coaching</h3>
-                        <p class="text-3xl font-bold mb-4"><span class="text-muted-foreground line-through text-xl mr-2">$697</span>$348.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                        <p class="price text-4xl md:text-5xl mb-4"><span class="text-muted-foreground line-through text-2xl mr-3">$697</span>$348.5<span class="font-body text-xs tracking-[0.16em] uppercase text-muted-foreground ml-2 whitespace-nowrap">per month</span></p>
                         <p class="text-muted-foreground mb-6">Premium 1:1 coaching for maximum results.</p>
                         <ul class="space-y-3 mb-8 text-muted-foreground">
                             <li class="flex items-start font-bold text-foreground"><i class="fas fa-check text-primary mt-1 mr-3"></i>Everything in Fit & Focused, plus:</li>
@@ -4072,7 +4335,7 @@
             // ---------------------------------------------------------------
             window.celebrate = function (origin) {
                 if (reduce) return;
-                const colors = ['hsl(348 92% 74%)', 'hsl(325 86% 74%)', 'hsl(282 80% 76%)', 'hsl(16 92% 78%)', 'hsl(45 95% 76%)'];
+                const colors = ['hsl(41 62% 58%)', 'hsl(44 76% 74%)', 'hsl(36 44% 46%)', 'hsl(345 26% 58%)', 'hsl(38 30% 88%)'];
                 const x = origin ? origin.x : window.innerWidth / 2;
                 const y = origin ? origin.y : window.innerHeight * 0.35;
 
@@ -4188,22 +4451,6 @@
                         host.appendChild(ink);
                         setTimeout(() => ink.remove(), 640);
                     }, { passive: true });
-                }
-
-                // ---- Drifting petals over the hero ----
-                const field = document.getElementById('petal-field');
-                if (field && !reduce) {
-                    for (let i = 0; i < 12; i++) {
-                        const petal = document.createElement('span');
-                        petal.className = 'petal';
-                        const size = 8 + Math.random() * 12;
-                        petal.style.width = petal.style.height = size + 'px';
-                        petal.style.left = (Math.random() * 100) + '%';
-                        petal.style.animationDuration = (13 + Math.random() * 14) + 's';
-                        petal.style.animationDelay = (-Math.random() * 22) + 's';
-                        petal.style.opacity = 0.35 + Math.random() * 0.4;
-                        field.appendChild(petal);
-                    }
                 }
 
                 // ---- Sync the tab bar with whatever page loaded first ----
