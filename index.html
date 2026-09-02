@@ -3,19 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>EmpowerFit - Women's Fitness & Wellness Coaching</title>
 
     <!-- SEO Meta -->
     <meta name="description" content="EmpowerFit offers personalized fitness, nutrition, and mindset coaching designed specifically for ambitious women. Transform your body, mind, and spirit with holistic 1:1 coaching.">
     <meta name="keywords" content="women's fitness, fitness coaching, personal training, nutrition coaching, mental wellness, weight loss, strength training, online coaching">
     <meta name="author" content="EmpowerFit">
-    <meta name="theme-color" content="#ec4899">
+    <meta name="theme-color" content="#fdf5f8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1b121a" media="(prefers-color-scheme: dark)">
     <link rel="canonical" href="https://empowerfit.app/">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="epf00.jpg">
-    <link rel="apple-touch-icon" href="epf00.jpg">
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="application-name" content="EmpowerFit">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="EmpowerFit">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicon & app icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -35,48 +46,68 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Custom Styles -->
     <style>
         /* CSS Variables for Theme System */
         :root {
-            --background-hsl: 330 60% 97%;
-            --foreground-hsl: 330 15% 16%;
+            /* --- Soft feminine palette: blush, rose, lilac, peach --- */
+            --background-hsl: 344 62% 98%;
+            --foreground-hsl: 328 26% 17%;
             --card-hsl: 0 0% 100%;
-            --primary-hsl: 330 85% 64%;
+            --primary-hsl: 342 78% 62%;
             --primary-foreground-hsl: 0 0% 100%;
-            --secondary-hsl: 330 55% 92%;
-            --muted-foreground-hsl: 330 10% 45%;
-            --accent-hsl: 275 90% 68%;
-            --border-hsl: 330 45% 89%;
+            --secondary-hsl: 342 54% 95%;
+            --muted-foreground-hsl: 330 14% 46%;
+            --accent-hsl: 282 72% 68%;
+            --border-hsl: 340 44% 91%;
 
             /* Premium design tokens */
-            --tertiary-hsl: 200 90% 62%;
-            --gradient-brand: linear-gradient(120deg, hsl(330 90% 66%), hsl(290 85% 66%) 45%, hsl(258 90% 70%));
-            --gradient-sheen: linear-gradient(110deg, transparent 25%, hsla(0 0% 100% / 0.45) 50%, transparent 75%);
-            --shadow-sm: 0 1px 2px hsla(330 30% 20% / 0.06), 0 2px 8px hsla(330 30% 20% / 0.05);
-            --shadow-md: 0 8px 24px -6px hsla(330 40% 30% / 0.14), 0 4px 10px -4px hsla(330 40% 30% / 0.08);
-            --shadow-lg: 0 24px 60px -16px hsla(330 50% 35% / 0.28), 0 10px 24px -12px hsla(330 50% 35% / 0.18);
-            --shadow-glow: 0 12px 40px -8px hsla(var(--primary-hsl) / 0.55);
+            --tertiary-hsl: 16 90% 76%;          /* warm peach */
+            --blush-hsl: 350 92% 92%;
+            --gradient-brand: linear-gradient(120deg, hsl(348 92% 72%), hsl(330 86% 69%) 42%, hsl(282 80% 74%));
+            --gradient-petal: linear-gradient(160deg, hsl(350 100% 97%), hsl(324 84% 96%) 45%, hsl(278 88% 97%));
+            --gradient-sheen: linear-gradient(110deg, transparent 25%, hsla(0 0% 100% / 0.5) 50%, transparent 75%);
+            --shadow-sm: 0 1px 2px hsla(335 40% 40% / 0.05), 0 4px 14px -6px hsla(335 45% 45% / 0.10);
+            --shadow-md: 0 10px 30px -10px hsla(335 45% 45% / 0.18), 0 4px 12px -6px hsla(335 45% 45% / 0.10);
+            --shadow-lg: 0 28px 70px -22px hsla(335 50% 40% / 0.30), 0 10px 26px -14px hsla(335 50% 40% / 0.18);
+            --shadow-glow: 0 14px 44px -10px hsla(var(--primary-hsl) / 0.50);
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-            --ring: 0 0 0 3px hsla(var(--primary-hsl) / 0.25);
+            --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
+            --ease-soft: cubic-bezier(0.22, 0.9, 0.28, 1);
+            --ring: 0 0 0 4px hsla(var(--primary-hsl) / 0.18);
+
+            /* Softer, rounder geometry throughout */
+            --radius-xs: 0.75rem;
+            --radius-sm: 1rem;
+            --radius-md: 1.35rem;
+            --radius-lg: 1.85rem;
+            --radius-xl: 2.4rem;
+            --radius-pill: 999px;
+
+            /* App shell metrics */
+            --tabbar-h: 4.4rem;
+            --safe-b: env(safe-area-inset-bottom, 0px);
+            --safe-t: env(safe-area-inset-top, 0px);
         }
 
-        /* Dark Theme Variables */
+        /* Dark Theme Variables — deep plum, never cold grey */
         html.dark {
-            --background-hsl: 290 18% 8%;
-            --foreground-hsl: 320 15% 92%;
-            --card-hsl: 290 16% 13%;
-            --secondary-hsl: 290 14% 19%;
-            --muted-foreground-hsl: 320 10% 64%;
-            --border-hsl: 290 14% 22%;
-            --accent-hsl: 275 95% 74%;
-            --shadow-sm: 0 1px 2px hsla(0 0% 0% / 0.4), 0 2px 8px hsla(0 0% 0% / 0.3);
-            --shadow-md: 0 8px 24px -6px hsla(0 0% 0% / 0.5), 0 4px 10px -4px hsla(0 0% 0% / 0.4);
-            --shadow-lg: 0 24px 60px -16px hsla(0 0% 0% / 0.65), 0 10px 24px -12px hsla(0 0% 0% / 0.5);
+            --background-hsl: 320 24% 9%;
+            --foreground-hsl: 330 22% 94%;
+            --card-hsl: 320 20% 14%;
+            --secondary-hsl: 320 18% 20%;
+            --muted-foreground-hsl: 328 12% 68%;
+            --border-hsl: 320 16% 25%;
+            --accent-hsl: 282 82% 78%;
+            --primary-hsl: 342 82% 70%;
+            --blush-hsl: 330 30% 24%;
+            --gradient-petal: linear-gradient(160deg, hsl(322 26% 13%), hsl(300 24% 12%) 50%, hsl(278 26% 13%));
+            --shadow-sm: 0 1px 2px hsla(0 0% 0% / 0.4), 0 4px 14px -6px hsla(0 0% 0% / 0.35);
+            --shadow-md: 0 10px 30px -10px hsla(0 0% 0% / 0.55), 0 4px 12px -6px hsla(0 0% 0% / 0.4);
+            --shadow-lg: 0 28px 70px -22px hsla(0 0% 0% / 0.7), 0 10px 26px -14px hsla(0 0% 0% / 0.5);
         }
 
         /* Page Navigation System */
@@ -648,6 +679,840 @@
                 animation: none !important;
             }
         }
+
+        /* ===================================================================
+           APP SHELL — makes the site behave and feel like a native app
+           =================================================================== */
+
+        /* Native-feeling touch surface: no blue flash, no rubber-band, no
+           accidental text selection on chrome elements. */
+        html {
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: none;
+        }
+
+        body {
+            overscroll-behavior-y: none;
+            /* Room for the bottom tab bar on handheld sizes. */
+            padding-bottom: calc(var(--tabbar-h) + var(--safe-b));
+        }
+
+        @media (min-width: 1024px) {
+            body { padding-bottom: 0; }
+        }
+
+        .app-tabbar,
+        .app-sheet,
+        .app-splash,
+        .toast-host,
+        #back-to-top,
+        .app-tab,
+        .sheet-grip {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* When installed to the home screen, drop the "web page" tells. */
+        @media (display-mode: standalone) {
+            .hide-in-app { display: none !important; }
+            header.sticky-nav { padding-top: var(--safe-t); }
+        }
+
+        /* ---- Boot splash: a calm first frame instead of a white flash ---- */
+        .app-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            background: var(--gradient-petal);
+            /* Fades itself out even if JavaScript never runs. */
+            animation: splashOut 0.55s var(--ease-soft) 1.15s forwards;
+        }
+
+        .app-splash.is-gone {
+            animation: splashOut 0.45s var(--ease-soft) forwards;
+        }
+
+        @keyframes splashOut {
+            to { opacity: 0; visibility: hidden; transform: scale(1.04); }
+        }
+
+        .splash-mark {
+            width: 88px;
+            height: 88px;
+            border-radius: 28px;
+            background: var(--gradient-brand);
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: 2.1rem;
+            box-shadow: var(--shadow-glow);
+            animation: splashBeat 1.6s var(--ease-soft) infinite;
+        }
+
+        @keyframes splashBeat {
+            0%, 100% { transform: scale(1); }
+            18%      { transform: scale(1.12); }
+            36%      { transform: scale(1); }
+            54%      { transform: scale(1.07); }
+        }
+
+        .splash-word {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: hsl(var(--foreground-hsl));
+        }
+
+        .splash-sub {
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: hsl(var(--muted-foreground-hsl));
+        }
+
+        /* ---- Reading-progress hairline under the app bar ---- */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            background: var(--gradient-brand);
+            z-index: 70;
+            pointer-events: none;
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* ---- App bar ---- */
+        header.sticky-nav {
+            background-color: hsla(var(--background-hsl), 0.78);
+        }
+
+        .appbar-btn {
+            width: 2.6rem;
+            height: 2.6rem;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-pill);
+            color: hsl(var(--muted-foreground-hsl));
+            background: hsla(var(--secondary-hsl), 0.7);
+            transition: transform 0.3s var(--ease-spring), color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .appbar-btn:active { transform: scale(0.9); }
+        .appbar-btn:hover  { color: hsl(var(--primary-hsl)); }
+
+        /* Back affordance, shown only on secondary pages (set by JS) */
+        #app-back { display: none; }
+        body.is-subpage #app-back { display: grid; }
+
+        /* ---- Bottom tab bar (handheld only) ---- */
+        .app-tabbar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 80;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: end;
+            gap: 0.25rem;
+            height: calc(var(--tabbar-h) + var(--safe-b));
+            padding: 0.4rem 0.5rem calc(0.4rem + var(--safe-b));
+            background: hsla(var(--card-hsl), 0.82);
+            backdrop-filter: blur(22px) saturate(180%);
+            -webkit-backdrop-filter: blur(22px) saturate(180%);
+            border-top: 1px solid hsla(var(--border-hsl), 0.8);
+            box-shadow: 0 -10px 30px -18px hsla(335 50% 40% / 0.35);
+            transition: transform 0.45s var(--ease-soft);
+        }
+
+        /* Slides away while scrolling down, like a native app */
+        .app-tabbar.is-hidden { transform: translateY(115%); }
+
+        @media (min-width: 1024px) {
+            .app-tabbar { display: none; }
+        }
+
+        .app-tab-ico { overflow: hidden; }
+
+        .appbar-btn,
+        .sheet-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-tab {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.2rem;
+            padding: 0.35rem 0 0.15rem;
+            border-radius: var(--radius-sm);
+            color: hsl(var(--muted-foreground-hsl));
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            transition: color 0.3s var(--ease-soft);
+        }
+
+        .app-tab i { font-size: 1.05rem; }
+
+        .app-tab-ico {
+            display: grid;
+            place-items: center;
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: var(--radius-pill);
+            transition: background-color 0.35s var(--ease-soft), transform 0.4s var(--ease-spring);
+        }
+
+        .app-tab:active .app-tab-ico { transform: scale(0.86); }
+
+        .app-tab.is-active {
+            color: hsl(var(--primary-hsl));
+        }
+
+        .app-tab.is-active .app-tab-ico {
+            background: hsla(var(--primary-hsl), 0.13);
+            transform: translateY(-2px);
+        }
+
+        /* Petal-soft dot marking the live tab */
+        .app-tab.is-active::before {
+            content: "";
+            position: absolute;
+            top: -0.4rem;
+            left: 50%;
+            margin-left: -0.75rem;
+            width: 1.5rem;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--gradient-brand);
+            animation: tabDot 0.45s var(--ease-spring);
+        }
+
+        /* The raised centre button is its own indicator */
+        .app-tab-fab.is-active::before { content: none; }
+
+        @keyframes tabDot {
+            from { transform: scaleX(0); opacity: 0; }
+            to   { transform: scaleX(1); opacity: 1; }
+        }
+
+        /* The raised centre action — the heart of the app */
+        .app-tab-fab .app-tab-ico {
+            width: 3.35rem;
+            height: 3.35rem;
+            margin-top: -1.5rem;
+            background: var(--gradient-brand);
+            color: #fff;
+            font-size: 1.15rem;
+            box-shadow: var(--shadow-glow);
+            border: 3px solid hsl(var(--card-hsl));
+        }
+
+        .app-tab-fab.is-active .app-tab-ico {
+            background: var(--gradient-brand);
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .app-tab-fab i { animation: heartBeat 3.4s var(--ease-soft) infinite; }
+
+        @keyframes heartBeat {
+            0%, 82%, 100% { transform: scale(1); }
+            86%           { transform: scale(1.18); }
+            90%           { transform: scale(1); }
+            94%           { transform: scale(1.12); }
+        }
+
+        /* Keep the floating helper clear of the tab bar */
+        #back-to-top {
+            bottom: calc(var(--tabbar-h) + var(--safe-b) + 1rem);
+            border-radius: var(--radius-pill);
+            background-image: var(--gradient-brand);
+        }
+
+        @media (min-width: 1024px) {
+            #back-to-top { bottom: 1.5rem; }
+        }
+
+        /* ---- Bottom sheet (the app's "More" menu) ---- */
+        .app-sheet {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .app-sheet[hidden] { display: none; }
+
+        .sheet-scrim {
+            position: absolute;
+            inset: 0;
+            background: hsla(330 30% 12% / 0.42);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            opacity: 0;
+            transition: opacity 0.35s var(--ease-soft);
+        }
+
+        .app-sheet.is-open .sheet-scrim { opacity: 1; }
+
+        .sheet-panel {
+            position: relative;
+            width: 100%;
+            max-width: 34rem;
+            max-height: 86vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0.75rem 1.25rem calc(1.5rem + var(--safe-b));
+            background: hsl(var(--card-hsl));
+            border: 1px solid hsl(var(--border-hsl));
+            border-bottom: 0;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(102%);
+            transition: transform 0.45s var(--ease-soft);
+        }
+
+        .app-sheet.is-open .sheet-panel { transform: translateY(0); }
+
+        @media (min-width: 640px) {
+            .app-sheet { align-items: center; padding: 1.5rem; }
+            .sheet-panel {
+                border-radius: var(--radius-xl);
+                border-bottom: 1px solid hsl(var(--border-hsl));
+                transform: translateY(24px) scale(0.97);
+                opacity: 0;
+                transition: transform 0.4s var(--ease-spring), opacity 0.3s ease;
+            }
+            .app-sheet.is-open .sheet-panel { transform: none; opacity: 1; }
+        }
+
+        .sheet-grip {
+            width: 2.75rem;
+            height: 0.3rem;
+            border-radius: var(--radius-pill);
+            background: hsl(var(--border-hsl));
+            margin: 0.25rem auto 1rem;
+        }
+
+        .sheet-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .sheet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.6rem;
+            margin: 1rem 0;
+        }
+
+        .sheet-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 0.9rem;
+            border-radius: var(--radius-sm);
+            background: hsla(var(--secondary-hsl), 0.6);
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: left;
+            color: hsl(var(--foreground-hsl));
+            transition: transform 0.3s var(--ease-spring), background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .sheet-link i {
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-pill);
+            background: hsl(var(--card-hsl));
+            color: hsl(var(--primary-hsl));
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sheet-link:hover {
+            border-color: hsla(var(--primary-hsl), 0.35);
+            background: hsla(var(--primary-hsl), 0.08);
+        }
+
+        .sheet-link:active { transform: scale(0.96); }
+
+        /* ---- Toasts: gentle, never an alert() ---- */
+        .toast-host {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(var(--tabbar-h) + var(--safe-b) + 1rem);
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            width: min(94vw, 26rem);
+            pointer-events: none;
+        }
+
+        @media (min-width: 1024px) {
+            .toast-host { bottom: 1.5rem; }
+        }
+
+        .toast {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border-radius: var(--radius-md);
+            background: hsl(var(--card-hsl));
+            border: 1px solid hsl(var(--border-hsl));
+            box-shadow: var(--shadow-lg);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: hsl(var(--foreground-hsl));
+            pointer-events: auto;
+            animation: toastIn 0.45s var(--ease-spring);
+        }
+
+        .toast.is-leaving { animation: toastOut 0.3s var(--ease-soft) forwards; }
+
+        .toast i {
+            width: 1.9rem;
+            height: 1.9rem;
+            flex: none;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-pill);
+            background: hsla(var(--primary-hsl), 0.12);
+            color: hsl(var(--primary-hsl));
+        }
+
+        .toast.is-success i { background: hsla(150 60% 45% / 0.15); color: hsl(150 55% 38%); }
+        .toast.is-error   i { background: hsla(352 80% 60% / 0.15); color: hsl(352 70% 55%); }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(18px) scale(0.96); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        @keyframes toastOut {
+            to { opacity: 0; transform: translateY(10px) scale(0.98); }
+        }
+
+        /* ---- "Add to home screen" invitation ---- */
+        .install-card {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%) translateY(160%);
+            bottom: calc(var(--tabbar-h) + var(--safe-b) + 0.75rem);
+            z-index: 110;
+            width: min(94vw, 27rem);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem 0.8rem;
+            border-radius: var(--radius-md);
+            background: hsl(var(--card-hsl));
+            border: 1px solid hsl(var(--border-hsl));
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.55s var(--ease-soft), opacity 0.35s ease, visibility 0.55s;
+        }
+
+        .install-card.is-open {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (min-width: 1024px) {
+            .install-card { bottom: 1.5rem; left: auto; right: 1.5rem; transform: translateY(160%); }
+            .install-card.is-open { transform: translateY(0); }
+        }
+
+        .install-card img {
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: var(--radius-xs);
+            flex: none;
+        }
+
+        /* ---- Native-style page transitions ---- */
+        .page.active {
+            animation: pageForward 0.42s var(--ease-soft) both;
+        }
+
+        .page.active.nav-back {
+            animation: pageBack 0.42s var(--ease-soft) both;
+        }
+
+        @keyframes pageForward {
+            from { opacity: 0; transform: translate3d(18px, 6px, 0) scale(0.985); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        @keyframes pageBack {
+            from { opacity: 0; transform: translate3d(-18px, 6px, 0) scale(0.985); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        /* The old dropdown menu is replaced by the bottom sheet */
+        #mobile-menu { display: none !important; }
+
+        /* ---- Touch ripple ---- */
+        .ripple-ink {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            background: hsla(0 0% 100% / 0.45);
+            pointer-events: none;
+            animation: rippleOut 0.6s var(--ease-out-expo) forwards;
+        }
+
+        .app-tab .ripple-ink,
+        .sheet-link .ripple-ink { background: hsla(var(--primary-hsl), 0.22); }
+
+        @keyframes rippleOut {
+            to { transform: scale(2.4); opacity: 0; }
+        }
+
+        /* ===================================================================
+           FEMININE POLISH — softer shapes, warmer surfaces, gentler motion
+           =================================================================== */
+
+        /* Blush wash behind the whole app */
+        body {
+            background-image:
+                radial-gradient(60rem 32rem at 12% -8%, hsla(var(--blush-hsl), 0.55), transparent 62%),
+                radial-gradient(52rem 30rem at 92% 4%, hsla(282 80% 88% / 0.42), transparent 60%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        html.dark body {
+            background-image:
+                radial-gradient(60rem 32rem at 12% -8%, hsla(330 45% 30% / 0.42), transparent 62%),
+                radial-gradient(52rem 30rem at 92% 4%, hsla(282 45% 30% / 0.34), transparent 60%);
+        }
+
+        /* Rounder, softer cards */
+        .page .bg-card,
+        footer .bg-card {
+            border-radius: var(--radius-lg);
+            border-color: hsla(var(--border-hsl), 0.85);
+        }
+
+        .page .bg-card:hover { border-color: hsla(var(--primary-hsl), 0.28); }
+
+        /* A whisper of light along the top edge of every card */
+        .page .bg-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 12%;
+            right: 12%;
+            height: 1px;
+            border-radius: 1px;
+            background: linear-gradient(90deg, transparent, hsla(var(--primary-hsl), 0.35), transparent);
+            pointer-events: none;
+        }
+
+        /* Pill buttons everywhere — friendlier than hard corners */
+        .page .btn,
+        header .btn,
+        footer .btn {
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            letter-spacing: 0.005em;
+        }
+
+        .page .btn:active,
+        header .btn:active { transform: scale(0.965); }
+
+        /* Softly filled, generously rounded form fields */
+        .page input[type="text"],
+        .page input[type="email"],
+        .page input[type="number"],
+        .page input[type="tel"],
+        .page input[type="password"],
+        .page textarea,
+        .page select {
+            border-radius: var(--radius-sm);
+            border-color: hsla(var(--border-hsl), 0.9);
+            background-color: hsla(var(--secondary-hsl), 0.38);
+            padding: 0.85rem 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .page input[type="text"]:hover,
+        .page input[type="email"]:hover,
+        .page input[type="number"]:hover,
+        .page textarea:hover,
+        .page select:hover {
+            border-color: hsla(var(--primary-hsl), 0.4);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="tel"]:focus,
+        input[type="password"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: hsl(var(--primary-hsl));
+            box-shadow: var(--ring);
+            background-color: hsl(var(--card-hsl));
+        }
+
+        ::placeholder { color: hsla(var(--muted-foreground-hsl), 0.75); }
+
+        /* Choice chips: tappable cards with a blush-filled selected state */
+        #questionnaire-form .grid > label {
+            border-radius: var(--radius-sm);
+            border-color: hsla(var(--border-hsl), 0.9);
+            background-color: hsla(var(--card-hsl), 0.6);
+            padding: 0.95rem 1rem;
+            cursor: pointer;
+            transition: transform 0.3s var(--ease-spring), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #questionnaire-form .grid > label:hover {
+            background-color: hsla(var(--primary-hsl), 0.07);
+            border-color: hsla(var(--primary-hsl), 0.45);
+            transform: translateY(-1px);
+        }
+
+        #questionnaire-form .grid > label:active { transform: scale(0.98); }
+
+        #questionnaire-form .grid > label:has(input:checked) {
+            background-color: hsla(var(--primary-hsl), 0.11);
+            border-color: hsl(var(--primary-hsl));
+            box-shadow: var(--ring);
+            font-weight: 700;
+        }
+
+        #questionnaire-form input[type="checkbox"],
+        #questionnaire-form input[type="radio"] {
+            accent-color: hsl(var(--primary-hsl));
+            width: 1.1rem;
+            height: 1.1rem;
+            flex: none;
+        }
+
+        /* Gentle validation: a soft blush nudge, never a harsh red slap */
+        .field-invalid {
+            border-color: hsl(352 78% 66%) !important;
+            background-color: hsla(352 80% 66% / 0.07) !important;
+            animation: nudge 0.4s var(--ease-soft);
+        }
+
+        .group-invalid {
+            outline: 2px solid hsla(352 78% 66%, 0.65);
+            outline-offset: 4px;
+            border-radius: var(--radius-sm);
+            animation: nudge 0.4s var(--ease-soft);
+        }
+
+        @keyframes nudge {
+            0%, 100% { transform: translateX(0); }
+            25%      { transform: translateX(-5px); }
+            75%      { transform: translateX(5px); }
+        }
+
+        /* Step indicators: rounder, with a blush halo on the live step */
+        .step-indicator {
+            width: 42px;
+            height: 42px;
+            border-width: 2px;
+        }
+
+        .step-indicator.active {
+            background-image: var(--gradient-brand);
+            box-shadow: 0 0 0 6px hsla(var(--primary-hsl), 0.14);
+        }
+
+        .step-indicator.completed { background-image: var(--gradient-brand); }
+
+        .progress-bar-background { border-radius: 99px; height: 5px; }
+
+        .progress-bar-foreground {
+            border-radius: 99px;
+            height: 5px;
+            background-image: var(--gradient-brand);
+            background-color: transparent;
+            transition: width 0.6s var(--ease-soft);
+        }
+
+        /* Softer aurora — slower, dreamier, less saturated */
+        .aurora span {
+            filter: blur(84px);
+            opacity: 0.45;
+            animation-duration: 26s;
+        }
+
+        .aurora span:nth-child(1) { background: hsl(348 92% 76%); }
+        .aurora span:nth-child(2) { background: hsl(282 88% 80%); }
+        .aurora span:nth-child(3) { background: hsl(20 92% 80%); }
+
+        /* Drifting petals — a light, feminine touch over the hero */
+        .petal-field {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .petal {
+            position: absolute;
+            top: -8%;
+            width: 14px;
+            height: 14px;
+            border-radius: 100% 0 100% 0;
+            background: linear-gradient(140deg, hsla(348 92% 82% / 0.85), hsla(300 85% 84% / 0.7));
+            opacity: 0;
+            animation: petalFall linear infinite;
+        }
+
+        @keyframes petalFall {
+            0%   { opacity: 0; transform: translate3d(0, -10%, 0) rotate(0deg); }
+            10%  { opacity: 0.85; }
+            90%  { opacity: 0.5; }
+            100% { opacity: 0; transform: translate3d(40px, 115vh, 0) rotate(420deg); }
+        }
+
+        /* Celebration burst for the moment she finishes the assessment */
+        .burst-piece {
+            position: fixed;
+            z-index: 190;
+            width: 11px;
+            height: 11px;
+            border-radius: 100% 0 100% 0;
+            pointer-events: none;
+            animation: burstOut 1.5s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes burstOut {
+            0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+            100% { opacity: 0; transform: translate(var(--bx), var(--by)) rotate(var(--br)) scale(0.4); }
+        }
+
+        /* Eyebrow label above section headings */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 0.85rem;
+            border-radius: var(--radius-pill);
+            background: hsla(var(--primary-hsl), 0.1);
+            color: hsl(var(--primary-hsl));
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* Warmer body copy rhythm */
+        .page p { line-height: 1.75; }
+
+        /* Softer scrollbar */
+        ::-webkit-scrollbar-thumb {
+            background: hsla(var(--primary-hsl), 0.35);
+        }
+
+        /* Reduced-motion additions */
+        @media (prefers-reduced-motion: reduce) {
+            .app-splash { display: none !important; }
+            .petal, .burst-piece { display: none !important; }
+            .app-tabbar.is-hidden { transform: none; }
+            .page.active, .page.active.nav-back { animation: none !important; }
+        }
+
+        /* The eight-step rail turns into a compact "Step 2 of 8" on phones */
+        .step-counter { display: none; }
+
+        @media (max-width: 640px) {
+            .step-counter {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                margin-bottom: 0.75rem;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: hsl(var(--muted-foreground-hsl));
+            }
+
+            .step-counter strong { color: hsl(var(--primary-hsl)); }
+
+            .progress-container { margin-bottom: 1.75rem; }
+
+            .step-label { display: none; }
+
+            .step-indicator {
+                width: 30px;
+                height: 30px;
+                font-size: 0.7rem;
+            }
+
+            .progress-bar-background,
+            .progress-bar-foreground { top: 15px; }
+        }
+
+        /* Questionnaire actions ride above the tab bar on phones */
+        @media (max-width: 1023px) {
+            #navigation-buttons {
+                position: sticky;
+                bottom: calc(var(--tabbar-h) + var(--safe-b) + 0.5rem);
+                z-index: 40;
+                gap: 0.5rem;
+                padding: 0.5rem;
+                border-radius: var(--radius-pill);
+                background: hsla(var(--background-hsl), 0.88);
+                backdrop-filter: blur(16px) saturate(160%);
+                -webkit-backdrop-filter: blur(16px) saturate(160%);
+                border: 1px solid hsla(var(--border-hsl), 0.85);
+                box-shadow: var(--shadow-md);
+            }
+        }
+
+        /* Sheet links: keep two-word labels on one line */
+        .sheet-link {
+            padding: 0.8rem 0.75rem;
+            font-size: 0.85rem;
+            line-height: 1.25;
+        }
+
+        .sheet-link i {
+            width: 1.85rem;
+            height: 1.85rem;
+            font-size: 0.85rem;
+            flex: none;
+        }
+
+        /* No 300ms tap delay / double-tap zoom on controls */
+        button, a, label, .app-tab, .sheet-link { touch-action: manipulation; }
     </style>
 
     <!-- Tailwind CSS Configuration -->
@@ -657,8 +1522,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        body: ['PT Sans', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                        body: ['Nunito', 'ui-rounded', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         background: 'hsl(var(--background-hsl))',
@@ -684,6 +1549,17 @@
 </head>
 
 <body class="font-body bg-background text-foreground transition-colors duration-300">
+
+    <!-- App boot splash: shown for a beat, then fades (CSS-driven, JS optional) -->
+    <div class="app-splash" id="app-splash" role="presentation" aria-hidden="true">
+        <span class="splash-mark"><i class="fas fa-heart"></i></span>
+        <span class="splash-word">EmpowerFit</span>
+        <span class="splash-sub">Strong &middot; Soft &middot; Yours</span>
+    </div>
+
+    <!-- Reading progress -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
     
     <!-- =============================================== -->
     <!-- HEADER NAVIGATION -->
@@ -691,11 +1567,16 @@
     <header class="sticky-nav" id="header">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#home" onclick="showPage('home')" class="flex items-center space-x-2 md:space-x-3">
-                    <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover object-center logo-bg-remove">
-                    <h1 class="text-xl md:text-2xl font-bold font-display text-foreground">EmpowerFit</h1>
-                </a>
+                <!-- Back affordance + logo -->
+                <div class="flex items-center gap-2">
+                    <button type="button" id="app-back" class="appbar-btn lg:hidden" aria-label="Go back">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <a href="#home" onclick="showPage('home')" class="flex items-center space-x-2 md:space-x-3">
+                        <img src="epf00.jpg" alt="EmpowerFit Logo" class="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover object-center logo-bg-remove">
+                        <h1 class="text-xl md:text-2xl font-bold font-display text-foreground">EmpowerFit</h1>
+                    </a>
+                </div>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center space-x-1" aria-label="Main navigation">
@@ -717,10 +1598,15 @@
                     </button>
                 </div>
 
-                <!-- Mobile Menu Toggle -->
-                <button class="lg:hidden text-2xl text-primary" type="button" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <i id="mobile-menu-icon" class="fas fa-bars"></i>
-                </button>
+                <!-- Mobile app-bar actions -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <button type="button" class="appbar-btn" onclick="showPage('client')" aria-label="Client portal">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="appbar-btn" type="button" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i id="mobile-menu-icon" class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Mobile Navigation Menu -->
@@ -756,6 +1642,7 @@
             <!-- Hero Section -->
             <section id="hero" class="section-anchor relative overflow-hidden">
                 <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="petal-field" id="petal-field" aria-hidden="true"></div>
                 <div class="relative container mx-auto px-4 py-16 md:py-24 lg:py-32">
                     <div class="grid md:grid-cols-2 gap-12 items-center">
                         <div class="animate-on-scroll">
@@ -770,7 +1657,7 @@
                                 Become the Best Version of You <span class="text-shimmer">Physically</span> &amp; <span class="text-shimmer">Mentally</span>.
                             </h1>
                             <p class="text-lg text-muted-foreground mb-8 max-w-xl">
-                                Transform your body, mind, and spirit with personalized coaching designed specifically for ambitious women.
+                                Personal coaching for body, mind and spirit &mdash; built around the woman you already are, not the one a workout app thinks you should be.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <button data-magnetic onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg btn">
@@ -862,7 +1749,10 @@
 
             <!-- How It Works Section -->
             <section id="how-it-works" class="section-anchor container mx-auto px-4 py-16 md:py-24">
-                <h2 class="text-3xl md:text-4xl font-bold font-display text-center mb-12 animate-on-scroll">How It Works</h2>
+                <div class="text-center mb-12 animate-on-scroll">
+                    <span class="eyebrow"><i class="fas fa-shoe-prints"></i> Three gentle steps</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-display">How It Works</h2>
+                </div>
                 <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                     <div class="bg-card rounded-2xl shadow-sm p-8 text-center card-hover transition-all duration-300 animate-on-scroll">
                         <div class="flex justify-center mb-6">
@@ -898,7 +1788,9 @@
             <section id="pricing-preview" class="section-anchor bg-secondary py-16 md:py-24">
                 <div class="container mx-auto px-4">
                     <div class="text-center mb-12 animate-on-scroll">
+                        <span class="eyebrow"><i class="fas fa-tag"></i> Half price this month</span>
                         <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Choose Your Transformation</h2>
+                        <p class="text-muted-foreground max-w-xl mx-auto">Month to month. Change or pause whenever life asks you to.</p>
                     </div>
                     <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                         <div class="relative bg-card rounded-2xl shadow-sm p-8 animate-on-scroll">
@@ -941,6 +1833,7 @@
             <!-- Testimonials Section -->
             <section id="testimonials" class="section-anchor container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
+                    <span class="eyebrow"><i class="fas fa-heart"></i> In their words</span>
                     <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">What Our Clients Say</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -976,6 +1869,7 @@
             <!-- FAQ Section -->
             <section id="faq" class="section-anchor container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
+                    <span class="eyebrow"><i class="fas fa-circle-question"></i> Good questions</span>
                     <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Frequently Asked Questions</h2>
                     <p class="text-muted-foreground max-w-2xl mx-auto">Everything you need to know before starting your transformation.</p>
                 </div>
@@ -1104,11 +1998,17 @@
                     
                     <!-- Header -->
                     <div class="text-center mb-12">
+                        <span class="eyebrow"><i class="fas fa-wand-magic-sparkles"></i> Step by step</span>
                         <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Your Transformation Starts Here</h1>
-                        <p class="text-muted-foreground">This comprehensive assessment helps us craft the perfect plan for your unique goals and lifestyle.</p>
+                        <p class="text-muted-foreground max-w-xl mx-auto">Eight short steps, about five minutes. There are no wrong answers &mdash; only the ones that help us build a plan that actually fits your life.</p>
+                        <p class="text-sm text-muted-foreground mt-3"><i class="fas fa-lock text-primary mr-1"></i> Private, and only ever seen by your coach.</p>
                     </div>
 
                     <!-- Progress Indicator -->
+                    <div class="step-counter" aria-hidden="true">
+                        <span>Step <strong id="step-counter-current">1</strong> of <span id="step-counter-total">8</span></span>
+                        <span id="step-counter-name">Personal</span>
+                    </div>
                     <div class="progress-container">
                         <div class="progress-bar-background"></div>
                         <div id="progress-bar-foreground" class="progress-bar-foreground"></div>
@@ -1469,13 +2369,16 @@
                     <div id="confirmation-screen" class="hidden">
                         <div class="bg-card rounded-2xl shadow-lg p-8 text-center">
                             <div class="flex justify-center mb-6">
-                                <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center">
-                                    <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+                                <div class="splash-mark" style="width:5rem;height:5rem;border-radius:1.75rem;">
+                                    <i class="fas fa-heart"></i>
                                 </div>
                             </div>
-                            <h2 class="text-2xl md:text-3xl font-bold font-display mb-4">Thank You!</h2>
-                            <p class="text-lg text-muted-foreground mb-6">Your assessment has been submitted. Our team will review your responses and contact you within 24 hours with your personalized plan.</p>
-                            <p class="text-muted-foreground">In the meantime, check out our <a href="#success-stories" onclick="showPage('success-stories')" class="text-primary hover:underline">success stories</a> for inspiration!</p>
+                            <h2 class="text-2xl md:text-3xl font-bold font-display mb-4">You did the hardest part.</h2>
+                            <p class="text-lg text-muted-foreground mb-6">Your answers are with us. A real coach — not a template — is reading every word, and you&rsquo;ll hear back within 24 hours with a plan built around your life.</p>
+                            <p class="text-muted-foreground mb-6">While you wait, borrow some courage from <a href="#success-stories" onclick="showPage('success-stories')" class="text-primary font-semibold hover:underline">women who started right here</a>.</p>
+                            <button type="button" onclick="showPage('success-stories')" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold btn">
+                                Read their stories <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -2102,6 +3005,17 @@
                 }
             });
 
+            // Compact "Step 2 of 8" read-out used on phones
+            const counterNum = document.getElementById('step-counter-current');
+            const counterTotal = document.getElementById('step-counter-total');
+            const counterName = document.getElementById('step-counter-name');
+            if (counterNum) counterNum.textContent = currentStep + 1;
+            if (counterTotal) counterTotal.textContent = totalSteps;
+            if (counterName && stepIndicators[currentStep]) {
+                const label = stepIndicators[currentStep].querySelector('.step-label');
+                if (label) counterName.textContent = label.textContent;
+            }
+
             // Update navigation buttons
             document.getElementById('prev-btn').classList.toggle('hidden', currentStep === 0);
             document.getElementById('next-btn').classList.toggle('hidden', currentStep === totalSteps - 1);
@@ -2125,25 +3039,33 @@
                     const checked = document.querySelector(`input[name="${name}"]:checked`);
                     if (!checked) {
                         allValid = false;
-                        if (group) group.style.outline = '2px solid red';
-                        if (group) group.style.borderRadius = '0.5rem';
+                        if (group) group.classList.add('group-invalid');
                         if (!firstInvalid) firstInvalid = group || field;
                     } else if (group) {
-                        group.style.outline = '';
+                        group.classList.remove('group-invalid');
                     }
                 } else {
                     if (!field.value.trim()) {
                         allValid = false;
-                        field.style.borderColor = 'red';
+                        field.classList.add('field-invalid');
                         if (!firstInvalid) firstInvalid = field;
                     } else {
-                        field.style.borderColor = '';
+                        field.classList.remove('field-invalid');
                     }
                 }
             }
 
             if (firstInvalid) {
                 firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (typeof toast === 'function') {
+                    toast('Just one more thing to fill in before we continue.', 'error');
+                }
+                // Clear the nudge as soon as she starts answering.
+                const clear = () => {
+                    firstInvalid.classList.remove('field-invalid', 'group-invalid');
+                };
+                firstInvalid.addEventListener('input', clear, { once: true });
+                firstInvalid.addEventListener('change', clear, { once: true });
             }
             return allValid;
         }
@@ -2159,16 +3081,25 @@
             const themeIcon = document.getElementById('theme-toggle-icon');
             const themeIconMobile = document.getElementById('theme-toggle-icon-mobile');
 
+            const themeIconSheet = document.getElementById('theme-toggle-icon-sheet');
+            const themeLabelSheet = document.getElementById('theme-toggle-label-sheet');
+
             const applyTheme = (theme) => {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                    themeIcon.classList.replace('fa-moon', 'fa-sun');
-                    themeIconMobile.classList.replace('fa-moon', 'fa-sun');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    themeIcon.classList.replace('fa-sun', 'fa-moon');
-                    themeIconMobile.classList.replace('fa-sun', 'fa-moon');
-                }
+                const dark = theme === 'dark';
+                document.documentElement.classList.toggle('dark', dark);
+                [themeIcon, themeIconMobile, themeIconSheet].forEach(icon => {
+                    if (!icon) return;
+                    icon.classList.toggle('fa-sun', dark);
+                    icon.classList.toggle('fa-moon', !dark);
+                });
+                if (themeLabelSheet) themeLabelSheet.textContent = dark ? 'Daylight mode' : 'Night mode';
+
+                // Keep the OS status bar in step with the theme when installed.
+                document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.remove());
+                const meta = document.createElement('meta');
+                meta.name = 'theme-color';
+                meta.content = dark ? '#1b121a' : '#fdf5f8';
+                document.head.appendChild(meta);
             };
 
             const toggleTheme = () => {
@@ -2178,6 +3109,7 @@
                 applyTheme(newTheme);
             };
 
+            window.toggleTheme = toggleTheme;
             themeToggle.addEventListener('click', toggleTheme);
             themeToggleMobile.addEventListener('click', toggleTheme);
 
@@ -2248,6 +3180,14 @@
                         const form = document.getElementById('questionnaire-form');
                         const formData = new FormData(form);
 
+                        submitBtn.disabled = true;
+                        const originalLabel = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending…';
+                        const restore = () => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalLabel;
+                        };
+
                         fetch(form.action, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -2260,13 +3200,17 @@
                                     document.getElementById('confirmation-screen').classList.remove('hidden');
                                     stepIndicators.forEach(wrapper => wrapper.querySelector('.step-indicator').classList.add('completed'));
                                     document.getElementById('confirmation-screen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    if (typeof celebrate === 'function') celebrate();
+                                    if (typeof toast === 'function') toast('Beautifully done — your plan is on its way.', 'success');
                                 } else {
-                                    alert('There was an error submitting your questionnaire. Please try again later.');
+                                    restore();
+                                    if (typeof toast === 'function') toast('We could not send that just now. Please try again in a moment.', 'error');
                                 }
                             })
                             .catch(error => {
                                 console.error('Error:', error);
-                                alert('There was an error submitting your questionnaire. Please try again later.');
+                                restore();
+                                if (typeof toast === 'function') toast('We could not send that just now. Please try again in a moment.', 'error');
                             });
                     }
                 });
@@ -2286,28 +3230,23 @@
                     })
                         .then(res => {
                             if (res.ok) {
-                                // Show success message
-                                const successMessage = document.createElement('div');
-                                successMessage.className = 'success-message show mt-4 p-4 bg-green-100 text-green-700 rounded-lg';
-                                successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you for your message! We will get back to you shortly.';
-                                contactForm.parentNode.appendChild(successMessage);
-
-                                // Reset form
                                 contactForm.reset();
-
-                                // Remove success message after 5 seconds
-                                setTimeout(() => {
-                                    if (successMessage.parentNode) {
-                                        successMessage.parentNode.removeChild(successMessage);
-                                    }
-                                }, 5000);
+                                if (typeof celebrate === 'function') celebrate();
+                                if (typeof toast === 'function') {
+                                    toast('Message sent — we will write back within 24 hours.', 'success');
+                                } else {
+                                    const note = document.createElement('p');
+                                    note.className = 'mt-4 text-primary font-semibold';
+                                    note.textContent = 'Thank you! We will get back to you shortly.';
+                                    contactForm.parentNode.appendChild(note);
+                                }
                             } else {
-                                alert('There was an error sending your message. Please try again later.');
+                                if (typeof toast === 'function') toast('That did not send. Please try again in a moment.', 'error');
                             }
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            alert('There was an error sending your message. Please try again later.');
+                            if (typeof toast === 'function') toast('That did not send. Please try again in a moment.', 'error');
                         });
                 });
             }
@@ -2325,14 +3264,16 @@
                     })
                         .then(res => {
                             if (res.ok) {
-                                newsletterForm.innerHTML = '<p class="text-primary font-semibold w-full"><i class="fas fa-check-circle mr-2"></i>You\'re in! Check your inbox to confirm.</p>';
+                                newsletterForm.innerHTML = '<p class="text-primary font-semibold w-full"><i class="fas fa-heart mr-2"></i>You\'re in! Check your inbox to confirm.</p>';
+                                if (typeof celebrate === 'function') celebrate();
+                                if (typeof toast === 'function') toast('Welcome to the circle 💗', 'success');
                             } else {
-                                alert('There was an error subscribing. Please try again later.');
+                                if (typeof toast === 'function') toast('Subscription did not go through. Please try again.', 'error');
                             }
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            alert('There was an error subscribing. Please try again later.');
+                            if (typeof toast === 'function') toast('Subscription did not go through. Please try again.', 'error');
                         });
                 });
             }
@@ -2883,6 +3824,480 @@
                     // else: fall back to the existing href (Contact page)
                 });
             });
+        })();
+    </script>
+
+
+    <!-- =============================================== -->
+    <!-- APP CHROME: tab bar, sheet, toasts, install card -->
+    <!-- =============================================== -->
+
+    <!-- Bottom tab bar (handheld) -->
+    <nav class="app-tabbar" id="app-tabbar" aria-label="App sections">
+        <button type="button" class="app-tab" data-tab="home" aria-label="Home">
+            <span class="app-tab-ico"><i class="fas fa-house"></i></span>
+            <span>Home</span>
+        </button>
+        <button type="button" class="app-tab" data-tab="pricing" aria-label="Plans">
+            <span class="app-tab-ico"><i class="fas fa-heart-circle-check"></i></span>
+            <span>Plans</span>
+        </button>
+        <button type="button" class="app-tab app-tab-fab" data-tab="questionnaire" aria-label="Start your assessment">
+            <span class="app-tab-ico"><i class="fas fa-heart"></i></span>
+            <span>Start</span>
+        </button>
+        <button type="button" class="app-tab" data-tab="success-stories" aria-label="Success stories">
+            <span class="app-tab-ico"><i class="fas fa-star"></i></span>
+            <span>Stories</span>
+        </button>
+        <button type="button" class="app-tab" id="tab-more" aria-label="More" aria-haspopup="dialog" aria-expanded="false">
+            <span class="app-tab-ico"><i class="fas fa-grip"></i></span>
+            <span>More</span>
+        </button>
+    </nav>
+
+    <!-- "More" bottom sheet -->
+    <div class="app-sheet" id="more-sheet" hidden>
+        <div class="sheet-scrim" data-sheet-close></div>
+        <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="more-sheet-title">
+            <div class="sheet-grip" data-sheet-close></div>
+            <div class="flex items-start justify-between gap-4">
+                <div>
+                    <h2 class="sheet-title" id="more-sheet-title">Everything else</h2>
+                    <p class="text-sm text-muted-foreground">Your space, your pace. 💗</p>
+                </div>
+                <button type="button" class="appbar-btn" data-sheet-close aria-label="Close menu"><i class="fas fa-xmark"></i></button>
+            </div>
+
+            <div class="sheet-grid">
+                <button type="button" class="sheet-link" data-goto="about"><i class="fas fa-seedling"></i>About us</button>
+                <button type="button" class="sheet-link" data-goto="contact"><i class="fas fa-comment-dots"></i>Contact</button>
+                <button type="button" class="sheet-link" data-goto="products"><i class="fas fa-bag-shopping"></i>Our products</button>
+                <button type="button" class="sheet-link" data-goto="join-team"><i class="fas fa-hand-holding-heart"></i>Join the team</button>
+                <button type="button" class="sheet-link" data-goto="client"><i class="fas fa-user-check"></i>Client portal</button>
+                <button type="button" class="sheet-link" data-goto="admin"><i class="fas fa-lock"></i>Coach login</button>
+            </div>
+
+            <div class="sheet-grid">
+                <button type="button" class="sheet-link" id="theme-toggle-sheet">
+                    <i id="theme-toggle-icon-sheet" class="fas fa-moon"></i><span id="theme-toggle-label-sheet">Night mode</span>
+                </button>
+                <button type="button" class="sheet-link" id="install-from-sheet"><i class="fas fa-mobile-screen"></i>Add to home screen</button>
+            </div>
+
+            <div class="flex items-center justify-center gap-5 py-2 text-xl">
+                <a href="https://instagram.com/empowerfit.app" target="_blank" rel="noopener noreferrer" aria-label="EmpowerFit on Instagram" class="text-muted-foreground hover:text-primary"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/empowerfit.app" target="_blank" rel="noopener noreferrer" aria-label="EmpowerFit on Facebook" class="text-muted-foreground hover:text-primary"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@empowerfit.app" target="_blank" rel="noopener noreferrer" aria-label="EmpowerFit on YouTube" class="text-muted-foreground hover:text-primary"><i class="fab fa-youtube"></i></a>
+                <a href="mailto:empowerfitwork@gmail.com" aria-label="Email EmpowerFit" class="text-muted-foreground hover:text-primary"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <div class="flex items-center justify-center gap-4 pt-2 text-xs text-muted-foreground">
+                <button type="button" data-goto="privacy-policy" class="hover:text-primary">Privacy</button>
+                <span aria-hidden="true">·</span>
+                <button type="button" data-goto="terms-of-service" class="hover:text-primary">Terms</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add-to-home-screen invitation -->
+    <div class="install-card" id="install-card" role="dialog" aria-live="polite" aria-labelledby="install-card-title">
+        <img src="icons/icon-192.png" alt="" aria-hidden="true">
+        <div class="min-w-0 flex-1 leading-snug">
+            <p class="font-bold text-sm" id="install-card-title">Add EmpowerFit to your home screen</p>
+            <p class="text-xs text-muted-foreground" id="install-card-hint">One tap to your plan — no app store.</p>
+        </div>
+        <div class="flex items-center gap-1 flex-none">
+            <button type="button" id="install-accept" class="bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-full btn">Add</button>
+            <button type="button" id="install-dismiss" class="appbar-btn" aria-label="Not now"><i class="fas fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Toasts -->
+    <div class="toast-host" id="toast-host" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- =============================================== -->
+    <!-- APP BEHAVIOUR: shell, navigation, toasts, PWA    -->
+    <!-- =============================================== -->
+    <script>
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+            function onReady(fn) {
+                if (document.readyState !== 'loading') fn();
+                else document.addEventListener('DOMContentLoaded', fn);
+            }
+
+            // ---------------------------------------------------------------
+            // Haptics — a whisper of feedback on every tap, where supported
+            // ---------------------------------------------------------------
+            function haptic(ms) {
+                if (reduce || !navigator.vibrate) return;
+                try { navigator.vibrate(ms || 8); } catch (e) { /* not permitted */ }
+            }
+            window.haptic = haptic;
+
+            // ---------------------------------------------------------------
+            // Toasts — gentle replacements for alert()
+            // ---------------------------------------------------------------
+            const ICONS = { info: 'fa-wand-magic-sparkles', success: 'fa-heart', error: 'fa-circle-exclamation' };
+
+            window.toast = function (message, kind, duration) {
+                const host = document.getElementById('toast-host');
+                if (!host) { console.log(message); return; }
+                kind = kind || 'info';
+
+                const el = document.createElement('div');
+                el.className = 'toast is-' + kind;
+                const icon = document.createElement('i');
+                icon.className = 'fas ' + (ICONS[kind] || ICONS.info);
+                const text = document.createElement('span');
+                text.textContent = message;
+                el.append(icon, text);
+                host.appendChild(el);
+
+                haptic(kind === 'error' ? 22 : 10);
+
+                const life = duration || (kind === 'error' ? 5200 : 3800);
+                setTimeout(() => {
+                    el.classList.add('is-leaving');
+                    setTimeout(() => el.remove(), 320);
+                }, life);
+            };
+
+            // ---------------------------------------------------------------
+            // Bottom sheet
+            // ---------------------------------------------------------------
+            let lastFocus = null;
+
+            function openSheet() {
+                const sheet = document.getElementById('more-sheet');
+                if (!sheet) return;
+                lastFocus = document.activeElement;
+                sheet.hidden = false;
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => sheet.classList.add('is-open'));
+                const moreBtn = document.getElementById('tab-more');
+                if (moreBtn) moreBtn.setAttribute('aria-expanded', 'true');
+                const first = sheet.querySelector('.sheet-link');
+                if (first) setTimeout(() => first.focus({ preventScroll: true }), 260);
+                haptic(12);
+            }
+
+            function closeSheet() {
+                const sheet = document.getElementById('more-sheet');
+                if (!sheet || sheet.hidden) return;
+                sheet.classList.remove('is-open');
+                document.body.style.overflow = '';
+                const moreBtn = document.getElementById('tab-more');
+                if (moreBtn) moreBtn.setAttribute('aria-expanded', 'false');
+                setTimeout(() => { sheet.hidden = true; }, 380);
+                if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+            }
+
+            window.openAppSheet = openSheet;
+            window.closeAppSheet = closeSheet;
+            // The old hamburger dropdown is now this sheet.
+            window.toggleMobileMenu = function () {
+                const sheet = document.getElementById('more-sheet');
+                if (sheet && !sheet.hidden) closeSheet(); else openSheet();
+            };
+
+            // ---------------------------------------------------------------
+            // Navigation: direction-aware transitions + tab bar syncing
+            // ---------------------------------------------------------------
+            const TAB_FOR_PAGE = {
+                home: 'home',
+                pricing: 'pricing',
+                questionnaire: 'questionnaire',
+                'success-stories': 'success-stories'
+            };
+
+            const navStack = [];
+            let lastDirection = 'forward';
+            let currentPageId = null;
+
+            function directionFor(pageId) {
+                // Our own hash write echoes back as a hashchange — keep the stack clean.
+                if (navStack[navStack.length - 1] === pageId) return lastDirection;
+
+                const i = navStack.lastIndexOf(pageId);
+                if (i !== -1 && i === navStack.length - 2) {
+                    navStack.pop();
+                    lastDirection = 'back';
+                    return 'back';
+                }
+                navStack.push(pageId);
+                if (navStack.length > 40) navStack.shift();
+                lastDirection = 'forward';
+                return 'forward';
+            }
+
+            function syncChrome(pageId) {
+                document.querySelectorAll('.app-tab').forEach(tab => {
+                    tab.classList.toggle('is-active', tab.dataset.tab === TAB_FOR_PAGE[pageId]);
+                });
+                document.body.classList.toggle('is-subpage', pageId !== 'home');
+            }
+
+            const basePage = window.showPage;
+            window.showPage = function (pageId, fromHashChange) {
+                const target = document.getElementById(pageId) ? pageId : 'home';
+
+                // Ignore the hashchange our own navigation just produced, so the
+                // screen transition plays once instead of twice.
+                if (fromHashChange && currentPageId === target) return;
+
+                const dir = directionFor(target);
+                currentPageId = target;
+
+                // Land at the top instantly so the transition reads as a screen
+                // change rather than a scroll.
+                window.scrollTo({ top: 0, behavior: 'auto' });
+
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('nav-back'));
+                const el = document.getElementById(target);
+                if (el && dir === 'back' && !reduce) el.classList.add('nav-back');
+
+                basePage(pageId, fromHashChange);
+                closeSheet();
+                syncChrome(target);
+                return undefined;
+            };
+
+            // ---------------------------------------------------------------
+            // Celebration — petals burst when she finishes the assessment
+            // ---------------------------------------------------------------
+            window.celebrate = function (origin) {
+                if (reduce) return;
+                const colors = ['hsl(348 92% 74%)', 'hsl(325 86% 74%)', 'hsl(282 80% 76%)', 'hsl(16 92% 78%)', 'hsl(45 95% 76%)'];
+                const x = origin ? origin.x : window.innerWidth / 2;
+                const y = origin ? origin.y : window.innerHeight * 0.35;
+
+                for (let i = 0; i < 34; i++) {
+                    const piece = document.createElement('span');
+                    piece.className = 'burst-piece';
+                    const angle = (Math.PI * 2 * i) / 34 + Math.random() * 0.4;
+                    const dist = 110 + Math.random() * 210;
+                    piece.style.left = x + 'px';
+                    piece.style.top = y + 'px';
+                    piece.style.background = colors[i % colors.length];
+                    piece.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
+                    piece.style.setProperty('--by', (Math.sin(angle) * dist + 160) + 'px');
+                    piece.style.setProperty('--br', (Math.random() * 720 - 360) + 'deg');
+                    piece.style.animationDelay = (Math.random() * 0.18) + 's';
+                    document.body.appendChild(piece);
+                    setTimeout(() => piece.remove(), 1900);
+                }
+                haptic([12, 40, 12]);
+            };
+
+            onReady(function () {
+                // ---- Dismiss the boot splash once the shell is ready ----
+                const splash = document.getElementById('app-splash');
+                if (splash) {
+                    const hide = () => {
+                        splash.classList.add('is-gone');
+                        setTimeout(() => splash.remove(), 600);
+                    };
+                    if (reduce) splash.remove();
+                    else setTimeout(hide, 900);
+                }
+
+                // ---- Tab bar ----
+                document.querySelectorAll('.app-tab[data-tab]').forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        haptic(9);
+                        window.showPage(tab.dataset.tab);
+                    });
+                });
+
+                const moreBtn = document.getElementById('tab-more');
+                if (moreBtn) moreBtn.addEventListener('click', openSheet);
+
+                // ---- Sheet wiring ----
+                document.querySelectorAll('[data-sheet-close]').forEach(el => el.addEventListener('click', closeSheet));
+                document.querySelectorAll('[data-goto]').forEach(el => {
+                    el.addEventListener('click', () => {
+                        haptic(9);
+                        window.showPage(el.dataset.goto);
+                    });
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeSheet();
+                });
+
+                // ---- Back affordance in the app bar ----
+                const back = document.getElementById('app-back');
+                if (back) {
+                    back.addEventListener('click', () => {
+                        haptic(9);
+                        if (navStack.length > 1) window.history.back();
+                        else window.showPage('home');
+                    });
+                }
+
+                // ---- Theme toggle inside the sheet ----
+                const sheetTheme = document.getElementById('theme-toggle-sheet');
+                if (sheetTheme) {
+                    sheetTheme.addEventListener('click', () => {
+                        haptic(9);
+                        if (typeof window.toggleTheme === 'function') window.toggleTheme();
+                    });
+                }
+
+                // ---- Reading progress + auto-hiding tab bar ----
+                const progress = document.getElementById('scroll-progress');
+                const tabbar = document.getElementById('app-tabbar');
+                let lastY = window.scrollY;
+
+                const onScroll = () => {
+                    const max = document.documentElement.scrollHeight - window.innerHeight;
+                    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ')';
+
+                    if (tabbar && !reduce) {
+                        const y = window.scrollY;
+                        const nearBottom = y + window.innerHeight > document.documentElement.scrollHeight - 120;
+                        if (y > 160 && y > lastY + 6 && !nearBottom) tabbar.classList.add('is-hidden');
+                        else if (y < lastY - 6 || y < 120 || nearBottom) tabbar.classList.remove('is-hidden');
+                        lastY = y;
+                    }
+                };
+                window.addEventListener('scroll', onScroll, { passive: true });
+                onScroll();
+
+                // ---- Touch ripple on the app's tappable surfaces ----
+                if (!reduce) {
+                    document.addEventListener('pointerdown', (e) => {
+                        let host = e.target.closest('.btn, .app-tab, .sheet-link, .appbar-btn');
+                        if (!host) return;
+                        // Tabs ripple inside their icon bubble — clipping the tab
+                        // itself would cut the raised centre button in half.
+                        if (host.classList.contains('app-tab')) host = host.querySelector('.app-tab-ico');
+                        if (!host) return;
+
+                        const rect = host.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const ink = document.createElement('span');
+                        ink.className = 'ripple-ink';
+                        ink.style.width = ink.style.height = size + 'px';
+                        ink.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                        ink.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                        host.appendChild(ink);
+                        setTimeout(() => ink.remove(), 640);
+                    }, { passive: true });
+                }
+
+                // ---- Drifting petals over the hero ----
+                const field = document.getElementById('petal-field');
+                if (field && !reduce) {
+                    for (let i = 0; i < 12; i++) {
+                        const petal = document.createElement('span');
+                        petal.className = 'petal';
+                        const size = 8 + Math.random() * 12;
+                        petal.style.width = petal.style.height = size + 'px';
+                        petal.style.left = (Math.random() * 100) + '%';
+                        petal.style.animationDuration = (13 + Math.random() * 14) + 's';
+                        petal.style.animationDelay = (-Math.random() * 22) + 's';
+                        petal.style.opacity = 0.35 + Math.random() * 0.4;
+                        field.appendChild(petal);
+                    }
+                }
+
+                // ---- Sync the tab bar with whatever page loaded first ----
+                syncChrome((window.location.hash || '#home').substring(1) || 'home');
+            });
+
+            // ---------------------------------------------------------------
+            // Install to home screen
+            // ---------------------------------------------------------------
+            let deferredPrompt = null;
+            const DISMISS_KEY = 'ef-install-dismissed';
+
+            function showInstallCard(iosMode) {
+                const card = document.getElementById('install-card');
+                if (!card || standalone) return;
+                if (localStorage.getItem(DISMISS_KEY) === '1') return;
+                if (iosMode) {
+                    const hint = document.getElementById('install-card-hint');
+                    const accept = document.getElementById('install-accept');
+                    if (hint) hint.textContent = 'Tap Share, then "Add to Home Screen".';
+                    if (accept) accept.textContent = 'Got it';
+                }
+                setTimeout(() => card.classList.add('is-open'), 100);
+            }
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                onReady(() => setTimeout(() => showInstallCard(false), 16000));
+            });
+
+            window.addEventListener('appinstalled', () => {
+                deferredPrompt = null;
+                const card = document.getElementById('install-card');
+                if (card) card.classList.remove('is-open');
+                window.toast('EmpowerFit is on your home screen. See you soon 💗', 'success');
+            });
+
+            onReady(function () {
+                const card = document.getElementById('install-card');
+                const accept = document.getElementById('install-accept');
+                const dismiss = document.getElementById('install-dismiss');
+
+                async function runInstall() {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const choice = await deferredPrompt.userChoice;
+                        deferredPrompt = null;
+                        if (card) card.classList.remove('is-open');
+                        if (choice && choice.outcome === 'dismissed') {
+                            window.toast('No problem — you can add it any time from the More menu.');
+                        }
+                    } else if (isIOS) {
+                        if (card) card.classList.remove('is-open');
+                        window.toast('Tap the Share button, then "Add to Home Screen".', 'info', 6000);
+                    } else if (standalone) {
+                        window.toast('You are already using the app. 💗', 'success');
+                    } else {
+                        window.toast('Use your browser menu → "Install app" to add EmpowerFit.', 'info', 6000);
+                    }
+                }
+
+                if (accept) accept.addEventListener('click', runInstall);
+                if (dismiss) {
+                    dismiss.addEventListener('click', () => {
+                        if (card) card.classList.remove('is-open');
+                        try { localStorage.setItem(DISMISS_KEY, '1'); } catch (e) { /* private mode */ }
+                    });
+                }
+
+                const sheetInstall = document.getElementById('install-from-sheet');
+                if (sheetInstall) {
+                    sheetInstall.addEventListener('click', () => {
+                        closeSheet();
+                        setTimeout(runInstall, 250);
+                    });
+                }
+
+                // iOS gets a nudge with manual instructions (no install prompt API).
+                if (isIOS && !standalone) setTimeout(() => showInstallCard(true), 14000);
+
+                // ---- Connectivity awareness, like a real app ----
+                window.addEventListener('offline', () => window.toast('You are offline — browsing your saved pages.', 'info'));
+                window.addEventListener('online', () => window.toast('Back online.', 'success'));
+            });
+
+            // ---------------------------------------------------------------
+            // Service worker: offline support + instant repeat launches
+            // ---------------------------------------------------------------
+            if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').catch(() => { /* offline support is optional */ });
+                });
+            }
         })();
     </script>
 

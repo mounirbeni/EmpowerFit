@@ -95,6 +95,27 @@ Add these two secrets in **Site settings → Environment variables**:
 6. [ ] Stripe Payment Links + Calendly URL pasted (when ready to take money/bookings).
 7. [ ] Revoke any access token that was ever shared in chat; generate a fresh one. 🔒
 
+## 📱 The app experience (PWA)
+
+The site now installs and behaves like a native app. Nothing here needs configuring —
+it works as soon as the site is served over HTTPS (which Netlify does by default).
+
+| File | What it does |
+| --- | --- |
+| `manifest.webmanifest` | App name, icons, colours, and the Home/Plans/Portal shortcuts. |
+| `sw.js` | Service worker: caches the app shell so repeat launches are instant and the site still opens offline. |
+| `icons/` | Generated app icons (192, 512, and a maskable 512 for Android). |
+
+- **Installing:** on Android/desktop Chrome an "Add to home screen" card appears after a
+  short while (and from **More → Add to home screen**). On iOS the card explains the
+  Share → *Add to Home Screen* route, since Safari has no install API.
+- **Bottom tab bar:** Home · Plans · Start · Stories · More on phones; the desktop top nav
+  is unchanged. The old hamburger dropdown now opens the "More" bottom sheet.
+- **After changing `index.html`:** bump `CACHE_VERSION` at the top of `sw.js` so returning
+  visitors pick up the new version instead of a cached one.
+
+---
+
 ## Notes
 
 - Client lookup is by email only — a lightweight status portal, not a secure account area.

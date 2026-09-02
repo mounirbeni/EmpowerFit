@@ -1,0 +1,41 @@
+{
+  "name": "EmpowerFit — Women's Fitness & Wellness Coaching",
+  "short_name": "EmpowerFit",
+  "description": "Personalized fitness, nutrition, and mindset coaching designed for ambitious women.",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#fdf5f8",
+  "theme_color": "#f472b6",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["health", "fitness", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start my assessment",
+      "short_name": "Assessment",
+      "url": "/#questionnaire",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "View plans",
+      "short_name": "Plans",
+      "url": "/#pricing",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Client portal",
+      "short_name": "My portal",
+      "url": "/#client",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}
