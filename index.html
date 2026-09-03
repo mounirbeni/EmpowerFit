@@ -2630,10 +2630,47 @@
         <!-- =============================================== -->
         <div id="products" class="page">
             <section class="container mx-auto px-4 py-16 md:py-24">
-                <div class="max-w-4xl mx-auto">
-                    <h1 class="text-3xl md:text-4xl font-bold font-display mb-8">Our Products</h1>
-                    <div class="space-y-6 text-muted-foreground">
-                        <p>This page is under construction. Check back soon for our exciting new products!</p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-12 animate-on-scroll">
+                        <span class="eyebrow"><i class="fas fa-sparkles"></i> What we offer</span>
+                        <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Our Products</h1>
+                        <p class="text-muted-foreground max-w-2xl mx-auto">Everything we offer today is one-to-one coaching &mdash; built for you after we read your questionnaire, not pulled off a shelf.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-16">
+                        <div class="bg-card rounded-2xl shadow-sm p-8 flex flex-col animate-on-scroll">
+                            <i class="fas fa-leaf text-primary text-3xl mb-4"></i>
+                            <h2 class="text-2xl font-bold font-display mb-2">Starter Pack</h2>
+                            <p class="text-muted-foreground mb-6">A custom workout plan, nutrition guidelines and monthly check-ins &mdash; for building the habit first.</p>
+                            <p class="text-3xl font-bold mb-6 mt-auto"><span class="text-muted-foreground line-through text-xl mr-2">$197</span>$98.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <button onclick="showPage('pricing')" class="w-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors btn">See what's included</button>
+                        </div>
+
+                        <div class="bg-card rounded-2xl shadow-lg border-2 border-primary p-8 flex flex-col animate-on-scroll" style="animation-delay: 0.15s;">
+                            <i class="fas fa-star text-primary text-3xl mb-4"></i>
+                            <h2 class="text-2xl font-bold font-display mb-2">Fit &amp; Focused</h2>
+                            <p class="text-muted-foreground mb-6">Everything in Starter, plus bi-weekly coaching calls, mindset work and 24/7 chat support. Our most chosen plan.</p>
+                            <p class="text-3xl font-bold mb-6 mt-auto"><span class="text-muted-foreground line-through text-xl mr-2">$397</span>$198.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <button onclick="showPage('pricing')" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium btn">See what's included</button>
+                        </div>
+
+                        <div class="bg-card rounded-2xl shadow-sm p-8 flex flex-col animate-on-scroll" style="animation-delay: 0.3s;">
+                            <i class="fas fa-award text-primary text-3xl mb-4"></i>
+                            <h2 class="text-2xl font-bold font-display mb-2">VIP Coaching</h2>
+                            <p class="text-muted-foreground mb-6">Weekly private sessions, a custom supplement plan and the closest access to your coach.</p>
+                            <p class="text-3xl font-bold mb-6 mt-auto"><span class="text-muted-foreground line-through text-xl mr-2">$697</span>$348.5<span class="text-base font-normal text-muted-foreground">/month</span></p>
+                            <button onclick="showPage('pricing')" class="w-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors btn">See what's included</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-secondary rounded-2xl p-8 md:p-10 text-center animate-on-scroll">
+                        <i class="fas fa-envelope-open-text text-primary text-3xl mb-4"></i>
+                        <h2 class="text-2xl md:text-3xl font-bold font-display mb-3">Not sure which one fits?</h2>
+                        <p class="text-muted-foreground max-w-xl mx-auto mb-8">Take the questionnaire &mdash; about five minutes &mdash; and we will tell you which plan suits your goals, your schedule and your budget. No obligation.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="showPage('questionnaire')" class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold btn">Start my assessment</button>
+                            <button onclick="showPage('contact')" class="px-8 py-4 rounded-xl font-semibold border border-border bg-card hover:border-primary transition-colors btn">Ask us a question</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -2785,12 +2822,17 @@
                             <div class="text-center mb-6">
                                 <i class="fas fa-user-circle text-primary text-4xl mb-3"></i>
                                 <h1 class="text-2xl font-bold font-display">Client Portal</h1>
-                                <p class="text-muted-foreground text-sm mt-2">Enter the email you used in your questionnaire to view your profile and request status.</p>
+                                <p class="text-muted-foreground text-sm mt-2">Check the status of your coaching request. Your answers stay private with your coach.</p>
                             </div>
                             <form id="client-login-form" class="space-y-4">
                                 <div>
                                     <label for="client-email" class="block text-sm font-medium mb-1">Email Address</label>
                                     <input id="client-email" type="email" autocomplete="email" required class="w-full p-3 border border-border rounded-lg bg-background">
+                                </div>
+                                <div>
+                                    <label for="client-lastname" class="block text-sm font-medium mb-1">Surname</label>
+                                    <input id="client-lastname" type="text" autocomplete="family-name" required class="w-full p-3 border border-border rounded-lg bg-background">
+                                    <p class="text-xs text-muted-foreground mt-2">Both must match what you entered on your questionnaire.</p>
                                 </div>
                                 <button type="submit" id="client-login-btn" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium btn">View My Profile</button>
                                 <p id="client-login-error" class="text-red-500 text-sm hidden" role="alert"></p>
@@ -2867,7 +2909,6 @@
                         <li><a href="#products" onclick="showPage('products')" class="text-muted-foreground hover:text-primary">Our Products</a></li>
                         <li><a href="#join-team" onclick="showPage('join-team')" class="text-muted-foreground hover:text-primary">Join the Team</a></li>
                         <li><a href="#client" onclick="showPage('client')" class="text-muted-foreground hover:text-primary">Client Portal</a></li>
-                        <li><a href="#admin" onclick="showPage('admin')" class="text-muted-foreground hover:text-primary">Coach Login</a></li>
                     </ul>
                 </div>
                 
@@ -3551,6 +3592,7 @@
                 portal: document.getElementById('client-portal'),
                 form: document.getElementById('client-login-form'),
                 email: document.getElementById('client-email'),
+                lastName: document.getElementById('client-lastname'),
                 loginBtn: document.getElementById('client-login-btn'),
                 loginError: document.getElementById('client-login-error'),
                 name: document.getElementById('client-name'),
@@ -3565,53 +3607,43 @@
                 clientEls.portal.classList.toggle('hidden', !loggedIn);
             }
 
-            function renderClient(submissions, email) {
-                const questionnaire = submissions.find(s => s.form_name === 'questionnaire');
-                const data = questionnaire ? questionnaire.data : {};
-                const firstName = data.firstName ? ' ' + data.firstName : '';
-                clientEls.name.textContent = firstName;
-                clientEls.emailLabel.textContent = email;
+            // The server sends status only — no questionnaire answers ever reach
+            // the browser, so there is nothing sensitive here to render.
+            function renderClient(payload) {
+                const client = payload.client || {};
+                const request = payload.request || null;
+                const messages = payload.messages || [];
+
+                clientEls.name.textContent = client.firstName ? ' ' + client.firstName : '';
+                clientEls.emailLabel.textContent = client.email || '';
 
                 let html = '';
 
-                // Request status card
-                if (questionnaire) {
+                if (request) {
                     html += '<div class="bg-card rounded-2xl shadow-sm p-6">' +
                         '<div class="flex items-center gap-3 mb-3"><span class="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center"><i class="fas fa-check"></i></span>' +
                         '<div><h2 class="text-xl font-bold font-display">Request received</h2>' +
-                        '<p class="text-sm text-muted-foreground">Submitted ' + escapeHtml(formatDate(questionnaire.created_at)) + '</p></div></div>' +
+                        '<p class="text-sm text-muted-foreground">Submitted ' + escapeHtml(formatDate(request.created_at)) + '</p></div></div>' +
                         '<p class="text-muted-foreground">Your coaching questionnaire is in. Our team is building your personalized plan and will reach out within 24 hours via your preferred contact method' +
-                        (data['contact-method'] ? ' (<strong>' + escapeHtml(data['contact-method']) + '</strong>)' : '') + '.</p>' +
+                        (request.contactMethod ? ' (<strong>' + escapeHtml(request.contactMethod) + '</strong>)' : '') + '.</p>' +
                         '</div>';
 
-                    // Profile summary
-                    const summaryFields = ['goals', 'timeline', 'days', 'location', 'equipment', 'habits', 'budget'];
-                    const cards = summaryFields
-                        .filter(k => data[k])
-                        .map(k => '<div class="bg-secondary rounded-xl p-4">' +
-                            '<div class="text-xs uppercase tracking-wide text-muted-foreground mb-1">' + escapeHtml(fieldLabel(k)) + '</div>' +
-                            '<div class="font-medium">' + escapeHtml(formatValue(data[k])) + '</div></div>').join('');
-                    if (cards) {
-                        html += '<div class="bg-card rounded-2xl shadow-sm p-6">' +
-                            '<h2 class="text-xl font-bold font-display mb-4">Your Profile</h2>' +
-                            '<div class="grid sm:grid-cols-2 gap-3">' + cards + '</div></div>';
-                    }
-                } else {
-                    html += '<div class="bg-card rounded-2xl shadow-sm p-6 text-center">' +
-                        '<i class="fas fa-clipboard-list text-primary text-3xl mb-3"></i>' +
-                        '<h2 class="text-xl font-bold font-display mb-2">No questionnaire on file</h2>' +
-                        '<p class="text-muted-foreground mb-4">We could not find a coaching request for this email yet. Complete the questionnaire to get started.</p>' +
-                        '<button type="button" onclick="showPage(\'questionnaire\')" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium btn">Start the Questionnaire</button>' +
-                        '</div>';
+                    html += '<div class="bg-card rounded-2xl shadow-sm p-6">' +
+                        '<div class="flex items-start gap-3">' +
+                        '<span class="text-primary text-xl mt-1"><i class="fas fa-lock"></i></span>' +
+                        '<div><h2 class="text-lg font-bold font-display mb-1">Your answers are private</h2>' +
+                        '<p class="text-muted-foreground text-sm">Everything you told us — your health history, goals and budget — is visible only to your coach, never in this portal. Need to change an answer? Just message us.</p>' +
+                        '<button type="button" onclick="showPage(\'contact\')" class="mt-4 border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-5 py-2 rounded-lg font-medium transition-colors btn">Message my coach</button>' +
+                        '</div></div></div>';
                 }
 
-                // Message history
-                const messages = submissions.filter(s => s.form_name === 'contact');
                 if (messages.length) {
-                    const items = messages.map(m => '<div class="border-b border-border last:border-0 py-3">' +
-                        '<div class="text-xs text-muted-foreground mb-1">' + escapeHtml(formatDate(m.created_at)) + '</div>' +
-                        '<div class="text-muted-foreground whitespace-pre-wrap break-words">' + escapeHtml(m.data.message || '') + '</div></div>').join('');
-                    html += '<div class="bg-card rounded-2xl shadow-sm p-6"><h2 class="text-xl font-bold font-display mb-2">Your Messages</h2>' + items + '</div>';
+                    const items = messages.map(m => '<div class="flex items-center justify-between border-b border-border last:border-0 py-3">' +
+                        '<span class="text-muted-foreground"><i class="fas fa-paper-plane text-primary mr-2"></i>Message sent</span>' +
+                        '<span class="text-sm text-muted-foreground">' + escapeHtml(formatDate(m.created_at)) + '</span></div>').join('');
+                    html += '<div class="bg-card rounded-2xl shadow-sm p-6"><h2 class="text-xl font-bold font-display mb-2">Your Messages</h2>' +
+                        '<p class="text-sm text-muted-foreground mb-2">' + messages.length + ' message' + (messages.length === 1 ? '' : 's') + ' received. Replies come to your inbox.</p>' +
+                        items + '</div>';
                 }
 
                 clientEls.content.innerHTML = html;
@@ -3621,14 +3653,16 @@
                 clientEls.form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const email = clientEls.email.value.trim();
+                    const lastName = clientEls.lastName.value.trim();
                     clientEls.loginError.classList.add('hidden');
                     clientEls.loginBtn.disabled = true;
                     clientEls.loginBtn.textContent = 'Loading...';
                     try {
-                        const result = await fetchSubmissions({ email });
+                        const result = await fetchSubmissions({ email, lastName });
                         sessionStorage.setItem('ef_client_email', email);
+                        sessionStorage.setItem('ef_client_lastname', lastName);
                         showClientLoggedIn(true);
-                        renderClient(result.submissions || [], email);
+                        renderClient(result);
                     } catch (err) {
                         clientEls.loginError.textContent = err.message;
                         clientEls.loginError.classList.remove('hidden');
@@ -3639,19 +3673,25 @@
                 });
                 clientEls.logout.addEventListener('click', () => {
                     sessionStorage.removeItem('ef_client_email');
+                    sessionStorage.removeItem('ef_client_lastname');
                     clientEls.email.value = '';
+                    clientEls.lastName.value = '';
+                    clientEls.content.innerHTML = '';
                     showClientLoggedIn(false);
                 });
             }
 
             async function initClientView() {
                 const saved = sessionStorage.getItem('ef_client_email');
-                if (saved) {
+                const savedLast = sessionStorage.getItem('ef_client_lastname');
+                if (saved && savedLast) {
                     showClientLoggedIn(true);
                     try {
-                        const result = await fetchSubmissions({ email: saved });
-                        renderClient(result.submissions || [], saved);
+                        const result = await fetchSubmissions({ email: saved, lastName: savedLast });
+                        renderClient(result);
                     } catch (err) {
+                        sessionStorage.removeItem('ef_client_email');
+                        sessionStorage.removeItem('ef_client_lastname');
                         showClientLoggedIn(false);
                     }
                 } else {
@@ -3878,7 +3918,6 @@
                 <button type="button" class="sheet-link" data-goto="products"><i class="fas fa-bag-shopping"></i>Our products</button>
                 <button type="button" class="sheet-link" data-goto="join-team"><i class="fas fa-hand-holding-heart"></i>Join the team</button>
                 <button type="button" class="sheet-link" data-goto="client"><i class="fas fa-user-check"></i>Client portal</button>
-                <button type="button" class="sheet-link" data-goto="admin"><i class="fas fa-lock"></i>Coach login</button>
             </div>
 
             <div class="sheet-grid">
