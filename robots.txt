@@ -5,4 +5,4 @@ Allow: /
 # The coach dashboard is not content — keep it out of search results.
 Disallow: /#admin
 
-Sitemap: https://empowerfit.app/sitemap.xml
+Sitemap: https://empowerfiit.netlify.app/sitemap.xml

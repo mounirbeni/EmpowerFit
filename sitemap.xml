@@ -3,7 +3,7 @@
      so search engines are pointed at the canonical page itself. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://empowerfit.app/</loc>
+    <loc>https://empowerfiit.netlify.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -164,12 +164,15 @@ the new version instead of a cached one.
 `robots.txt` and `sitemap.xml` are in place, the FAQ carries FAQPage structured
 data for rich results, and the page now has a single `<h1>` instead of fifteen.
 
-> ⚠️ **Check the domain.** `index.html` (canonical + Open Graph), `robots.txt`
-> and `sitemap.xml` all say `https://empowerfit.app/`, but the site is live at
-> `empowerfiit.netlify.app`. A canonical pointing at a domain that does not
-> serve the site tells Google to ignore this one. Either point `empowerfit.app`
-> at Netlify, or change that address in those three files. Do not leave them
-> disagreeing.
+The site's address is recorded in four places, and they all agree:
+`index.html` (canonical, `og:url`, and the `url` in the structured data),
+`robots.txt` and `sitemap.xml` — all pointing at
+`https://empowerfiit.netlify.app/`.
+
+If you ever move to a custom domain, change it in all four, or Google will keep
+indexing the old address. The `empowerfit.app` you see in the footer and
+structured data is your **username on Instagram, Facebook and YouTube**, not a
+website address — leave those alone.
 
 ---
 
