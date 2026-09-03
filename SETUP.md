@@ -136,6 +136,43 @@ it works as soon as the site is served over HTTPS (which Netlify does by default
 
 ---
 
+## ⚡ Performance & SEO
+
+The site now serves everything from its own domain — no Tailwind CDN, no Google
+Fonts, no Font Awesome CDN. That removed about 570 KB per visit and three
+third-party connections (and, since no visitor data reaches Google, one less
+GDPR question to answer).
+
+### If you edit index.html
+
+| You changed | Run |
+| --- | --- |
+| Any Tailwind class (`bg-primary`, `md:grid-cols-3` …) | `npm run css` |
+| Added a Font Awesome icon | `python3 tools/build-icons.py` |
+| Added a font weight | edit `WANT` in `tools/build-fonts.py`, then run it |
+
+**This matters.** `tailwind.css` is generated from the classes present in
+`index.html`. If you add a class and do not rerun `npm run css`, that class will
+have no styling on the live site. The scripts need Node and Python:
+`npm install`, and `pip install fonttools brotli` for the font ones.
+
+Also bump `CACHE_VERSION` in `sw.js` after any change, so returning visitors get
+the new version instead of a cached one.
+
+### SEO
+
+`robots.txt` and `sitemap.xml` are in place, the FAQ carries FAQPage structured
+data for rich results, and the page now has a single `<h1>` instead of fifteen.
+
+> ⚠️ **Check the domain.** `index.html` (canonical + Open Graph), `robots.txt`
+> and `sitemap.xml` all say `https://empowerfit.app/`, but the site is live at
+> `empowerfiit.netlify.app`. A canonical pointing at a domain that does not
+> serve the site tells Google to ignore this one. Either point `empowerfit.app`
+> at Netlify, or change that address in those three files. Do not leave them
+> disagreeing.
+
+---
+
 ## Notes
 
 - Client lookup is email + surname, and returns status only — a lightweight status portal,

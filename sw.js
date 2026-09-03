@@ -1,9 +1,16 @@
 /* EmpowerFit service worker — app shell caching + offline support.
    Bump CACHE_VERSION whenever index.html or the shell assets change. */
-const CACHE_VERSION = 'empowerfit-v8';
+const CACHE_VERSION = 'empowerfit-v9';
 const SHELL = [
   '/',
   '/index.html',
+  '/tailwind.css',
+  '/fonts/fonts.css',
+  '/fonts/icons.css',
+  '/fonts/Nunito-400.woff2',
+  '/fonts/Nunito-700.woff2',
+  '/fonts/PlayfairDisplay-700.woff2',
+  '/fonts/fa-solid-900.woff2',
   '/manifest.webmanifest',
   '/icons/icon-192.png',
   '/icons/icon-512.png',

@@ -1,0 +1,12 @@
+{
+  "name": "empowerfit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "EmpowerFit — women's fitness and wellness coaching",
+  "scripts": {
+    "css": "tailwindcss -c tailwind.config.js -i src/input.css -o tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

@@ -1,0 +1,8 @@
+/* Playfair Display + Nunito, self-hosted and subset to Latin. */
+@font-face{font-family:"Nunito";font-style:normal;font-weight:400;font-display:swap;src:url("Nunito-400.woff2") format("woff2")}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:500;font-display:swap;src:url("Nunito-500.woff2") format("woff2")}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:600;font-display:swap;src:url("Nunito-600.woff2") format("woff2")}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:700;font-display:swap;src:url("Nunito-700.woff2") format("woff2")}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:800;font-display:swap;src:url("Nunito-800.woff2") format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:400;font-display:swap;src:url("PlayfairDisplay-400.woff2") format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:700;font-display:swap;src:url("PlayfairDisplay-700.woff2") format("woff2")}
