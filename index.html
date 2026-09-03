@@ -2484,18 +2484,44 @@
             <section class="container mx-auto px-4 py-16 md:py-24">
                 <div class="text-center mb-12 animate-on-scroll">
                     <h1 class="text-3xl md:text-4xl font-bold font-display mb-4">Real Women, Real Transformations</h1>
-                    <p class="text-muted-foreground max-w-2xl mx-auto">See how EmpowerFit has helped women from all walks of life achieve their goals.</p>
+                    <p class="text-muted-foreground max-w-2xl mx-auto">Every story here belongs to a real EmpowerFit client, shared with her permission.</p>
                 </div>
 
-                <div id="transformations" class="section-anchor grid md:grid-cols-2 gap-8 mb-12">
+                <!-- ===========================================================
+                     HOW TO ADD A CLIENT STORY
+                     -----------------------------------------------------------
+                     1. Get her written permission first — the "Share your story"
+                        card at the end of this grid collects it for you, and the
+                        reply is kept in Netlify > Forms as your consent record.
+                        Never publish a photo you do not have permission to use.
+                     2. Add her two photos to the repo, e.g. epf30.jpg (before)
+                        and epf31.jpg (after).
+                     3. Copy the block below, paste it above the "Share your
+                        story" card, and fill in the four marked places.
+
+                <div class="bg-card rounded-2xl shadow-sm overflow-hidden animate-on-scroll">
+                    <div class="grid grid-cols-2">
+                        <img src="REPLACE-before.jpg" loading="lazy" decoding="async" alt="Client before starting coaching" class="w-full h-64 object-cover">
+                        <img src="REPLACE-after.jpg" loading="lazy" decoding="async" alt="The same client after coaching" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-8">
+                        <blockquote class="text-lg text-muted-foreground mb-6">"REPLACE — her own words, exactly as she wrote them."</blockquote>
+                        <div class="font-semibold">REPLACE Name, REPLACE age</div>
+                        <div class="text-sm text-muted-foreground mt-1">REPLACE — e.g. Eight months with the Fit &amp; Focused plan</div>
+                    </div>
+                </div>
+
+                     =========================================================== -->
+
+                <div id="transformations" class="section-anchor grid md:grid-cols-2 gap-8 mb-10">
                     <!-- Sarah's Transformation -->
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden animate-on-scroll">
                         <div class="grid grid-cols-2">
-                            <img width="356" height="718" src="epf11.jpg" loading="lazy" decoding="async" alt="Before transformation" data-ai-hint="woman fitness before" class="w-full h-64 object-cover">
-                            <img width="360" height="666" src="epf10.jpg" loading="lazy" decoding="async" alt="After transformation" data-ai-hint="woman fitness after" class="w-full h-64 object-cover">
+                            <img width="356" height="718" src="epf11.jpg" loading="lazy" decoding="async" alt="Client before starting coaching" class="w-full h-64 object-cover">
+                            <img width="360" height="666" src="epf10.jpg" loading="lazy" decoding="async" alt="The same client after coaching" class="w-full h-64 object-cover">
                         </div>
                         <div class="p-8">
-                            <blockquote class="text-lg text-muted-foreground mb-6">"I lost 28 pounds in 5 months — something I never thought possible. The combination of strength training and mindset coaching completely changed my relationship with food and exercise."</blockquote>
+                            <blockquote class="text-lg text-muted-foreground mb-6">"I lost 28 pounds in 5 months &mdash; something I never thought possible. The combination of strength training and mindset coaching completely changed my relationship with food and exercise."</blockquote>
                             <div class="font-semibold">Sarah Mitchell, 35</div>
                         </div>
                     </div>
@@ -2503,15 +2529,31 @@
                     <!-- Jennifer's Transformation -->
                     <div class="bg-card rounded-2xl shadow-sm overflow-hidden animate-on-scroll" style="animation-delay: 0.2s;">
                         <div class="grid grid-cols-2">
-                            <img width="728" height="1432" src="epf21.jpg" loading="lazy" decoding="async" alt="Before transformation" data-ai-hint="woman lifestyle before" class="w-full h-64 object-cover">
-                            <img width="716" height="1440" src="epf20.jpg" loading="lazy" decoding="async" alt="After transformation" data-ai-hint="woman lifestyle after" class="w-full h-64 object-cover">
+                            <img width="728" height="1432" src="epf21.jpg" loading="lazy" decoding="async" alt="Client before starting coaching" class="w-full h-64 object-cover">
+                            <img width="716" height="1440" src="epf20.jpg" loading="lazy" decoding="async" alt="The same client after coaching" class="w-full h-64 object-cover">
                         </div>
                         <div class="p-8">
                             <blockquote class="text-lg text-muted-foreground mb-6">"Postpartum fitness looked different than I expected, but Moussa helped me build strength safely. More than the physical changes, I regained confidence in my body after having two kids."</blockquote>
                             <div class="font-semibold">Jennifer Rodriguez, 29</div>
                         </div>
                     </div>
+
+                    <!-- Share your story: fills the grid honestly and collects the
+                         next real story, with consent, straight into Netlify Forms. -->
+                    <div class="bg-secondary rounded-2xl p-8 md:p-10 flex flex-col justify-center text-center animate-on-scroll md:col-span-2">
+                        <i class="fas fa-heart text-primary text-3xl mb-4"></i>
+                        <h2 class="text-2xl md:text-3xl font-bold font-display mb-3">Trained with us? Tell your story.</h2>
+                        <p class="text-muted-foreground max-w-xl mx-auto mb-8">Your words could be the reason another woman finally starts. Send us a few lines about your journey &mdash; you decide whether your photos, your first name or nothing at all appears here, and you can change your mind whenever you like.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="startStorySubmission()" class="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold btn">Share my story</button>
+                            <button onclick="showPage('questionnaire')" class="px-8 py-4 rounded-xl font-semibold border border-border bg-card hover:border-primary transition-colors btn">Start my own</button>
+                        </div>
+                    </div>
                 </div>
+
+                <p class="text-center text-sm text-muted-foreground max-w-2xl mx-auto">
+                    Individual results vary. Every story above is a real client who agreed to share it; what she achieved depends on her starting point, her consistency and her circumstances, and is not a promise of the same outcome for you.
+                </p>
             </section>
         </div>
 
@@ -3972,6 +4014,40 @@
 
     <!-- Toasts -->
     <div class="toast-host" id="toast-host" role="status" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- =============================================== -->
+    <!-- CLIENT STORY SUBMISSION                          -->
+    <!-- Sends the client to the contact form with a story -->
+    <!-- prompt and an explicit permission question, so     -->
+    <!-- the stored reply is a usable consent record.       -->
+    <!-- =============================================== -->
+    <script>
+        function startStorySubmission() {
+            showPage('contact');
+            setTimeout(function () {
+                const message = document.getElementById('contact-message');
+                if (!message) return;
+                if (!message.value.trim()) {
+                    message.value =
+                        'MY STORY\n' +
+                        'Where I started, what changed, and what surprised me:\n\n\n' +
+                        'How long I have been coaching with EmpowerFit:\n\n\n' +
+                        'PERMISSION (please delete whichever does not apply)\n' +
+                        '- You may publish my words and my before/after photos on the website.\n' +
+                        '- You may publish my words only, no photos.\n' +
+                        '- Please use my first name only.\n' +
+                        '- Please keep me anonymous.\n\n' +
+                        'I understand I can ask you to remove this at any time.';
+                }
+                message.focus();
+                message.setSelectionRange(0, 0);
+                message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (typeof toast === 'function') {
+                    toast('Fill in your story below — you choose what we may publish.', 'info', 6000);
+                }
+            }, 420);
+        }
+    </script>
 
     <!-- =============================================== -->
     <!-- APP BEHAVIOUR: shell, navigation, toasts, PWA    -->
