@@ -1,6 +1,6 @@
 /* EmpowerFit service worker — app shell caching + offline support.
    Bump CACHE_VERSION whenever index.html or the shell assets change. */
-const CACHE_VERSION = 'empowerfit-v5';
+const CACHE_VERSION = 'empowerfit-v6';
 const SHELL = [
   '/',
   '/index.html',

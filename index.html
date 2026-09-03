@@ -2837,6 +2837,14 @@
                                 <button type="submit" id="client-login-btn" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium btn">View My Profile</button>
                                 <p id="client-login-error" class="text-red-500 text-sm hidden" role="alert"></p>
                             </form>
+
+                            <!-- Not a client yet? The questionnaire is the way in. -->
+                            <div id="client-new-here" class="mt-8 pt-6 border-t border-border text-center">
+                                <h2 class="font-bold font-display text-lg mb-1">New here?</h2>
+                                <p class="text-muted-foreground text-sm mb-4">There is no sign-up and no password. Complete the questionnaire once &mdash; that is what opens your portal, and you&rsquo;ll be able to check your status here straight away.</p>
+                                <button type="button" onclick="showPage('questionnaire')" class="w-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-lg font-medium transition-colors btn">Start my assessment</button>
+                                <p class="text-muted-foreground text-xs mt-4">Already sent it and still cannot get in? <button type="button" onclick="showPage('contact')" class="inline-block py-1 text-primary underline">Message your coach</button> &mdash; you may have used a different email address.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -3666,6 +3674,13 @@
                     } catch (err) {
                         clientEls.loginError.textContent = err.message;
                         clientEls.loginError.classList.remove('hidden');
+                        // A failed match usually means "not a client yet", so make
+                        // the way in obvious rather than leaving a red dead end.
+                        const newHere = document.getElementById('client-new-here');
+                        if (newHere) {
+                            newHere.classList.add('ring-2', 'ring-primary', 'rounded-xl', 'p-4');
+                            newHere.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
                     } finally {
                         clientEls.loginBtn.disabled = false;
                         clientEls.loginBtn.textContent = 'View My Profile';

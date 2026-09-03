@@ -93,6 +93,10 @@ medications, allergies, age, budget, sleep, stress, habits, goals — are **neve
 browser**. Only you see them, on the Coach dashboard. If she wants to change an answer, the
 portal points her to the contact form.
 
+**There is no sign-up.** Completing the questionnaire is what opens a client's portal —
+the login screen says so and links straight to it, so someone who is not a client yet is
+never left at a dead end.
+
 This matters because the portal has no password: it is a status page, not an account. The
 surname acts as a second check so an email address on its own reveals nothing, and repeated
 wrong attempts from one address are throttled. If you ever want the portal to show real
